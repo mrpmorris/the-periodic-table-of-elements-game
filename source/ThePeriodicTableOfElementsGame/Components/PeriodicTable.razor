@@ -1,0 +1,13 @@
+﻿@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+<div id="table-of-elements">
+	@foreach (ElementState elementState in GameState.Value.ElementStates)
+	{
+		<Element State=@elementState />
+	}
+	@if (Header != null)
+	{
+		<div class="table-of-elements_header">
+			@Header
+		</div>
+	}
+</div>

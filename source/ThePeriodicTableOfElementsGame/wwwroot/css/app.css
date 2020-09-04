@@ -1,0 +1,191 @@
+﻿html {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #535A73;
+	font-size: 0.8vw;
+}
+
+#scene {
+	position: relative;
+	top: 50vh;
+	left: 50vw;
+	width: 100vw;
+	height: 50vw;
+	max-height: 100vh;
+	max-width: calc(100vh * 2);
+	transform: translate(-50%, -50%);
+	transition: transform 2s ease-in-out;
+}
+
+	#scene.--game-play {
+		transform: scale(10) rotateZ(5deg);
+	}
+
+#main-menu {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 40vmin;
+	height: calc(1.77 * 40vmin);
+	transform: translate(-50%, -50%);
+}
+
+#mendelev {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 100%;
+	height: calc(1.77 * 40vmin);
+	transform: translate(-50%, -50%);
+}
+
+#table-of-elements {
+	display: grid;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	height: 100%;
+}
+
+	#table-of-elements > .element {
+		text-align: center;
+		margin: 1px;
+		perspective: 1000px;
+		background-color: transparent;
+		position: relative;
+		transition: transform 0.3s;
+		border-radius: 4px;
+		transform-style: preserve-3d;
+	}
+
+		#table-of-elements > .element > .front {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			-webkit-backface-visibility: hidden;
+			-moz-backface-visibility: hidden;
+			backface-visibility: hidden;
+		}
+
+		#table-of-elements > .element > .back {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			transform: rotateY(180deg);
+			-webkit-backface-visibility: hidden;
+			-moz-backface-visibility: hidden;
+			backface-visibility: hidden;
+		}
+
+		#table-of-elements > .element .atomic-number {
+			text-align: left;
+			margin: 4px;
+		}
+
+		#table-of-elements > .element .symbol {
+			text-align: center;
+			font-size: 1.5em;
+			font-weight: bold;
+		}
+
+		#table-of-elements > .element .name {
+			text-align: center;
+		}
+
+		#table-of-elements > .element.--actinide > .front,
+		#table-of-elements > .element.--actinide > .back {
+			background-color: rgb(173, 209, 120);
+		}
+
+		#table-of-elements > .element.--alkali-metal > .front,
+		#table-of-elements > .element.--alkali-metal > .back {
+			background-color: rgb(248, 178, 181);
+		}
+
+		#table-of-elements > .element.--alkaline-earth-metal > .front,
+		#table-of-elements > .element.--alkaline-earth-metal > .back {
+			background-color: rgb(252, 227, 199);
+		}
+
+		#table-of-elements > .element.--basic-metal > .front,
+		#table-of-elements > .element.--basic-metal > .back {
+			background-color: rgb(170, 242, 204);
+		}
+
+		#table-of-elements > .element.--halogen > .front,
+		#table-of-elements > .element.--halogen > .back {
+			background-color: rgb(252, 201, 250);
+		}
+
+		#table-of-elements > .element.--lathanide {
+			margin-top: 1.5rem;
+		}
+
+			#table-of-elements > .element.--lathanide > .front,
+			#table-of-elements > .element.--lathanide > .back {
+				background-color: rgb(214, 235, 187);
+			}
+
+		#table-of-elements > .element.--noble-gas > .front,
+		#table-of-elements > .element.--noble-gas > .back {
+			background-color: rgb(171, 148, 255);
+		}
+
+		#table-of-elements > .element.--non-metal > .front,
+		#table-of-elements > .element.--non-metal > .back {
+			background-color: rgb(191, 234, 250);
+		}
+
+		#table-of-elements > .element.--semi-metal > .front,
+		#table-of-elements > .element.--semi-metal > .back {
+			background-color: rgb(217, 202, 226);
+		}
+
+		#table-of-elements > .element.--transitional-metal > .front,
+		#table-of-elements > .element.--transitional-metal > .back {
+			background-color: rgb(230, 230, 230);
+		}
+
+		#table-of-elements > .element.--concealed {
+			transform: rotateY(180deg)
+		}
+
+
+.table-of-elements_header {
+	position: relative;
+	overflow: hidden;
+	grid-column-start: 3;
+	grid-column-end: 13;
+	grid-row-start: 1;
+	grid-row-end: 4;
+	font-size: 4vw;
+}
+
+.table-of-elements_header-contents {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 0);
+	animation: fade-and-zoom-in 0.25s, ease-in-out forwards;
+}
+
+@keyframes fade-and-zoom-in {
+	from {
+		transform: translate(-50%, 50%) scale(0, 0);
+		opacity: 0;
+	}
+	to {
+		transform: translate(-50%, 0%) scale(1, 1);
+		opacity: 1;
+	}
+}

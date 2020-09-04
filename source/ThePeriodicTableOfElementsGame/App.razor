@@ -1,0 +1,14 @@
+@inherits ComponentBase
+<Fluxor.Blazor.Web.StoreInitializer />
+<div id="scene" class="@GetSceneCss()">
+	<PeriodicTable>
+		<Header>
+			@if (GameState.Value.CorrectElement.HasValue)
+			{
+				<div class="table-of-elements_header-contents">
+					<h2>@PeriodicTableData.TableData.ElementByNumber[GameState.Value.CorrectElement.Value].Name</h2>
+				</div>
+			}
+		</Header>
+	</PeriodicTable>
+</div>
