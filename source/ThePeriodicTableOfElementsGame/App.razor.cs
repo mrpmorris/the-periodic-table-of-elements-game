@@ -1,6 +1,7 @@
 ﻿using Fluxor;
 using Microsoft.AspNetCore.Components;
 using System;
+using ThePeriodicTableOfElementsGame.PeriodicTableData;
 using ThePeriodicTableOfElementsGame.Store.GameState;
 
 namespace ThePeriodicTableOfElementsGame
@@ -19,5 +20,11 @@ namespace ThePeriodicTableOfElementsGame
 				Scene.GamePlay => "--game-play",
 				_ => throw new NotImplementedException(CurrentScene.ToString())
 			};
+
+		private string GetElementGroupAsCssClass() =>
+			GameState.Value.ExpectedElement is null
+			? ""
+			: ElementGroupExtensions.GetAsCssClass(
+					TableData.ElementByNumber[GameState.Value.ExpectedElement.Value].Group);
 	}
 }

@@ -6,7 +6,10 @@
 			@if (GameState.Value.ExpectedElement.HasValue)
 			{
 				<div class="table-of-elements_header-contents" @key=@(GameState.Value.ExpectedElement ?? -1)>
-					<h2>@PeriodicTableData.TableData.ElementByNumber[GameState.Value.ExpectedElement.Value].Name</h2>
+					<div class="element-name">
+						@PeriodicTableData.TableData.ElementByNumber[GameState.Value.ExpectedElement.Value].Name
+						<div class="element-name-background @GetElementGroupAsCssClass()"></div>
+					</div>
 				</div>
 			}
 		</Header>

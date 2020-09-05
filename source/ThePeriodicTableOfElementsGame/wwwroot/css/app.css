@@ -1,4 +1,17 @@
-﻿html {
+﻿:root {
+	--actinide: rgb(173, 209, 120);
+	--alkali-metal: rgb(248, 178, 181);
+	--alkaline-earth-metal: rgb(252, 227, 199);
+	--basic-metal: rgb(170, 242, 204);
+	--halogen: rgb(252, 201, 250);
+	--lathanide: rgb(214, 235, 187);
+	--noble-gas: rgb(171, 148, 255);
+	--non-metal: rgb(191, 234, 250);
+	--semi-metal: rgb(217, 202, 226);
+	--transitional-metal: rgb(230, 230, 230);
+}
+
+html {
 	box-sizing: border-box;
 }
 
@@ -104,58 +117,58 @@ body {
 			text-align: center;
 		}
 
-		#table-of-elements > .element.--actinide > .front,
-		#table-of-elements > .element.--actinide > .back {
-			background-color: rgb(173, 209, 120);
-		}
-
-		#table-of-elements > .element.--alkali-metal > .front,
-		#table-of-elements > .element.--alkali-metal > .back {
-			background-color: rgb(248, 178, 181);
-		}
-
-		#table-of-elements > .element.--alkaline-earth-metal > .front,
-		#table-of-elements > .element.--alkaline-earth-metal > .back {
-			background-color: rgb(252, 227, 199);
-		}
-
-		#table-of-elements > .element.--basic-metal > .front,
-		#table-of-elements > .element.--basic-metal > .back {
-			background-color: rgb(170, 242, 204);
-		}
-
-		#table-of-elements > .element.--halogen > .front,
-		#table-of-elements > .element.--halogen > .back {
-			background-color: rgb(252, 201, 250);
-		}
-
 		#table-of-elements > .element.--lathanide {
 			margin-top: 1.5rem;
 		}
 
-			#table-of-elements > .element.--lathanide > .front,
-			#table-of-elements > .element.--lathanide > .back {
-				background-color: rgb(214, 235, 187);
-			}
+		#table-of-elements > .element.--actinide > .front,
+		#table-of-elements > .element.--actinide > .back {
+			background-color: var(--actinide);
+		}
+
+		#table-of-elements > .element.--alkali-metal > .front,
+		#table-of-elements > .element.--alkali-metal > .back {
+			background-color: var(--alkali-metal);
+		}
+
+		#table-of-elements > .element.--alkaline-earth-metal > .front,
+		#table-of-elements > .element.--alkaline-earth-metal > .back {
+			background-color: var(--alkaline-earth-metal);
+		}
+
+		#table-of-elements > .element.--basic-metal > .front,
+		#table-of-elements > .element.--basic-metal > .back {
+			background-color: var(--basic-metal);
+		}
+
+		#table-of-elements > .element.--halogen > .front,
+		#table-of-elements > .element.--halogen > .back {
+			background-color: var(--halogen);
+		}
+
+		#table-of-elements > .element.--lathanide > .front,
+		#table-of-elements > .element.--lathanide > .back {
+			background-color: var(--lathanide);
+		}
 
 		#table-of-elements > .element.--noble-gas > .front,
 		#table-of-elements > .element.--noble-gas > .back {
-			background-color: rgb(171, 148, 255);
+			background-color: var(--noble-gas);
 		}
 
 		#table-of-elements > .element.--non-metal > .front,
 		#table-of-elements > .element.--non-metal > .back {
-			background-color: rgb(191, 234, 250);
+			background-color: var(--non-metal);
 		}
 
 		#table-of-elements > .element.--semi-metal > .front,
 		#table-of-elements > .element.--semi-metal > .back {
-			background-color: rgb(217, 202, 226);
+			background-color: var(--semi-metal);
 		}
 
 		#table-of-elements > .element.--transitional-metal > .front,
 		#table-of-elements > .element.--transitional-metal > .back {
-			background-color: rgb(230, 230, 230);
+			background-color: var(--transitional-metal);
 		}
 
 		#table-of-elements > .element.--concealed {
@@ -177,14 +190,92 @@ body {
 	position: absolute;
 	left: 50%;
 	transform: translate(-50%, 0);
-	animation: fade-and-zoom-in 0.25s, ease-in-out forwards;
+	animation: fade-and-zoom-in 0.25s ease-in-out forwards;
 }
+
+.table-of-elements_header-contents {
+	padding: 0.3em;
+	text-align: center;
+	width: 75%;
+}
+
+	.table-of-elements_header-contents > .element-name {
+		position: relative;
+		width: 100%;
+		height: 100%;
+	}
+
+		.table-of-elements_header-contents > .element-name > .element-name-background {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			animation: delay-then-fade-in 30s forwards; 
+		}
+
+	.table-of-elements_header-contents > .element-name > .element-name-background.--actinide {
+		background-color: var(--actinide);
+	}
+
+	.table-of-elements_header-contents > .element-name > .element-name-background.--alkali-metal {
+		background-color: var(--alkali-metal);
+	}
+
+	.table-of-elements_header-contents > .element-name > .element-name-background.--alkaline-earth-metal {
+		background-color: var(--alkaline-earth-metal);
+	}
+
+	.table-of-elements_header-contents > .element-name > .element-name-background.--basic-metal {
+		background-color: var(--basic-metal);
+	}
+
+	.table-of-elements_header-contents > .element-name > .element-name-background.--halogen {
+		background-color: var(--halogen);
+	}
+
+	.table-of-elements_header-contents > .element-name > .element-name-background.--lathanide {
+		background-color: var(--lathanide);
+	}
+
+	.table-of-elements_header-contents > .element-name > .element-name-background.--noble-gas {
+		background-color: var(--noble-gas);
+	}
+
+	.table-of-elements_header-contents > .element-name > .element-name-background.--non-metal {
+		background-color: var(--non-metal);
+	}
+
+	.table-of-elements_header-contents > .element-name > .element-name-background.--semi-metal {
+		background-color: var(--semi-metal);
+	}
+
+	.table-of-elements_header-contents > .element-name > .element-name-background.--transitional-metal {
+		background-color: var(--transitional-metal);
+	}
+
+
+@keyframes delay-then-fade-in {
+	0% {
+		opacity: 0;
+	}
+
+	90% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
 
 @keyframes fade-and-zoom-in {
 	from {
 		transform: translate(-50%, 50%) scale(0, 0);
 		opacity: 0;
 	}
+
 	to {
 		transform: translate(-50%, 0%) scale(1, 1);
 		opacity: 1;
