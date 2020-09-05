@@ -67,6 +67,7 @@ body {
 		transition: transform 0.3s;
 		border-radius: 4px;
 		transform-style: preserve-3d;
+		cursor: pointer;
 	}
 
 		#table-of-elements > .element > .front {
