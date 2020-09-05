@@ -269,8 +269,42 @@ body {
 				background-color: var(--transitional-metal);
 			}
 
-@keyframes fade-and-zoom-in {
-	from {
+.in-game-stats {
+	grid-row-start: 1;
+	grid-column-start: 13;
+	grid-column-end: 18;
+	position:relative;
+	font-size: 2vw;
+}
+
+	.in-game-stats > .matched > .label {
+		position: absolute;
+		top: 0;
+		left: 0;
+		font-weight: bold;
+	}
+
+	.in-game-stats > .matched > .value {
+		position: absolute;
+		top: 0;
+		left: 7em;
+	}
+
+	.in-game-stats > .mismatched > .label {
+		position: absolute;
+		top: 1em;
+		left: 0;
+		font-weight: bold;
+	}
+
+	.in-game-stats > .mismatched > .value {
+		position: absolute;
+		top: 1em;
+		left: 7em;
+	}
+
+	@keyframes fade-and-zoom-in {
+		from {
 		transform: translate(-50%, 50%) scale(0, 0);
 		opacity: 0;
 	}

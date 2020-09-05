@@ -7,6 +7,8 @@ namespace ThePeriodicTableOfElementsGame.Store.GameState
 	public record GameState(
 		byte? ExpectedElement,
 		bool ShowElementGroup,
+		int TotalMatched,
+		int TotalMismatched,
 		ImmutableArray<byte> AvailableElements,
 		IEnumerable<ElementState> ElementStates);
 
@@ -15,6 +17,8 @@ namespace ThePeriodicTableOfElementsGame.Store.GameState
 		public static readonly GameState DefaultState = new GameState(
 			ExpectedElement: null,
 			ShowElementGroup: false,
+			TotalMatched: 0,
+			TotalMismatched: 0,
 			AvailableElements: Enumerable.Range(1, 118).Select(x => (byte)x).ToImmutableArray(),
 			ElementStates: Enumerable.Range(1, 118)
 				.Select(x => new ElementState(

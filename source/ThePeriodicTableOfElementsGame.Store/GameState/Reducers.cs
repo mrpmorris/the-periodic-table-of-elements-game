@@ -35,5 +35,17 @@ namespace ThePeriodicTableOfElementsGame.Store.GameState
 			(state.ExpectedElement != action.AtomicNumber)
 			? state
 			: state with { ShowElementGroup = true };
+
+		[ReducerMethod]
+		public static GameState Reduce(GameState state, ElementMatchedAction _) => state with
+		{
+			TotalMatched = state.TotalMatched + 1
+		};
+
+		[ReducerMethod]
+		public static GameState Reduce(GameState state, ElementMismatchedAction _) => state with
+		{
+			TotalMismatched = state.TotalMismatched + 1
+		};
 	}
 }
