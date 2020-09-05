@@ -21,15 +21,36 @@ namespace ThePeriodicTableOfElementsGame.Store.GameState
 		{
 			await Task.Delay(1000);
 			dispatcher.Dispatch(new SetCorrectElementAction(AtomicNumber: GetRandomElementAtomicNumber()));
-			await Task.Delay(2000);
-			dispatcher.Dispatch(new SetCorrectElementAction(AtomicNumber: GetRandomElementAtomicNumber()));
-			await Task.Delay(2000);
-			dispatcher.Dispatch(new SetCorrectElementAction(AtomicNumber: GetRandomElementAtomicNumber()));
 		}
 
 		[EffectMethod]
-		public Task Handle(ClickElementAction _, IDispatcher dispatcher) =>
+		public Task Handle(ClickElementAction action, IDispatcher dispatcher)
+		{
+			byte? correctElement = GameState.Value.CorrectElement;
+
+			if (correctElement.HasValue && correctElement == action.AtomicNumber)
+				dispatcher.Dispatch(new ElementMatchedAction(AtomicNumber: action.AtomicNumber));
+			else
+				dispatcher.Dispatch(new ElementMismatchedAction(
+					ClickedAtomicNumber: action.AtomicNumber,
+					CorrectAtomicNumber: GameState.Value.CorrectElement));
+
+			return Task.CompletedTask;
+		}
+
+		[EffectMethod]
+		public Task Handle(ElementMismatchedAction _, IDispatcher dispatcher)
+		{
+			AudioPlayer.PlayOneShotAsync(AudioSample.ElementMismatched);
+			return Task.CompletedTask;
+		}
+
+		[EffectMethod]
+		public Task Handle(ElementMatchedAction _, IDispatcher dispatcher)
+		{
 			AudioPlayer.PlayOneShotAsync(AudioSample.ElementFastMatched1);
+			return Task.CompletedTask;
+		}
 
 		[EffectMethod]
 		public Task Handle(SetCorrectElementAction _, IDispatcher dispatcher) =>
