@@ -17,7 +17,6 @@ namespace ThePeriodicTableOfElementsGame
 			{
 				Scene.MainMenu => "--main-menu",
 				Scene.GamePlay => "--game-play",
-				Scene.Score => "--show-score",
 				_ => throw new NotImplementedException(CurrentScene.ToString())
 			};
 	}

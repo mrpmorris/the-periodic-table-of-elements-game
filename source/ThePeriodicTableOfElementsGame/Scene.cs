@@ -4,6 +4,5 @@
 	{
 		MainMenu,
 		GamePlay,
-		Score
 	}
 }
