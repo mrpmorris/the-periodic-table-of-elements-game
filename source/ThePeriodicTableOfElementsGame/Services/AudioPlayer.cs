@@ -1,5 +1,6 @@
 ﻿using Microsoft.JSInterop;
 using System;
+using System.Threading.Tasks;
 using ThePeriodicTableOfElementsGame.Store.Services;
 
 namespace ThePeriodicTableOfElementsGame.Services
@@ -13,9 +14,9 @@ namespace ThePeriodicTableOfElementsGame.Services
 			JSRuntime = jSRuntime;
 		}
 
-		public void PlayOneShot(AudioSample audioSample)
+		public async Task PlayOneShotAsync(AudioSample audioSample)
 		{
-			JSRuntime.InvokeVoidAsync(
+			await JSRuntime.InvokeVoidAsync(
 				"ThePeriodicTableOfElementsGame.audio.playOneShot",
 				GetAudioFilename(audioSample));
 		}

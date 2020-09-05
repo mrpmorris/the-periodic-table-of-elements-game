@@ -19,7 +19,7 @@ namespace ThePeriodicTableOfElementsGame.Store.GameState
 		[EffectMethod]
 		public async Task Handle(StoreInitializedAction _, IDispatcher dispatcher)
 		{
-			await Task.Delay(100);
+			await Task.Delay(1000);
 			dispatcher.Dispatch(new SetCorrectElementAction(AtomicNumber: GetRandomElementAtomicNumber()));
 			await Task.Delay(2000);
 			dispatcher.Dispatch(new SetCorrectElementAction(AtomicNumber: GetRandomElementAtomicNumber()));
@@ -28,18 +28,12 @@ namespace ThePeriodicTableOfElementsGame.Store.GameState
 		}
 
 		[EffectMethod]
-		public Task Handle(ClickElementAction _, IDispatcher dispatcher)
-		{
-			AudioPlayer.PlayOneShot(AudioSample.ElementFastMatched1);
-			return Task.CompletedTask;
-		}
+		public Task Handle(ClickElementAction _, IDispatcher dispatcher) =>
+			AudioPlayer.PlayOneShotAsync(AudioSample.ElementFastMatched1);
 
 		[EffectMethod]
-		public Task Handle(SetCorrectElementAction _, IDispatcher dispatcher)
-		{
-			AudioPlayer.PlayOneShot(AudioSample.ElementAppeared);
-			return Task.CompletedTask;
-		}
+		public Task Handle(SetCorrectElementAction _, IDispatcher dispatcher) =>
+			AudioPlayer.PlayOneShotAsync(AudioSample.ElementAppeared);
 
 		private byte GetRandomElementAtomicNumber() =>
 			GameState.Value.AvailableElements[new Random().Next(GameState.Value.AvailableElements.Length)];

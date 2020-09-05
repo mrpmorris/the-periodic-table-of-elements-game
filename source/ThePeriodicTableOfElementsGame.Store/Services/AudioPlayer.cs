@@ -1,8 +1,10 @@
-﻿namespace ThePeriodicTableOfElementsGame.Store.Services
+﻿using System.Threading.Tasks;
+
+namespace ThePeriodicTableOfElementsGame.Store.Services
 {
 	public interface IAudioPlayer
 	{
-		void PlayOneShot(AudioSample audioSample);
+		Task PlayOneShotAsync(AudioSample audioSample);
 	}
 
 	public enum AudioSample
