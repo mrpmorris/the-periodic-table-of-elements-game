@@ -1,6 +1,5 @@
 ﻿using Fluxor;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Rendering;
 using System;
 using ThePeriodicTableOfElementsGame.Store.GameState;
 
@@ -8,10 +7,10 @@ namespace ThePeriodicTableOfElementsGame
 {
 	public partial class App
 	{
-		private readonly Scene CurrentScene = Scene.MainMenu;
-
 		[Inject]
 		private IState<GameState> GameState { get; set; }
+
+		private readonly Scene CurrentScene = Scene.MainMenu;
 
 		private string GetSceneCss() =>
 			CurrentScene switch
