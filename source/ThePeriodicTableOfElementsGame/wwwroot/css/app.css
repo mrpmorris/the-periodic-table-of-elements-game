@@ -212,63 +212,62 @@ body {
 			width: 100%;
 			height: 100%;
 			z-index: -1;
-			animation: delay-then-fade-in 30s forwards; 
+			opacity: 0;
+			transition: opacity 1s ease-in;
+			text-align: right;
+			font-size: 1rem;
+			padding: 0.5rem 1rem;
 		}
 
-	.table-of-elements_header-contents > .element-name > .element-name-background.--actinide {
-		background-color: var(--actinide);
-	}
+			.table-of-elements_header-contents > .element-name > .element-name-background.--actinide {
+				opacity: 1;
+				background-color: var(--actinide);
+			}
 
-	.table-of-elements_header-contents > .element-name > .element-name-background.--alkali-metal {
-		background-color: var(--alkali-metal);
-	}
+			.table-of-elements_header-contents > .element-name > .element-name-background.--alkali-metal {
+				opacity: 1;
+				background-color: var(--alkali-metal);
+			}
 
-	.table-of-elements_header-contents > .element-name > .element-name-background.--alkaline-earth-metal {
-		background-color: var(--alkaline-earth-metal);
-	}
+			.table-of-elements_header-contents > .element-name > .element-name-background.--alkaline-earth-metal {
+				opacity: 1;
+				background-color: var(--alkaline-earth-metal);
+			}
 
-	.table-of-elements_header-contents > .element-name > .element-name-background.--basic-metal {
-		background-color: var(--basic-metal);
-	}
+			.table-of-elements_header-contents > .element-name > .element-name-background.--basic-metal {
+				opacity: 1;
+				background-color: var(--basic-metal);
+			}
 
-	.table-of-elements_header-contents > .element-name > .element-name-background.--halogen {
-		background-color: var(--halogen);
-	}
+			.table-of-elements_header-contents > .element-name > .element-name-background.--halogen {
+				opacity: 1;
+				background-color: var(--halogen);
+			}
 
-	.table-of-elements_header-contents > .element-name > .element-name-background.--lathanide {
-		background-color: var(--lathanide);
-	}
+			.table-of-elements_header-contents > .element-name > .element-name-background.--lathanide {
+				opacity: 1;
+				background-color: var(--lathanide);
+			}
 
-	.table-of-elements_header-contents > .element-name > .element-name-background.--noble-gas {
-		background-color: var(--noble-gas);
-	}
+			.table-of-elements_header-contents > .element-name > .element-name-background.--noble-gas {
+				opacity: 1;
+				background-color: var(--noble-gas);
+			}
 
-	.table-of-elements_header-contents > .element-name > .element-name-background.--non-metal {
-		background-color: var(--non-metal);
-	}
+			.table-of-elements_header-contents > .element-name > .element-name-background.--non-metal {
+				opacity: 1;
+				background-color: var(--non-metal);
+			}
 
-	.table-of-elements_header-contents > .element-name > .element-name-background.--semi-metal {
-		background-color: var(--semi-metal);
-	}
+			.table-of-elements_header-contents > .element-name > .element-name-background.--semi-metal {
+				opacity: 1;
+				background-color: var(--semi-metal);
+			}
 
-	.table-of-elements_header-contents > .element-name > .element-name-background.--transitional-metal {
-		background-color: var(--transitional-metal);
-	}
-
-
-@keyframes delay-then-fade-in {
-	0% {
-		opacity: 0;
-	}
-
-	90% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
-}
-
+			.table-of-elements_header-contents > .element-name > .element-name-background.--transitional-metal {
+				opacity: 1;
+				background-color: var(--transitional-metal);
+			}
 
 @keyframes fade-and-zoom-in {
 	from {

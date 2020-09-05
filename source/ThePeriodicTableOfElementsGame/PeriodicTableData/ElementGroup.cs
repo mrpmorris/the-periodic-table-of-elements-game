@@ -33,5 +33,21 @@ namespace ThePeriodicTableOfElementsGame.PeriodicTableData
 				ElementGroup.Actinide => "--actinide",
 				_ => throw new NotImplementedException(value.ToString())
 			};
+
+		public static string GetDescription(this ElementGroup value) =>
+			value switch
+			{
+				ElementGroup.AlkaliMetal => "Alkali metal",
+				ElementGroup.AlkalineEarthMetal => "Alkaline earth metal",
+				ElementGroup.TransitionMetal => "Transitional metal",
+				ElementGroup.BasicMetal => "Basic metal",
+				ElementGroup.Semimetal => "Semi-metal",
+				ElementGroup.Nonmetal => "Non-metal",
+				ElementGroup.Halogen => "Halogen",
+				ElementGroup.NobleGas => "Noble gas",
+				ElementGroup.Lathanide => "Lathanide",
+				ElementGroup.Actinide => "Actinide",
+				_ => throw new NotImplementedException(value.ToString())
+			};
 	}
 }

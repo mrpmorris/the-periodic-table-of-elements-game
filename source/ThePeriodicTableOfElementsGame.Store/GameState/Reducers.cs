@@ -9,10 +9,10 @@ namespace ThePeriodicTableOfElementsGame.Store.GameState
 		public static GameState Reduce(GameState state, RevealElementAction action) => state with
 		{
 			ElementStates = state.ElementStates
-						.Select(x =>
-							x.AtomicNumber != action.AtomicNumber
-							? x
-							: x with { Concealed = false })
+				.Select(x =>
+					x.AtomicNumber != action.AtomicNumber
+					? x
+					: x with { Concealed = false })
 		};
 
 		[ReducerMethod]
@@ -26,7 +26,14 @@ namespace ThePeriodicTableOfElementsGame.Store.GameState
 		public static GameState Reduce(GameState state, SetExpectedElementAction action) => state with
 		{
 			ExpectedElement = action.AtomicNumber,
+			ShowElementGroup = false,
 			AvailableElements = state.AvailableElements.Remove(action.AtomicNumber)
 		};
+
+		[ReducerMethod]
+		public static GameState Reduce(GameState state, RevealElementGroupAction action) =>
+			(state.ExpectedElement != action.AtomicNumber)
+			? state
+			: state with { ShowElementGroup = true };
 	}
 }

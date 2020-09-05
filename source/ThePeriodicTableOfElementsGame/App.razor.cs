@@ -22,7 +22,7 @@ namespace ThePeriodicTableOfElementsGame
 			};
 
 		private string GetElementGroupAsCssClass() =>
-			GameState.Value.ExpectedElement is null
+			GameState.Value.ExpectedElement is null || !GameState.Value.ShowElementGroup
 			? ""
 			: ElementGroupExtensions.GetAsCssClass(
 					TableData.ElementByNumber[GameState.Value.ExpectedElement.Value].Group);

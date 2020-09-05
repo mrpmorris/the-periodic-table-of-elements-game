@@ -8,7 +8,9 @@
 				<div class="table-of-elements_header-contents" @key=@(GameState.Value.ExpectedElement ?? -1)>
 					<div class="element-name">
 						@PeriodicTableData.TableData.ElementByNumber[GameState.Value.ExpectedElement.Value].Name
-						<div class="element-name-background @GetElementGroupAsCssClass()"></div>
+						<div class="element-name-background @GetElementGroupAsCssClass()">
+							@PeriodicTableData.TableData.ElementByNumber[GameState.Value.ExpectedElement.Value].Group.GetDescription()
+						</div>
 					</div>
 				</div>
 			}
