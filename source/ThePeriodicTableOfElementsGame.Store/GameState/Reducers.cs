@@ -12,7 +12,7 @@ namespace ThePeriodicTableOfElementsGame.Store.GameState
 						.Select(x =>
 							x.AtomicNumber != action.AtomicNumber
 							? x
-							: x with { Concealed = !x.Concealed })
+							: x with { Concealed = false })
 		};
 
 		[ReducerMethod]
