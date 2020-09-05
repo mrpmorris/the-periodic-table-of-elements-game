@@ -15,7 +15,12 @@ namespace ThePeriodicTableOfElementsGame
 			var builder = WebAssemblyHostBuilder.CreateDefault(args);
 			builder.RootComponents.Add<App>("app");
 			builder.Services.AddScoped<IAudioPlayer, AudioPlayer>();
-			builder.Services.AddFluxor(x => x.ScanAssemblies(typeof(GameState).Assembly).UseReduxDevTools());
+			builder.Services.AddFluxor(x => x
+				.ScanAssemblies(typeof(GameState).Assembly)
+#if DEBUG
+				.UseReduxDevTools()
+#endif
+			);
 			await builder.Build().RunAsync();
 		}
 	}
