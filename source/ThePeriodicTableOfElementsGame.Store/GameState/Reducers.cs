@@ -6,8 +6,7 @@ namespace ThePeriodicTableOfElementsGame.Store.GameState
 	public static class Reducers
 	{
 		[ReducerMethod]
-		public static GameState Reduce(GameState state, ClickElementAction action) =>
-			state with
+		public static GameState Reduce(GameState state, RevealElementAction action) => state with
 		{
 			ElementStates = state.ElementStates
 						.Select(x =>
@@ -17,10 +16,16 @@ namespace ThePeriodicTableOfElementsGame.Store.GameState
 		};
 
 		[ReducerMethod]
-		public static GameState Reduce(GameState state, SetCorrectElementAction action) =>
-			state with
+		public static GameState Reduce(GameState state, ConcealAllElementsAction _) => state with
 		{
-			CorrectElement = action.AtomicNumber,
+			ElementStates = state.ElementStates
+				.Select(x => x with { Concealed = true })
+		};
+
+		[ReducerMethod]
+		public static GameState Reduce(GameState state, SetExpectedElementAction action) => state with
+		{
+			ExpectedElement = action.AtomicNumber,
 			AvailableElements = state.AvailableElements.Remove(action.AtomicNumber)
 		};
 	}

@@ -20,20 +20,22 @@ namespace ThePeriodicTableOfElementsGame.Store.GameState
 		public async Task Handle(StoreInitializedAction _, IDispatcher dispatcher)
 		{
 			await Task.Delay(1000);
-			dispatcher.Dispatch(new SetCorrectElementAction(AtomicNumber: GetRandomElementAtomicNumber()));
+			dispatcher.Dispatch(new SetExpectedElementAction(AtomicNumber: GetRandomElementAtomicNumber()));
 		}
 
 		[EffectMethod]
 		public Task Handle(ClickElementAction action, IDispatcher dispatcher)
 		{
-			byte? correctElement = GameState.Value.CorrectElement;
+			byte? expectedElement = GameState.Value.ExpectedElement;
 
-			if (correctElement.HasValue && correctElement == action.AtomicNumber)
+			dispatcher.Dispatch(new RevealElementAction(action.AtomicNumber));
+
+			if (expectedElement.HasValue && expectedElement == action.AtomicNumber)
 				dispatcher.Dispatch(new ElementMatchedAction(AtomicNumber: action.AtomicNumber));
 			else
 				dispatcher.Dispatch(new ElementMismatchedAction(
 					ClickedAtomicNumber: action.AtomicNumber,
-					CorrectAtomicNumber: GameState.Value.CorrectElement));
+					ExpectedAtomicNumber: GameState.Value.ExpectedElement));
 
 			return Task.CompletedTask;
 		}
@@ -41,19 +43,21 @@ namespace ThePeriodicTableOfElementsGame.Store.GameState
 		[EffectMethod]
 		public Task Handle(ElementMismatchedAction _, IDispatcher dispatcher)
 		{
-			AudioPlayer.PlayOneShotAsync(AudioSample.ElementMismatched);
-			return Task.CompletedTask;
+			return AudioPlayer.PlayOneShotAsync(AudioSample.ElementMismatched);
 		}
 
 		[EffectMethod]
-		public Task Handle(ElementMatchedAction _, IDispatcher dispatcher)
+		public async Task Handle(ElementMatchedAction _, IDispatcher dispatcher)
 		{
-			AudioPlayer.PlayOneShotAsync(AudioSample.ElementFastMatched1);
-			return Task.CompletedTask;
+			await AudioPlayer.PlayOneShotAsync(AudioSample.ElementFastMatched1);
+			await Task.Delay(1000);
+			dispatcher.Dispatch(new ConcealAllElementsAction());
+			await Task.Delay(500);
+			dispatcher.Dispatch(new SetExpectedElementAction(AtomicNumber: GetRandomElementAtomicNumber()));
 		}
 
 		[EffectMethod]
-		public Task Handle(SetCorrectElementAction _, IDispatcher dispatcher) =>
+		public Task Handle(SetExpectedElementAction _, IDispatcher dispatcher) =>
 			AudioPlayer.PlayOneShotAsync(AudioSample.ElementAppeared);
 
 		private byte GetRandomElementAtomicNumber() =>
