@@ -5,7 +5,6 @@ using System.Linq;
 namespace ThePeriodicTableOfElementsGame.Store.GameState
 {
 	public record GameState(
-		int Score,
 		byte? CorrectElement,
 		ImmutableArray<byte> AvailableElements,
 		IEnumerable<ElementState> ElementStates);
@@ -13,7 +12,6 @@ namespace ThePeriodicTableOfElementsGame.Store.GameState
 	public static class GameStateExtensions
 	{
 		public static readonly GameState DefaultState = new GameState(
-			Score: 0,
 			CorrectElement: null,
 			AvailableElements: Enumerable.Range(1, 118).Select(x => (byte)x).ToImmutableArray(),
 			ElementStates: Enumerable.Range(1, 118)

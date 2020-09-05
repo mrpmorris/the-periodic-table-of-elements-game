@@ -5,7 +5,7 @@
 		<Header>
 			@if (GameState.Value.CorrectElement.HasValue)
 			{
-				<div class="table-of-elements_header-contents">
+				<div class="table-of-elements_header-contents" @key=@(GameState.Value.CorrectElement ?? -1)>
 					<h2>@PeriodicTableData.TableData.ElementByNumber[GameState.Value.CorrectElement.Value].Name</h2>
 				</div>
 			}
