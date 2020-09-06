@@ -39,6 +39,7 @@ body {
 	max-width: calc(100vh * 2);
 	transform: translate(-50%, -50%);
 	transition: transform 2s ease-in-out;
+	border:1px solid red;
 }
 
 	#scene.--game-play {
@@ -50,15 +51,6 @@ body {
 	left: 50%;
 	top: 50%;
 	width: 40vmin;
-	height: calc(1.77 * 40vmin);
-	transform: translate(-50%, -50%);
-}
-
-#mendelev {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	width: 100%;
 	height: calc(1.77 * 40vmin);
 	transform: translate(-50%, -50%);
 }

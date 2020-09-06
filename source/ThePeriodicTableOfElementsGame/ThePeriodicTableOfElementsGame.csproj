@@ -2,9 +2,6 @@
 
 	<PropertyGroup>
 		<TargetFramework>net5.0</TargetFramework>
-		<RazorLangVersion>3.0</RazorLangVersion>
-		<AssemblyName>ThePeriodicTableOfElementsGame</AssemblyName>
-		<RootNamespace>ThePeriodicTableOfElementsGame</RootNamespace>
 		<RuntimeIdentifier>browser-wasm</RuntimeIdentifier>
 		<UseBlazorWebAssembly>true</UseBlazorWebAssembly>
 	</PropertyGroup>
@@ -18,6 +15,10 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\ThePeriodicTableOfElementsGame.Store\ThePeriodicTableOfElementsGame.Store.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Watch Include="**\*.js;**\*.css;**\*.cs;**\*.razor;**\*.html" />
 	</ItemGroup>
 
 	<Choose>

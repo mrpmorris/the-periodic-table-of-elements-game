@@ -1,0 +1,36 @@
+﻿@page "/"
+<PeriodicTable>
+	<Header>
+		<div class="table-of-elements_header">
+			@if (GameState.Value.ExpectedElement.HasValue)
+			{
+				<div class="table-of-elements_header-contents" @key=@(GameState.Value.ExpectedElement ?? -1)>
+					<div class="element-name">
+						@PeriodicTableData.TableData.ElementByNumber[GameState.Value.ExpectedElement.Value].Name
+						<div class="element-name-background @GetElementGroupAsCssClass()">
+							@PeriodicTableData.TableData.ElementByNumber[GameState.Value.ExpectedElement.Value].Group.GetDescription()
+						</div>
+					</div>
+				</div>
+			}
+		</div>
+		<div class="in-game-stats">
+			<div class="matched">
+				<span class="label">
+					Matched
+				</span>
+				<span class="value">
+					@GameState.Value.TotalMatched
+				</span>
+			</div>
+			<div class="mismatched">
+				<span class="label">
+					Mismatched
+				</span>
+				<span class="value">
+					@GameState.Value.TotalMismatched
+				</span>
+			</div>
+		</div>
+	</Header>
+</PeriodicTable>

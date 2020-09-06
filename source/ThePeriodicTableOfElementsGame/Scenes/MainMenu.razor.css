@@ -1,0 +1,7 @@
+﻿#mendeleev {
+	position: absolute;
+	right:10vw;
+	top: 50%;
+	width: 20vw;
+	transform: translateY(-50%);
+}
