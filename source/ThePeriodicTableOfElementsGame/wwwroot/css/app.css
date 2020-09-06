@@ -30,6 +30,36 @@ body {
 	user-select: none;
 }
 
+h1 {
+	color: white;
+	font-size: 5vw;
+	text-align: center;
+}
+
+h2 {
+	color: white;
+	font-size: 3vw;
+	text-align: center;
+}
+
+.menu {
+	list-style: none;
+	padding: 0;
+	margin: 5vh;
+	text-align: center;
+}
+
+.menu .button {
+	border-radius: 8px;
+	border: none;
+	font-size: 4vmin;
+	height: 8vh;
+	width: 50vw;
+	vertical-align: middle;
+	text-align: center;
+	cursor: pointer;
+}
+
 #scene {
 	position: relative;
 	top: 50vh;

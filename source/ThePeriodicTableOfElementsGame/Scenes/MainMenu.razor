@@ -1,3 +1,16 @@
-﻿@page "/main-menu"
+﻿@page "/"
 
-<img id="mendeleev" src="/images/Mendeleev.jpg"/>
+<h1>
+	Dmitri Mendeleev's
+</h1>
+<h2>Periodic table of elements game</h2>
+<img id="mendeleev" src="/images/Mendeleev.png"/>
+<ul class="menu">
+	<li><button type=button class="button" @onclick=PlayMatchGame>Element match game</button></li>
+</ul>
+<div id="credits">
+	Written by
+	<a href="https://github.com/mrpmorris/the-periodic-table-of-elements-game">
+		Peter Morris
+	</a>
+</div>

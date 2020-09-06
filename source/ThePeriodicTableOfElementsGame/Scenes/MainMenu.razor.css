@@ -1,7 +1,15 @@
 ﻿#mendeleev {
 	position: absolute;
-	right:10vw;
-	top: 50%;
-	width: 20vw;
-	transform: translateY(-50%);
+	right: 2vw;
+	bottom: 2vh;
+	height: 66%;
+	z-index: -1000;
+}
+
+#credits {
+	position: absolute;
+	bottom: 2vh;
+	text-align: center;
+	font-size: 3vh;
+	width: 100%;
 }
