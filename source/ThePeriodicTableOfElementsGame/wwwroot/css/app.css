@@ -25,7 +25,7 @@ body {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: #535A73;
+	background-color: #444A5F;
 	font-size: 0.8vw;
 	user-select: none;
 }
@@ -70,7 +70,9 @@ h2 {
 	max-width: calc(100vh * 2);
 	transform: translate(-50%, -50%);
 	transition: transform 2s ease-in-out;
-	border:1px solid red;
+	background-color: #535A73;
+	border-radius: 8px;
+	border: 1px solid #292D3A;
 }
 
 	#scene.--game-play {
