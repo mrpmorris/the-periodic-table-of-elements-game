@@ -21,10 +21,25 @@
 		<Watch Include="**\*.js;**\*.css;**\*.cs;**\*.razor;**\*.html" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="Components\Element.razor.css" />
+	  <None Remove="Components\PeriodicTable.razor.css" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Watch Remove="Components\Element.razor.css" />
+	  <Watch Remove="Components\PeriodicTable.razor.css" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Components\Element.razor.css" />
+	  <Content Include="Components\PeriodicTable.razor.css" />
+	</ItemGroup>
+
 	<Choose>
 		<When Condition="'$(Configuration)' == 'Debug'">
 			<ItemGroup>
-				<PackageReference Include="Fluxor.Blazor.Web.ReduxDevTools" Version="3.7.0"/>
+				<PackageReference Include="Fluxor.Blazor.Web.ReduxDevTools" Version="3.7.0" />
 			</ItemGroup>
 		</When>
 	</Choose>
