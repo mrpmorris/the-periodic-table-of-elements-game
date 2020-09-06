@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Collections.Immutable;
+﻿using System.Collections.Immutable;
 using System.Linq;
 
 namespace ThePeriodicTableOfElementsGame.Store.GameState
@@ -10,7 +9,7 @@ namespace ThePeriodicTableOfElementsGame.Store.GameState
 		int TotalMatched,
 		int TotalMismatched,
 		ImmutableArray<byte> AvailableElements,
-		IEnumerable<ElementState> ElementStates);
+		IImmutableDictionary<byte, ElementState> ElementStates);
 
 	public static class GameStateExtensions
 	{
@@ -26,6 +25,7 @@ namespace ThePeriodicTableOfElementsGame.Store.GameState
 					Front: new CardState(),
 					Back: new CardState(ShowName: false),
 					Concealed: true))
+				.ToImmutableDictionary(x => x.AtomicNumber)
 			);
 	}
 }

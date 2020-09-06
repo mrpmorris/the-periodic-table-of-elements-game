@@ -1,6 +1,6 @@
 ﻿@inherits Fluxor.Blazor.Web.Components.FluxorComponent
 <div id="table-of-elements">
-	@foreach (ElementState elementState in GameState.Value.ElementStates)
+	@foreach (ElementState elementState in GameState.Value.ElementStates.Values)
 	{
 		<Element State=@elementState />
 	}

@@ -1,5 +1,7 @@
 ﻿using Fluxor;
+using System.Collections.Immutable;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace ThePeriodicTableOfElementsGame.Store.GameState
 {
@@ -8,18 +10,20 @@ namespace ThePeriodicTableOfElementsGame.Store.GameState
 		[ReducerMethod]
 		public static GameState Reduce(GameState state, RevealElementAction action) => state with
 		{
-			ElementStates = state.ElementStates
+			ElementStates = state.ElementStates.Values
 				.Select(x =>
 					x.AtomicNumber != action.AtomicNumber
 					? x
 					: x with { Concealed = false })
+				.ToImmutableDictionary(x => x.AtomicNumber)
 		};
 
 		[ReducerMethod]
 		public static GameState Reduce(GameState state, ConcealAllElementsAction _) => state with
 		{
-			ElementStates = state.ElementStates
+			ElementStates = state.ElementStates.Values
 				.Select(x => x with { Concealed = true })
+				.ToImmutableDictionary(x => x.AtomicNumber)
 		};
 
 		[ReducerMethod]

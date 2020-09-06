@@ -1,5 +1,7 @@
 ﻿using Fluxor;
 using System;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using ThePeriodicTableOfElementsGame.Store.Services;
 
@@ -26,6 +28,9 @@ namespace ThePeriodicTableOfElementsGame.Store.GameState
 		[EffectMethod]
 		public Task Handle(ClickElementAction action, IDispatcher dispatcher)
 		{
+			if (!GameState.Value.ElementStates[action.AtomicNumber].Concealed)
+				return Task.CompletedTask;
+
 			byte? expectedElement = GameState.Value.ExpectedElement;
 
 			dispatcher.Dispatch(new RevealElementAction(action.AtomicNumber));
