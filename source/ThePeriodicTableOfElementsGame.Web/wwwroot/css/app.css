@@ -45,7 +45,6 @@ h2 {
 .menu {
 	list-style: none;
 	padding: 0;
-	margin: 8vh;
 	text-align: center;
 }
 
@@ -222,8 +221,8 @@ h2 {
 		left: 7em;
 	}
 
-	@keyframes fade-and-zoom-in {
-		from {
+@keyframes fade-and-zoom-in {
+	from {
 		transform: translate(-50%, 50%) scale(0, 0);
 		opacity: 0;
 	}

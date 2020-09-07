@@ -1,36 +1,64 @@
-﻿@page "/match-game"
-<PeriodicTable>
-	<Header>
-		<div class="table-of-elements_header">
-			@if (GameState.Value.ExpectedElement.HasValue)
-			{
-				<div class="table-of-elements_header-contents" @key=@(GameState.Value.ExpectedElement ?? -1)>
-					<div class="element-info">
-						@GameState.Value.ExpectedElementDisplayText
-						<div class="element-info-background @GetElementGroupAsCssClass()">
-							@TableOfElementsData.ElementByNumber[GameState.Value.ExpectedElement.Value].Group.GetDescription()
+﻿@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+@page "/match-game"
+@if (!GameState.Value.IsGameOver)
+{
+	<PeriodicTable class="@GetUIStatusCss()">
+		<Header>
+			<div class="table-of-elements_header">
+				@if (GameState.Value.ExpectedElement.HasValue)
+				{
+					<div class="table-of-elements_header-contents" @key=@(GameState.Value.ExpectedElement ?? -1)>
+						<div class="element-info">
+							@GameState.Value.ExpectedElementDisplayText
+							<div class="element-info-background @GetElementGroupAsCssClass()">
+								@TableOfElementsData.ElementByNumber[GameState.Value.ExpectedElement.Value].Group.GetDescription()
+							</div>
 						</div>
 					</div>
+				}
+			</div>
+			<div class="in-game-stats">
+				<div class="matched">
+					<span class="label">
+						Matched
+					</span>
+					<span class="value">
+						@GameState.Value.TotalMatched
+					</span>
 				</div>
-			}
-		</div>
-		<div class="in-game-stats">
-			<div class="matched">
-				<span class="label">
-					Matched
-				</span>
-				<span class="value">
-					@GameState.Value.TotalMatched
-				</span>
+				<div class="mismatched">
+					<span class="label">
+						Mismatched
+					</span>
+					<span class="value">
+						@GameState.Value.TotalMismatched
+					</span>
+				</div>
 			</div>
-			<div class="mismatched">
-				<span class="label">
-					Mismatched
-				</span>
-				<span class="value">
-					@GameState.Value.TotalMismatched
-				</span>
-			</div>
+		</Header>
+	</PeriodicTable>
+}
+@if (GameState.Value.IsGameOverSequence || GameState.Value.IsGameOver)
+{
+	<div id="end-game-stats" class="@GetUIStatusCss()">
+		<div id="end-game-stats-contents">
+			<span class="matched label">
+				Matched
+			</span>
+			<span class="matched value">
+				@GameState.Value.TotalMatched
+			</span>
+			<span class="mismatched label">
+				Mismatched
+			</span>
+			<span class="mismatched value">
+				@GameState.Value.TotalMismatched
+			</span>
+			<ul class="menu">
+				<li>
+					<button type="button" @onclick=GoToMainMenu>Main menu</button>
+				</li>
+			</ul>
 		</div>
-	</Header>
-</PeriodicTable>
+	</div>
+}

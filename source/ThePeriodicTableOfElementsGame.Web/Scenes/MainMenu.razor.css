@@ -17,3 +17,7 @@
 h1,h2 {
 	text-shadow: 3px 4px 5px black;
 }
+
+.menu {
+	margin-top: 8vh;
+}

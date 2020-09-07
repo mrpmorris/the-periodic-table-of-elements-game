@@ -1,6 +1,7 @@
 ﻿using Fluxor;
 using System;
 using System.Collections.Immutable;
+using System.Data.SqlTypes;
 using System.Linq;
 using ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData;
 
@@ -83,6 +84,21 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 			state with
 		{
 			TotalMismatched = state.TotalMismatched + 1
+		};
+
+		[ReducerMethod]
+		public static ElementMatchGameState Reduce(ElementMatchGameState state, StartGameOverSequenceAction _) =>
+			state with
+		{
+			IsGameOverSequence = true
+		};
+
+		[ReducerMethod]
+		public static ElementMatchGameState Reduce(ElementMatchGameState state, CompleteGameOverAction _) =>
+			state with
+		{
+			IsGameOver = true,
+			IsGameOverSequence = false
 		};
 	}
 }

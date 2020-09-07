@@ -14,6 +14,9 @@ namespace ThePeriodicTableOfElementsGame.Web.Scenes
 		[Inject]
 		private IDispatcher Dispatcher { get; set; }
 
+		[Inject]
+		public NavigationManager NavigationManager { get; set; }
+
 		protected override void OnAfterRender(bool firstRender)
 		{
 			base.OnAfterRender(firstRender);
@@ -21,10 +24,24 @@ namespace ThePeriodicTableOfElementsGame.Web.Scenes
 				Dispatcher.Dispatch(new StartGameAction());
 		}
 
+		private string GetUIStatusCss()
+		{
+			if (GameState.Value.IsGameOver)
+				return "--game-over";
+			if (GameState.Value.IsGameOverSequence)
+				return "--game-over-sequence";
+			return null;
+		}
+
 		private string GetElementGroupAsCssClass() =>
 			GameState.Value.ExpectedElement is null || !GameState.Value.ShowElementGroup
 			? ""
 			: ElementGroupExtensions.GetAsCssClass(
 					TableOfElementsData.ElementByNumber[GameState.Value.ExpectedElement.Value].Group);
+
+		private void GoToMainMenu()
+		{
+			NavigationManager.NavigateTo("/");
+		}
 	}
 }

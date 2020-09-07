@@ -20,17 +20,20 @@
 	<ItemGroup>
 	  <None Remove="Components\Element.razor.css" />
 	  <None Remove="Components\PeriodicTable.razor.css" />
+	  <None Remove="Scenes\MatchGame.razor.css" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Watch Remove="Components\Element.razor.css" />
 	  <Watch Remove="Components\PeriodicTable.razor.css" />
 	  <Watch Remove="Extensions\ElementGroupExtensions.cs" />
+	  <Watch Remove="Scenes\MatchGame.razor.css" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Content Include="Components\Element.razor.css" />
 	  <Content Include="Components\PeriodicTable.razor.css" />
+	  <Content Include="Scenes\MatchGame.razor.css" />
 	</ItemGroup>
 
 	<ItemGroup>

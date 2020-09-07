@@ -57,12 +57,22 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 			await Task.Delay(1000);
 			dispatcher.Dispatch(new ConcealAllElementsAction());
 			await Task.Delay(500);
-			dispatcher.Dispatch(new SetExpectedElementAction(AtomicNumber: GetRandomElementAtomicNumber()));
+			if (GameState.Value.AvailableElements.Any())
+				dispatcher.Dispatch(new SetExpectedElementAction(AtomicNumber: GetRandomElementAtomicNumber()));
+			else
+				dispatcher.Dispatch(new StartGameOverSequenceAction());
 		}
 
 		[EffectMethod]
 		public Task Handle(SetExpectedElementAction _, IDispatcher dispatcher) =>
 			AudioPlayer.PlayOneShotAsync(AudioSample.ElementAppeared);
+
+		[EffectMethod]
+		public async Task Handle(StartGameOverSequenceAction _, IDispatcher dispatcher)
+		{
+			await Task.Delay(2050);
+			dispatcher.Dispatch(new CompleteGameOverAction());
+		}
 
 		private byte GetRandomElementAtomicNumber() =>
 			GameState.Value.AvailableElements[new Random().Next(GameState.Value.AvailableElements.Length)];
