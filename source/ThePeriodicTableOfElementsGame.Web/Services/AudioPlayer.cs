@@ -27,6 +27,7 @@ namespace ThePeriodicTableOfElementsGame.Web.Services
 				AudioSample.ElementAppeared => "ElementAppeared.ogg",
 				AudioSample.ElementFastMatched1 => "ElementFastMatched1.ogg",
 				AudioSample.ElementMismatched => "ElementMismatched.ogg",
+				AudioSample.ElementsSong => "ElementsSong.ogg",
 				_ => throw new NotImplementedException(audioSample.ToString())
 			};
 	}

@@ -11,6 +11,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.Services
 	{
 		ElementAppeared,
 		ElementMismatched,
-		ElementFastMatched1
+		ElementFastMatched1,
+		ElementsSong
 	}
 }
