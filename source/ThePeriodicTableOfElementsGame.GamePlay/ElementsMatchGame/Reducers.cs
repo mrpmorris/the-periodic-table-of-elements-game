@@ -9,24 +9,29 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 	public static class Reducers
 	{
 		[ReducerMethod]
-		public static ElementMatchGameState Reduce(ElementMatchGameState state, StartGameAction action) =>
+		public static ElementMatchGameState Reduce(ElementMatchGameState state, SelectGameAction action) =>
+			ElementMatchGameStateExtensions.DefaultState with { MatchType = action.MatchType };
+
+		[ReducerMethod]
+		public static ElementMatchGameState Reduce(ElementMatchGameState state, StartGameAction _) =>
 		ElementMatchGameStateExtensions.DefaultState with
 		{
-			MatchType = action.MatchType,
+			MatchType = state.MatchType,
 			ElementStates = ElementMatchGameStateExtensions.DefaultState.ElementStates.Values
 				.Select(x => x with
 				{
 					Back = x.Back with
 					{
-						ShowName = action.MatchType != MatchType.PlaceTheName,
-						ShowSymbol = action.MatchType != MatchType.PlaceTheSymbol
+						ShowName = state.MatchType != MatchType.PlaceTheName,
+						ShowSymbol = state.MatchType != MatchType.PlaceTheSymbol
 					}
 				})
 				.ToImmutableDictionary(x => x.AtomicNumber)
 		};
 
 		[ReducerMethod]
-		public static ElementMatchGameState Reduce(ElementMatchGameState state, RevealElementAction action) => state with
+		public static ElementMatchGameState Reduce(ElementMatchGameState state, RevealElementAction action) =>
+			state with
 		{
 			ElementStates = state.ElementStates.Values
 				.Select(x =>
@@ -37,7 +42,8 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 		};
 
 		[ReducerMethod]
-		public static ElementMatchGameState Reduce(ElementMatchGameState state, ConcealAllElementsAction _) => state with
+		public static ElementMatchGameState Reduce(ElementMatchGameState state, ConcealAllElementsAction _) =>
+			state with
 		{
 			ElementStates = state.ElementStates.Values
 				.Select(x => x with { Concealed = true })
@@ -45,7 +51,8 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 		};
 
 		[ReducerMethod]
-		public static ElementMatchGameState Reduce(ElementMatchGameState state, SetExpectedElementAction action) => state with
+		public static ElementMatchGameState Reduce(ElementMatchGameState state, SetExpectedElementAction action) =>
+			state with
 		{
 			ExpectedElement = action.AtomicNumber,
 			ExpectedElementDisplayText = state.MatchType switch
@@ -65,13 +72,15 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 			: state with { ShowElementGroup = true };
 
 		[ReducerMethod]
-		public static ElementMatchGameState Reduce(ElementMatchGameState state, ElementMatchedAction _) => state with
+		public static ElementMatchGameState Reduce(ElementMatchGameState state, ElementMatchedAction _) =>
+			state with
 		{
 			TotalMatched = state.TotalMatched + 1
 		};
 
 		[ReducerMethod]
-		public static ElementMatchGameState Reduce(ElementMatchGameState state, ElementMismatchedAction _) => state with
+		public static ElementMatchGameState Reduce(ElementMatchGameState state, ElementMismatchedAction _) =>
+			state with
 		{
 			TotalMismatched = state.TotalMismatched + 1
 		};

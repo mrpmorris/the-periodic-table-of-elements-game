@@ -1,4 +1,4 @@
 ﻿namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 {
-	public class StartGameAction { }
+	public record SelectGameAction(MatchType MatchType);
 }

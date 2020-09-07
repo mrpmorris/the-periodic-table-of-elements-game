@@ -11,6 +11,16 @@ namespace ThePeriodicTableOfElementsGame.Web.Scenes
 		[Inject]
 		private IState<ElementMatchGameState> GameState { get; set; }
 
+		[Inject]
+		private IDispatcher Dispatcher { get; set; }
+
+		protected override void OnAfterRender(bool firstRender)
+		{
+			base.OnAfterRender(firstRender);
+			if (firstRender)
+				Dispatcher.Dispatch(new StartGameAction());
+		}
+
 		private string GetElementGroupAsCssClass() =>
 			GameState.Value.ExpectedElement is null || !GameState.Value.ShowElementGroup
 			? ""

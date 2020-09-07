@@ -1,30 +1,42 @@
 ﻿<div class="element @GetClasses()" style=@GetStyles() @onclick=Clicked>
 	<div class="front">
-		@if (State.Front.ShowAtomicNumber)
-		{
-			<div class="atomic-number">@Data.AtomicNumber</div>
-		}
-		@if (State.Front.ShowSymbol)
-		{
-			<div class="symbol">@Data.Symbol</div>
-		}
-		@if (State.Front.ShowName)
-		{
-			<div class="name">@Data.Name</div>
-		}
+		<div class="atomic-number">
+			@if (State.Front.ShowAtomicNumber)
+			{
+				@Data.AtomicNumber
+			}
+		</div>
+		<div class="symbol">
+			@if (State.Front.ShowSymbol)
+			{
+				@Data.Symbol
+			}
+		</div>
+		<div class="name">
+			@if (State.Front.ShowName)
+			{
+				@Data.Name
+			}
+		</div>
 	</div>
 	<div class="back">
-		@if (State.Back.ShowAtomicNumber)
-		{
-			<div class="atomic-number">@Data.AtomicNumber</div>
-		}
-		@if (State.Back.ShowSymbol)
-		{
-			<div class="symbol">@Data.Symbol</div>
-		}
-		@if (State.Back.ShowName)
-		{
-			<div class="name">@Data.Name</div>
-		}
+		<div class="atomic-number">
+			@if (State.Back.ShowAtomicNumber)
+			{
+				@Data.AtomicNumber
+			}
+		</div>
+		<div class="symbol">
+			@if (State.Back.ShowSymbol)
+			{
+				@Data.Symbol
+			}
+		</div>
+		<div class="name">
+			@if (State.Back.ShowName)
+			{
+				@Data.Name
+			}
+		</div>
 	</div>
 </div>

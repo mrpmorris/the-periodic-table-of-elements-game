@@ -14,7 +14,7 @@ namespace ThePeriodicTableOfElementsGame.Web.Scenes
 
 		private void PlayMatchGame(MatchType matchType)
 		{
-			Dispatcher.Dispatch(new StartGameAction(matchType));
+			Dispatcher.Dispatch(new SelectGameAction(matchType));
 			NavigationManager.NavigateTo("/match-game");
 		}
 	}
