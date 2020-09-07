@@ -1,9 +1,9 @@
 ﻿using System.Collections.Immutable;
 using System.Linq;
 
-namespace ThePeriodicTableOfElementsGame.Store.GameState
+namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 {
-	public record GameState(
+	public record ElementMatchGameState(
 		byte? ExpectedElement,
 		bool ShowElementGroup,
 		int TotalMatched,
@@ -11,9 +11,9 @@ namespace ThePeriodicTableOfElementsGame.Store.GameState
 		ImmutableArray<byte> AvailableElements,
 		IImmutableDictionary<byte, ElementState> ElementStates);
 
-	public static class GameStateExtensions
+	public static class ElementMatchGameStateExtensions
 	{
-		public static readonly GameState DefaultState = new GameState(
+		public static readonly ElementMatchGameState DefaultState = new ElementMatchGameState(
 			ExpectedElement: null,
 			ShowElementGroup: false,
 			TotalMatched: 0,

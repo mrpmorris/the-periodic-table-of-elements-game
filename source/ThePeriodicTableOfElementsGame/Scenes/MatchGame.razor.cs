@@ -1,8 +1,7 @@
 ﻿using Fluxor;
 using Microsoft.AspNetCore.Components;
-using System.Threading.Tasks;
 using ThePeriodicTableOfElementsGame.PeriodicTableData;
-using ThePeriodicTableOfElementsGame.Store.GameState;
+using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
 
 namespace ThePeriodicTableOfElementsGame.Scenes
 {
@@ -12,7 +11,7 @@ namespace ThePeriodicTableOfElementsGame.Scenes
 		private IDispatcher Dispatcher { get; set; }
 
 		[Inject]
-		private IState<GameState> GameState { get; set; }
+		private IState<ElementMatchGameState> GameState { get; set; }
 
 		private string GetElementGroupAsCssClass() =>
 			GameState.Value.ExpectedElement is null || !GameState.Value.ShowElementGroup

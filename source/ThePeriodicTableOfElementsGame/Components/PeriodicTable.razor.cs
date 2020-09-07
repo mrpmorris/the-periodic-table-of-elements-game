@@ -1,6 +1,6 @@
 ﻿using Fluxor;
 using Microsoft.AspNetCore.Components;
-using ThePeriodicTableOfElementsGame.Store.GameState;
+using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
 
 namespace ThePeriodicTableOfElementsGame.Components
 {
@@ -10,6 +10,6 @@ namespace ThePeriodicTableOfElementsGame.Components
 		public RenderFragment Header { get; set; }
 
 		[Inject]
-		private IState<GameState> GameState { get; set; }
+		private IState<ElementMatchGameState> GameState { get; set; }
 	}
 }

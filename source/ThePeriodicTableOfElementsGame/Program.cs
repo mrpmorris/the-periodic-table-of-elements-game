@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Fluxor;
-using ThePeriodicTableOfElementsGame.Store.GameState;
+using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
 using Microsoft.Extensions.DependencyInjection;
-using ThePeriodicTableOfElementsGame.Store.Services;
+using ThePeriodicTableOfElementsGame.GamePlay.Services;
 using ThePeriodicTableOfElementsGame.Services;
 
 namespace ThePeriodicTableOfElementsGame
@@ -16,7 +16,7 @@ namespace ThePeriodicTableOfElementsGame
 			builder.RootComponents.Add<App>("app");
 			builder.Services.AddScoped<IAudioPlayer, AudioPlayer>();
 			builder.Services.AddFluxor(x => x
-				.ScanAssemblies(typeof(GameState).Assembly)
+				.ScanAssemblies(typeof(ElementMatchGameState).Assembly)
 #if DEBUG
 				.UseReduxDevTools()
 #endif

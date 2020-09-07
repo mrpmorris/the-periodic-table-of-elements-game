@@ -2,15 +2,15 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ThePeriodicTableOfElementsGame.Store.GameState
+namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 {
 	public class RevealElementGroupEffect : Effect<SetExpectedElementAction>
 	{
 		const int DelayBeforeShowingElementGroupMS = 30_000;
 		private Timer Timer;
-		private readonly IState<GameState> GameState;
+		private readonly IState<ElementMatchGameState> GameState;
 
-		public RevealElementGroupEffect(IState<GameState> gameState)
+		public RevealElementGroupEffect(IState<ElementMatchGameState> gameState)
 		{
 			GameState = gameState;
 		}

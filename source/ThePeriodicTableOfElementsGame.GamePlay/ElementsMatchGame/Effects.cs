@@ -1,18 +1,17 @@
 ﻿using Fluxor;
 using System;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
-using ThePeriodicTableOfElementsGame.Store.Services;
+using ThePeriodicTableOfElementsGame.GamePlay.Services;
 
-namespace ThePeriodicTableOfElementsGame.Store.GameState
+namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 {
 	public class Effects
 	{
-		private IState<GameState> GameState;
+		private IState<ElementMatchGameState> GameState;
 		private IAudioPlayer AudioPlayer;
 
-		public Effects(IState<GameState> gameState, IAudioPlayer audioPlayer)
+		public Effects(IState<ElementMatchGameState> gameState, IAudioPlayer audioPlayer)
 		{
 			GameState = gameState ?? throw new ArgumentNullException(nameof(gameState));
 			AudioPlayer = audioPlayer ?? throw new ArgumentNullException(nameof(audioPlayer));

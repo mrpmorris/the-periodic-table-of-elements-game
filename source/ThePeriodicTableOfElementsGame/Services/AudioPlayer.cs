@@ -1,7 +1,7 @@
 ﻿using Microsoft.JSInterop;
 using System;
 using System.Threading.Tasks;
-using ThePeriodicTableOfElementsGame.Store.Services;
+using ThePeriodicTableOfElementsGame.GamePlay.Services;
 
 namespace ThePeriodicTableOfElementsGame.Services
 {

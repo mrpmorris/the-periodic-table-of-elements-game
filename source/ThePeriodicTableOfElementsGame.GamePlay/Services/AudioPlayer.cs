@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace ThePeriodicTableOfElementsGame.Store.Services
+namespace ThePeriodicTableOfElementsGame.GamePlay.Services
 {
 	public interface IAudioPlayer
 	{
