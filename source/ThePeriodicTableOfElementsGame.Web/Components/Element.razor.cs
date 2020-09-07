@@ -1,10 +1,9 @@
 ﻿using Fluxor;
 using Microsoft.AspNetCore.Components;
-using ThePeriodicTableOfElementsGame.PeriodicTableData;
-using ThePeriodicTableOfElementsGame.GamePlay;
+using ThePeriodicTableOfElementsGame.Web.PeriodicTableData;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
 
-namespace ThePeriodicTableOfElementsGame.Components
+namespace ThePeriodicTableOfElementsGame.Web.Components
 {
 	public partial class Element
 	{

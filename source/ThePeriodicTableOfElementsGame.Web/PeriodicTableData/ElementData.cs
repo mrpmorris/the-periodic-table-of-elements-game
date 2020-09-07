@@ -1,4 +1,4 @@
-﻿namespace ThePeriodicTableOfElementsGame.PeriodicTableData
+﻿namespace ThePeriodicTableOfElementsGame.Web.PeriodicTableData
 {
 	public struct ElementData
 	{

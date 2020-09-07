@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace ThePeriodicTableOfElementsGame.PeriodicTableData
+namespace ThePeriodicTableOfElementsGame.Web.PeriodicTableData
 {
 	public static class TableData
 	{

@@ -4,9 +4,9 @@ using Fluxor;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
 using Microsoft.Extensions.DependencyInjection;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
-using ThePeriodicTableOfElementsGame.Services;
+using ThePeriodicTableOfElementsGame.Web.Services;
 
-namespace ThePeriodicTableOfElementsGame
+namespace ThePeriodicTableOfElementsGame.Web
 {
 	public class Program
 	{

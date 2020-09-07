@@ -3,7 +3,7 @@ using System;
 using System.Threading.Tasks;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
 
-namespace ThePeriodicTableOfElementsGame.Services
+namespace ThePeriodicTableOfElementsGame.Web.Services
 {
 	public class AudioPlayer : IAudioPlayer
 	{

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Components;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
 
-namespace ThePeriodicTableOfElementsGame.Components
+namespace ThePeriodicTableOfElementsGame.Web.Components
 {
 	public partial class PeriodicTable
 	{

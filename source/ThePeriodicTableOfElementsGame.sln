@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThePeriodicTableOfElementsGame", "ThePeriodicTableOfElementsGame\ThePeriodicTableOfElementsGame.csproj", "{3E470FC5-5FD1-4A27-B432-3280D80B5974}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThePeriodicTableOfElementsGame.Web", "ThePeriodicTableOfElementsGame.Web\ThePeriodicTableOfElementsGame.Web.csproj", "{3E470FC5-5FD1-4A27-B432-3280D80B5974}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThePeriodicTableOfElementsGame.GamePlay", "ThePeriodicTableOfElementsGame.GamePlay\ThePeriodicTableOfElementsGame.GamePlay.csproj", "{14C4F8D1-F7FA-4D9E-860E-8F4D58E08A4D}"
 EndProject

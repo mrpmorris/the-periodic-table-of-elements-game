@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace ThePeriodicTableOfElementsGame.Scenes
+namespace ThePeriodicTableOfElementsGame.Web.Scenes
 {
 	public partial class MainMenu
 	{
