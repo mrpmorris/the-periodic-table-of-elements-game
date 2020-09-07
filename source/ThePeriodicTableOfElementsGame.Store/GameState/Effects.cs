@@ -21,7 +21,7 @@ namespace ThePeriodicTableOfElementsGame.Store.GameState
 		[EffectMethod]
 		public async Task Handle(GameStartedAction _, IDispatcher dispatcher)
 		{
-			await Task.Delay(1000);
+			await Task.Delay(500);
 			dispatcher.Dispatch(new SetExpectedElementAction(AtomicNumber: GetRandomElementAtomicNumber()));
 		}
 
