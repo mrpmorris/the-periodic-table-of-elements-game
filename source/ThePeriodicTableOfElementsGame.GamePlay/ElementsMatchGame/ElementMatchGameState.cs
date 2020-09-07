@@ -4,7 +4,9 @@ using System.Linq;
 namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 {
 	public record ElementMatchGameState(
+		MatchType MatchType,
 		byte? ExpectedElement,
+		string ExpectedElementDisplayText,
 		bool ShowElementGroup,
 		int TotalMatched,
 		int TotalMismatched,
@@ -14,7 +16,9 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 	public static class ElementMatchGameStateExtensions
 	{
 		public static readonly ElementMatchGameState DefaultState = new ElementMatchGameState(
+			MatchType: MatchType.PlaceTheSymbol,
 			ExpectedElement: null,
+			ExpectedElementDisplayText: null,
 			ShowElementGroup: false,
 			TotalMatched: 0,
 			TotalMismatched: 0,

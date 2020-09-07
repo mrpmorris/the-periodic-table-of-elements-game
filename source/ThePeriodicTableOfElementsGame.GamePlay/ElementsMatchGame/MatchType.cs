@@ -1,4 +1,8 @@
 ﻿namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 {
-	public class GameStartedAction { }
+	public enum MatchType
+	{
+		PlaceTheSymbol,
+		PlaceTheName
+	}
 }

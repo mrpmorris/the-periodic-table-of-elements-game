@@ -6,7 +6,8 @@
 <h2>Periodic table of elements game</h2>
 <img id="mendeleev" src="/images/Mendeleev.png"/>
 <ul class="menu">
-	<li><button type=button class="button" @onclick=PlayMatchGame>Element match game</button></li>
+	<li><button type=button class="button" @onclick=@(() => PlayMatchGame(MatchType.PlaceTheName))>Place the name</button></li>
+	<li><button type=button class="button" @onclick=@(() => PlayMatchGame(MatchType.PlaceTheSymbol))>Place the symbol</button></li>
 </ul>
 <div id="credits">
 	Written by

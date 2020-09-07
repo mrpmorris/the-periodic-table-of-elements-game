@@ -45,8 +45,12 @@ h2 {
 .menu {
 	list-style: none;
 	padding: 0;
-	margin: 5vh;
+	margin: 8vh;
 	text-align: center;
+}
+
+.menu > li {
+	margin: 3vh;
 }
 
 .menu .button {
@@ -114,13 +118,13 @@ h2 {
 	width: 75%;
 }
 
-	.table-of-elements_header-contents > .element-name {
+	.table-of-elements_header-contents > .element-info {
 		position: relative;
 		width: 100%;
 		height: 100%;
 	}
 
-		.table-of-elements_header-contents > .element-name > .element-name-background {
+		.table-of-elements_header-contents > .element-info > .element-info-background {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -134,52 +138,52 @@ h2 {
 			padding: 0.5rem 1rem;
 		}
 
-			.table-of-elements_header-contents > .element-name > .element-name-background.--actinide {
+			.table-of-elements_header-contents > .element-info > .element-info-background.--actinide {
 				opacity: 1;
 				background-color: var(--actinide);
 			}
 
-			.table-of-elements_header-contents > .element-name > .element-name-background.--alkali-metal {
+			.table-of-elements_header-contents > .element-info > .element-info-background.--alkali-metal {
 				opacity: 1;
 				background-color: var(--alkali-metal);
 			}
 
-			.table-of-elements_header-contents > .element-name > .element-name-background.--alkaline-earth-metal {
+			.table-of-elements_header-contents > .element-info > .element-info-background.--alkaline-earth-metal {
 				opacity: 1;
 				background-color: var(--alkaline-earth-metal);
 			}
 
-			.table-of-elements_header-contents > .element-name > .element-name-background.--basic-metal {
+			.table-of-elements_header-contents > .element-info > .element-info-background.--basic-metal {
 				opacity: 1;
 				background-color: var(--basic-metal);
 			}
 
-			.table-of-elements_header-contents > .element-name > .element-name-background.--halogen {
+			.table-of-elements_header-contents > .element-info > .element-info-background.--halogen {
 				opacity: 1;
 				background-color: var(--halogen);
 			}
 
-			.table-of-elements_header-contents > .element-name > .element-name-background.--lathanide {
+			.table-of-elements_header-contents > .element-info > .element-info-background.--lathanide {
 				opacity: 1;
 				background-color: var(--lathanide);
 			}
 
-			.table-of-elements_header-contents > .element-name > .element-name-background.--noble-gas {
+			.table-of-elements_header-contents > .element-info > .element-info-background.--noble-gas {
 				opacity: 1;
 				background-color: var(--noble-gas);
 			}
 
-			.table-of-elements_header-contents > .element-name > .element-name-background.--non-metal {
+			.table-of-elements_header-contents > .element-info > .element-info-background.--non-metal {
 				opacity: 1;
 				background-color: var(--non-metal);
 			}
 
-			.table-of-elements_header-contents > .element-name > .element-name-background.--semi-metal {
+			.table-of-elements_header-contents > .element-info > .element-info-background.--semi-metal {
 				opacity: 1;
 				background-color: var(--semi-metal);
 			}
 
-			.table-of-elements_header-contents > .element-name > .element-name-background.--transitional-metal {
+			.table-of-elements_header-contents > .element-info > .element-info-background.--transitional-metal {
 				opacity: 1;
 				background-color: var(--transitional-metal);
 			}

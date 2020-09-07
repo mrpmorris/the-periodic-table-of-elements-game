@@ -5,9 +5,9 @@
 			@if (GameState.Value.ExpectedElement.HasValue)
 			{
 				<div class="table-of-elements_header-contents" @key=@(GameState.Value.ExpectedElement ?? -1)>
-					<div class="element-name">
-						@TableOfElementsData.ElementByNumber[GameState.Value.ExpectedElement.Value].Name
-						<div class="element-name-background @GetElementGroupAsCssClass()">
+					<div class="element-info">
+						@GameState.Value.ExpectedElementDisplayText
+						<div class="element-info-background @GetElementGroupAsCssClass()">
 							@TableOfElementsData.ElementByNumber[GameState.Value.ExpectedElement.Value].Group.GetDescription()
 						</div>
 					</div>

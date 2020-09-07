@@ -1,7 +1,8 @@
 ﻿using Fluxor;
 using Microsoft.AspNetCore.Components;
-using ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData;
+using ThePeriodicTableOfElementsGame.Web.Extensions;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
+using ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData;
 
 namespace ThePeriodicTableOfElementsGame.Web.Components
 {

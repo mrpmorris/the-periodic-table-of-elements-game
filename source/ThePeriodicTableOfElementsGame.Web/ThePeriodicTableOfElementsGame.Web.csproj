@@ -25,6 +25,7 @@
 	<ItemGroup>
 	  <Watch Remove="Components\Element.razor.css" />
 	  <Watch Remove="Components\PeriodicTable.razor.css" />
+	  <Watch Remove="Extensions\ElementGroupExtensions.cs" />
 	</ItemGroup>
 
 	<ItemGroup>

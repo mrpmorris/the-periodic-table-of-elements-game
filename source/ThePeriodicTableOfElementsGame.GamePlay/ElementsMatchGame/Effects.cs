@@ -18,7 +18,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 		}
 
 		[EffectMethod]
-		public async Task Handle(GameStartedAction _, IDispatcher dispatcher)
+		public async Task Handle(StartGameAction _, IDispatcher dispatcher)
 		{
 			await Task.Delay(500);
 			dispatcher.Dispatch(new SetExpectedElementAction(AtomicNumber: GetRandomElementAtomicNumber()));
