@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ThePeriodicTableOfElementsGame.Web.PeriodicTableData
+namespace ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData
 {
 	public enum ElementGroup
 	{

@@ -1,6 +1,6 @@
 ﻿using Fluxor;
 using Microsoft.AspNetCore.Components;
-using ThePeriodicTableOfElementsGame.Web.PeriodicTableData;
+using ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
 
 namespace ThePeriodicTableOfElementsGame.Web.Components
@@ -25,7 +25,7 @@ namespace ThePeriodicTableOfElementsGame.Web.Components
 		private void SetState(ElementState state)
 		{
 			_state = state;
-			Data = TableData.ElementByNumber[state.AtomicNumber];
+			Data = TableOfElementsData.ElementByNumber[state.AtomicNumber];
 		}
 
 		private void Clicked()

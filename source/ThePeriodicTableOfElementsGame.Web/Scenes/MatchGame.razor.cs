@@ -1,6 +1,6 @@
 ﻿using Fluxor;
 using Microsoft.AspNetCore.Components;
-using ThePeriodicTableOfElementsGame.Web.PeriodicTableData;
+using ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
 
 namespace ThePeriodicTableOfElementsGame.Web.Scenes
@@ -17,7 +17,7 @@ namespace ThePeriodicTableOfElementsGame.Web.Scenes
 			GameState.Value.ExpectedElement is null || !GameState.Value.ShowElementGroup
 			? ""
 			: ElementGroupExtensions.GetAsCssClass(
-					TableData.ElementByNumber[GameState.Value.ExpectedElement.Value].Group);
+					TableOfElementsData.ElementByNumber[GameState.Value.ExpectedElement.Value].Group);
 
 		protected override void OnAfterRender(bool firstRender)
 		{

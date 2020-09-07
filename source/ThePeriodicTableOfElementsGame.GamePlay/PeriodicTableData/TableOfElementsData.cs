@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace ThePeriodicTableOfElementsGame.Web.PeriodicTableData
+namespace ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData
 {
-	public static class TableData
+	public static class TableOfElementsData
 	{
 		public static ReadOnlyDictionary<int, ElementData> ElementByNumber { get; } = CreateElements();
 
