@@ -26,8 +26,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 			TotalMismatched: 0,
 			IsGameOverSequence: false,
 			IsGameOver: false,
-			//TODO: Make 118
-			AvailableElements: Enumerable.Range(1, 1).Select(x => (byte)x).ToImmutableArray(),
+			AvailableElements: Enumerable.Range(1, 118).Select(x => (byte)x).ToImmutableArray(),
 			ElementStates: Enumerable.Range(1, 118)
 				.Select(x => new ElementState(
 					AtomicNumber: (byte)x,
