@@ -102,6 +102,7 @@ h2 {
 	grid-row-start: 1;
 	grid-row-end: 4;
 	font-size: 4vw;
+	color: white;
 }
 
 .table-of-elements_header-contents {
@@ -191,8 +192,9 @@ h2 {
 	grid-row-start: 1;
 	grid-column-start: 13;
 	grid-column-end: 18;
-	position:relative;
+	position: relative;
 	font-size: 2vw;
+	color: #a5a985;
 }
 
 	.in-game-stats > .matched > .label {
