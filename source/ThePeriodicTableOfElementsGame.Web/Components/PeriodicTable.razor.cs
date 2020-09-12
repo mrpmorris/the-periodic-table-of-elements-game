@@ -8,7 +8,7 @@ namespace ThePeriodicTableOfElementsGame.Web.Components
 	public partial class PeriodicTable
 	{
 		[Parameter]
-		public RenderFragment Header { get; set; }
+		public RenderFragment ChildContent { get; set; }
 
 		[Inject]
 		private IState<ElementMatchGameState> GameState { get; set; }

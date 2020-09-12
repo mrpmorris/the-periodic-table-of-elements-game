@@ -3,39 +3,40 @@
 @if (!GameState.Value.IsGameOver)
 {
 	<PeriodicTable class="@GetUIStatusCss()">
-		<Header>
-			<div class="table-of-elements_header">
-				@if (GameState.Value.ExpectedElement.HasValue)
-				{
-					<div class="table-of-elements_header-contents" @key=@(GameState.Value.ExpectedElement ?? -1)>
-						<div class="element-info">
-							@GameState.Value.ExpectedElementDisplayText
-							<div class="element-info-background @GetElementGroupAsCssClass()">
-								@TableOfElementsData.ElementByNumber[GameState.Value.ExpectedElement.Value].Group.GetDescription()
-							</div>
+		<div class="table-of-elements_header">
+			@if (GameState.Value.ExpectedElement.HasValue)
+			{
+				<div class="table-of-elements_header-contents" @key=@(GameState.Value.ExpectedElement ?? -1)>
+					<div class="element-info">
+						@GameState.Value.ExpectedElementDisplayText
+						<div class="element-info-background @GetElementGroupAsCssClass()">
+							@TableOfElementsData.ElementByNumber[GameState.Value.ExpectedElement.Value].Group.GetDescription()
 						</div>
 					</div>
-				}
-			</div>
-			<div class="in-game-stats">
-				<div class="matched">
-					<span class="label">
-						Matched
-					</span>
-					<span class="value">
-						@GameState.Value.TotalMatched
-					</span>
 				</div>
-				<div class="mismatched">
-					<span class="label">
-						Mismatched
-					</span>
-					<span class="value">
-						@GameState.Value.TotalMismatched
-					</span>
-				</div>
+			}
+		</div>
+		<div class="in-game-stats">
+			<div class="matched">
+				<span class="label">
+					Matched
+				</span>
+				<span class="value">
+					@GameState.Value.TotalMatched
+				</span>
 			</div>
-		</Header>
+			<div class="mismatched">
+				<span class="label">
+					Mismatched
+				</span>
+				<span class="value">
+					@GameState.Value.TotalMismatched
+				</span>
+			</div>
+		</div>
+		<div class="exit-button-container">
+			<img class="exit-button" src="/images/BackButton.png" alt="Back" @onclick=GoToMainMenu />
+		</div>
 	</PeriodicTable>
 }
 @if (GameState.Value.IsGameOverSequence || GameState.Value.IsGameOver)

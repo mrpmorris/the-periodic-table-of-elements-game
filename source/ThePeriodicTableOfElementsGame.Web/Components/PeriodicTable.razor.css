@@ -1,5 +1,7 @@
 ﻿#table-of-elements {
 	display: grid;
+	grid-template-columns: repeat(18, calc(100% / 18));
+	grid-template-rows: repeat(10, calc(100% / 9));
 	margin-left: auto;
 	margin-right: auto;
 	width: 100%;
