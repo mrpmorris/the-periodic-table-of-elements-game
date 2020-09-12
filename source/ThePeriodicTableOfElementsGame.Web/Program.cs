@@ -16,7 +16,7 @@ namespace ThePeriodicTableOfElementsGame.Web
 			builder.RootComponents.Add<App>("app");
 			builder.Services.AddScoped<IAudioPlayer, AudioPlayer>();
 			builder.Services.AddFluxor(x => x
-				.ScanAssemblies(typeof(ElementMatchGameState).Assembly)
+				.ScanAssemblies(typeof(ElementsMatchGameState).Assembly)
 #if DEBUG
 				.UseReduxDevTools()
 #endif

@@ -11,7 +11,7 @@ namespace ThePeriodicTableOfElementsGame.Web.Components
 		public RenderFragment ChildContent { get; set; }
 
 		[Inject]
-		private IState<ElementMatchGameState> GameState { get; set; }
+		private IState<ElementsMatchGameState> GameState { get; set; }
 
 		[Parameter(CaptureUnmatchedValues = true)]
 		public Dictionary<string, object> Attributes { get; set; }

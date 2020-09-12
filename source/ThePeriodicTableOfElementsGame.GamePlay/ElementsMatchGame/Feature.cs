@@ -2,9 +2,9 @@
 
 namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 {
-	public class Feature : Feature<ElementMatchGameState>
+	public class Feature : Feature<ElementsMatchGameState>
 	{
 		public override string GetName() => "Game";
-		protected override ElementMatchGameState GetInitialState() => ElementMatchGameStateExtensions.DefaultState;
+		protected override ElementsMatchGameState GetInitialState() => ElementsMatchGameStateExtensions.DefaultState;
 	}
 }

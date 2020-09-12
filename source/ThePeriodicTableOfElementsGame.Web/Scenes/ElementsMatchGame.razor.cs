@@ -9,10 +9,10 @@ using ThePeriodicTableOfElementsGame.Web.Extensions;
 
 namespace ThePeriodicTableOfElementsGame.Web.Scenes
 {
-	public partial class MatchGame
+	public partial class ElementsMatchGame
 	{
 		[Inject]
-		private IState<ElementMatchGameState> GameState { get; set; }
+		private IState<ElementsMatchGameState> GameState { get; set; }
 
 		[Inject]
 		private IDispatcher Dispatcher { get; set; }

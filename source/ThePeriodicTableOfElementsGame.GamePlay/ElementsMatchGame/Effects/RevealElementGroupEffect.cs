@@ -9,9 +9,9 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Effects
 	{
 		const int DelayBeforeShowingElementGroupMS = 30_000;
 		private Timer Timer;
-		private readonly IState<ElementMatchGameState> GameState;
+		private readonly IState<ElementsMatchGameState> GameState;
 
-		public RevealElementGroupEffect(IState<ElementMatchGameState> gameState)
+		public RevealElementGroupEffect(IState<ElementsMatchGameState> gameState)
 		{
 			GameState = gameState;
 		}

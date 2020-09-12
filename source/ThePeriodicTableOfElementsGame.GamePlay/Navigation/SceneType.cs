@@ -3,8 +3,8 @@
 	public enum SceneType
 	{
 		MainMenu,
-		ElementMatchGame,
-		TransitionFromElementMatchGameToGameOver,
+		ElementsMatchGame,
+		TransitionFromElementsMatchGameToGameOver,
 		GameOver
 	}
 }

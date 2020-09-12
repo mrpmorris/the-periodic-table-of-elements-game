@@ -1,14 +1,16 @@
 @inherits Fluxor.Blazor.Web.Components.FluxorComponent
 <Fluxor.Blazor.Web.StoreInitializer />
 <LayoutView Layout=typeof(MainLayout)>
-	@if (NavigationState.Value.Scene == GamePlay.Navigation.SceneType.MainMenu)
+	@if (NavigationState.Value.ShowMainMenu)
 	{
 		<MainMenu />
 	}
-	@if (NavigationState.Value.Scene == GamePlay.Navigation.SceneType.ElementMatchGame
-	 || NavigationState.Value.Scene == GamePlay.Navigation.SceneType.TransitionFromElementMatchGameToGameOver
- || NavigationState.Value.Scene == GamePlay.Navigation.SceneType.GameOver)
+	@if (NavigationState.Value.ShowElementsMatchGame)
 	{
-		<MatchGame />
+		<ElementsMatchGame />
+	}
+	@if (NavigationState.Value.ShowGameOver)
+	{
+		<GameOver/>
 	}
 </LayoutView>

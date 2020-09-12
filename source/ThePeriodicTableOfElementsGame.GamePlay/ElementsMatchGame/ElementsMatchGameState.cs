@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 {
-	public record ElementMatchGameState(
+	public record ElementsMatchGameState(
 		MatchType MatchType,
 		byte? ExpectedElement,
 		string ExpectedElementDisplayText,
@@ -15,9 +15,9 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 		ImmutableArray<byte> AvailableElements,
 		IImmutableDictionary<byte, ElementState> ElementStates);
 
-	public static class ElementMatchGameStateExtensions
+	public static class ElementsMatchGameStateExtensions
 	{
-		public static readonly ElementMatchGameState DefaultState = new ElementMatchGameState(
+		public static readonly ElementsMatchGameState DefaultState = new ElementsMatchGameState(
 			MatchType: MatchType.PlaceTheSymbol,
 			ExpectedElement: null,
 			ExpectedElementDisplayText: null,

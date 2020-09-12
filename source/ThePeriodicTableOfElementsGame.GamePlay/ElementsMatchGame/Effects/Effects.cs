@@ -9,10 +9,10 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Effects
 {
 	public class Effects
 	{
-		private IState<ElementMatchGameState> GameState;
+		private IState<ElementsMatchGameState> GameState;
 		private IAudioPlayer AudioPlayer;
 
-		public Effects(IState<ElementMatchGameState> gameState, IAudioPlayer audioPlayer)
+		public Effects(IState<ElementsMatchGameState> gameState, IAudioPlayer audioPlayer)
 		{
 			GameState = gameState ?? throw new ArgumentNullException(nameof(gameState));
 			AudioPlayer = audioPlayer ?? throw new ArgumentNullException(nameof(audioPlayer));
