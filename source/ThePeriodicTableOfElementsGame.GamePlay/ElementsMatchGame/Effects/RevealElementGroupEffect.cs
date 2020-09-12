@@ -1,8 +1,9 @@
 ﻿using Fluxor;
 using System.Threading;
 using System.Threading.Tasks;
+using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Actions;
 
-namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
+namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Effects
 {
 	public class RevealElementGroupEffect : Effect<SetExpectedElementAction>
 	{
