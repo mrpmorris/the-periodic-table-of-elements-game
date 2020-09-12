@@ -13,12 +13,11 @@
 
 		public bool ShowGameOver =>
 			Scene == SceneType.TransitionFromElementsMatchGameToGameOver
-			|| Scene == SceneType.GameOver;
+			|| Scene == SceneType.ElementsMatchGameOver;
 
 		public NavigationState(SceneType scene)
 		{
 			Scene = scene;
 		}
 	}
-
 }

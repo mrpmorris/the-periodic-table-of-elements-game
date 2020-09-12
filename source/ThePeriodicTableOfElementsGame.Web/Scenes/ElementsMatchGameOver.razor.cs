@@ -1,15 +1,12 @@
 ﻿using Fluxor;
 using Microsoft.AspNetCore.Components;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.Navigation;
 using ThePeriodicTableOfElementsGame.GamePlay.Navigation.Actions;
-using ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData;
-using ThePeriodicTableOfElementsGame.Web.Extensions;
 
 namespace ThePeriodicTableOfElementsGame.Web.Scenes
 {
-	public partial class ElementsMatchGame
+	public partial class ElementsMatchGameOver
 	{
 		[Inject]
 		private IState<ElementsMatchGameState> GameState { get; set; }
@@ -20,27 +17,14 @@ namespace ThePeriodicTableOfElementsGame.Web.Scenes
 		[Inject]
 		private IDispatcher Dispatcher { get; set; }
 
-		protected override void OnAfterRender(bool firstRender)
-		{
-			base.OnAfterRender(firstRender);
-			if (firstRender)
-				Dispatcher.Dispatch(new StartGameAction());
-		}
-
 		private string GetUIStatusCss()
 		{
-			if (NavigationState.Value.Scene == SceneType.ElementsMatchGameOver)
-				return "--game-over";
 			if (NavigationState.Value.Scene == SceneType.TransitionFromElementsMatchGameToGameOver)
 				return "--game-over-sequence";
+			if (NavigationState.Value.Scene == SceneType.ElementsMatchGameOver)
+				return "--game-over";
 			return null;
 		}
-
-		private string GetElementGroupAsCssClass() =>
-			GameState.Value.ExpectedElement is null || !GameState.Value.ShowElementGroup
-			? ""
-			: ElementGroupExtensions.GetAsCssClass(
-					TableOfElementsData.ElementByNumber[GameState.Value.ExpectedElement.Value].Group);
 
 		private void GoToMainMenu()
 		{

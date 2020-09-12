@@ -5,6 +5,6 @@
 		MainMenu,
 		ElementsMatchGame,
 		TransitionFromElementsMatchGameToGameOver,
-		GameOver
+		ElementsMatchGameOver
 	}
 }

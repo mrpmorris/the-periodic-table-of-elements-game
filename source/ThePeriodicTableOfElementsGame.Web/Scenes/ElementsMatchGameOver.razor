@@ -1,0 +1,23 @@
+﻿@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+
+<div id="end-game-stats" class="@GetUIStatusCss()">
+	<div id="end-game-stats-contents">
+		<span class="matched label">
+			Matched
+		</span>
+		<span class="matched value">
+			@GameState.Value.TotalMatched
+		</span>
+		<span class="mismatched label">
+			Mismatched
+		</span>
+		<span class="mismatched value">
+			@GameState.Value.TotalMismatched
+		</span>
+		<ul class="menu">
+			<li>
+				<button type="button" class="button" @onclick=GoToMainMenu>Main menu</button>
+			</li>
+		</ul>
+	</div>
+</div>

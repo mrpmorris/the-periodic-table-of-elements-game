@@ -1,52 +1,4 @@
-﻿#end-game-stats {
-	opacity: 1;
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	font-size: 4vw;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-	#end-game-stats.--game-over-sequence {
-		opacity: 1;
-		animation: fade-in-and-zoom-out 2s ease-in-out forwards;
-	}
-
-#end-game-stats-contents {
-	display: grid;
-}
-
-	#end-game-stats-contents > .matched.label {
-		font-weight: bold;
-		grid-column: 1;
-		grid-row: 1;
-	}
-
-	#end-game-stats-contents > .matched.value {
-		grid-column: 2;
-		grid-row: 1;
-		margin-left: 1em;
-		justify-self: right;
-	}
-
-	#end-game-stats-contents > .mismatched.label {
-		font-weight: bold;
-		grid-column: 1;
-		grid-row: 2;
-	}
-
-	#end-game-stats-contents > .mismatched.value {
-		grid-column: 2;
-		grid-row: 2;
-		margin-left: 1em;
-		justify-self: right;
-	}
-
-.exit-button-container {
+﻿.exit-button-container {
 	position:relative;
 	grid-column: 1 / span 2;
 	grid-row: 8 / span 2;
@@ -60,15 +12,4 @@
 	margin-top: -35%;
 	margin-left: -35%;
 	cursor: pointer;
-}
-
-@keyframes fade-in-and-zoom-out {
-	from {
-		opacity: 0;
-		transform: scale(5, 5);
-	}
-
-	to {
-		opacity: 1;
-	}
 }

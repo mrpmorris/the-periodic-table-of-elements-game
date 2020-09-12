@@ -85,20 +85,5 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Reducers
 		{
 			TotalMismatched = state.TotalMismatched + 1
 		};
-
-		[ReducerMethod]
-		public static ElementsMatchGameState Reduce(ElementsMatchGameState state, StartGameOverSequenceAction _) =>
-			state with
-		{
-			IsGameOverSequence = true
-		};
-
-		[ReducerMethod]
-		public static ElementsMatchGameState Reduce(ElementsMatchGameState state, CompleteGameOverAction _) =>
-			state with
-		{
-			IsGameOver = true,
-			IsGameOverSequence = false
-		};
 	}
 }
