@@ -2,10 +2,11 @@
 using System.Threading;
 using System.Threading.Tasks;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Actions;
+using ThePeriodicTableOfElementsGame.GamePlay.Navigation.Actions;
 
 namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Effects
 {
-	public class RevealElementGroupEffect : Effect<SetExpectedElementAction>
+	public class RevealElementGroupEffect
 	{
 		const int DelayBeforeShowingElementGroupMS = 30_000;
 		private Timer Timer;
@@ -16,7 +17,8 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Effects
 			GameState = gameState;
 		}
 
-		protected override Task HandleAsync(SetExpectedElementAction action, IDispatcher dispatcher)
+		[EffectMethod]
+		public Task HandleAsync(SetExpectedElementAction action, IDispatcher dispatcher)
 		{
 			Timer?.Dispose();
 			Timer = new Timer(
@@ -31,6 +33,18 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Effects
 			return Task.CompletedTask;
 		}
 
+		[EffectMethod]
+		public Task HandleAsync(StartGameOverSequenceAction action, IDispatcher dispatcher)
+		{
+			Timer?.Dispose();
+			return Task.CompletedTask;
+		}
 
+		[EffectMethod]
+		public Task HandleAsync(NavigateAction action, IDispatcher dispatcher)
+		{
+			Timer?.Dispose();
+			return Task.CompletedTask;
+		}
 	}
 }
