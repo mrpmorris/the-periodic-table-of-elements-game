@@ -1,6 +1,8 @@
 ﻿using Fluxor;
 using Microsoft.AspNetCore.Components;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
+using ThePeriodicTableOfElementsGame.GamePlay.Navigation;
+using ThePeriodicTableOfElementsGame.GamePlay.Navigation.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData;
 using ThePeriodicTableOfElementsGame.Web.Extensions;
 
@@ -13,9 +15,6 @@ namespace ThePeriodicTableOfElementsGame.Web.Scenes
 
 		[Inject]
 		private IDispatcher Dispatcher { get; set; }
-
-		[Inject]
-		public NavigationManager NavigationManager { get; set; }
 
 		protected override void OnAfterRender(bool firstRender)
 		{
@@ -41,7 +40,7 @@ namespace ThePeriodicTableOfElementsGame.Web.Scenes
 
 		private void GoToMainMenu()
 		{
-			NavigationManager.NavigateTo("/");
+			Dispatcher.Dispatch(new NavigateAction(SceneType.MainMenu));
 		}
 	}
 }

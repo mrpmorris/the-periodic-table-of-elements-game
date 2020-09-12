@@ -1,6 +1,8 @@
 ﻿using Fluxor;
 using Microsoft.AspNetCore.Components;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
+using ThePeriodicTableOfElementsGame.GamePlay.Navigation;
+using ThePeriodicTableOfElementsGame.GamePlay.Navigation.Actions;
 
 namespace ThePeriodicTableOfElementsGame.Web.Scenes
 {
@@ -9,13 +11,10 @@ namespace ThePeriodicTableOfElementsGame.Web.Scenes
 		[Inject]
 		private IDispatcher Dispatcher { get; set; }
 
-		[Inject]
-		private NavigationManager NavigationManager { get; set; }
-
 		private void PlayMatchGame(MatchType matchType)
 		{
 			Dispatcher.Dispatch(new SelectGameAction(matchType));
-			NavigationManager.NavigateTo("/match-game");
+			Dispatcher.Dispatch(new NavigateAction(SceneType.ElementMatchGame));
 		}
 	}
 }
