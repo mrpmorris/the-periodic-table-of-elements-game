@@ -35,12 +35,13 @@
 		text-align: left;
 		margin: 0;
 		min-height: 1.1em;
+		font-size: 2.5em;
 	}
 
 	#table-of-elements > .element .symbol {
 		margin: 0;
 		text-align: center;
-		font-size: 1.5em;
+		font-size: 2.5em;
 		font-weight: bold;
 		min-height: 1.1em;
 	}
@@ -49,6 +50,7 @@
 		margin: 0;
 		text-align: center;
 		min-height: 1.1em;
+		font-size: 2em;
 	}
 
 	#table-of-elements > .element.--lathanide {

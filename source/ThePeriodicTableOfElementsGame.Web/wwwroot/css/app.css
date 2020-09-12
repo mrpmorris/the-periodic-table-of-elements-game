@@ -26,19 +26,19 @@ body {
 	padding: 0;
 	overflow: hidden;
 	background-color: #444A5F;
-	font-size: 0.8vw;
+	font-size: 0.8vmin;
 	user-select: none;
 }
 
 h1 {
 	color: white;
-	font-size: 5vw;
+	font-size: 5vmin;
 	text-align: center;
 }
 
 h2 {
 	color: white;
-	font-size: 3vw;
+	font-size: 3vmin;
 	text-align: center;
 }
 
@@ -101,7 +101,7 @@ h2 {
 	grid-column-end: 13;
 	grid-row-start: 1;
 	grid-row-end: 4;
-	font-size: 4vw;
+	font-size: 4vmin;
 	color: white;
 }
 
@@ -193,7 +193,7 @@ h2 {
 	grid-column-start: 13;
 	grid-column-end: 18;
 	position: relative;
-	font-size: 2vw;
+	font-size: 2vmin;
 	color: #a5a985;
 }
 
