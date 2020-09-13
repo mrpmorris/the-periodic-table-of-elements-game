@@ -8,7 +8,9 @@
 				<div class="element-info">
 					@GameState.Value.ExpectedElementDisplayText
 					<div class="element-info-background @GetElementGroupAsCssClass()">
-						@TableOfElementsData.ElementByNumber[GameState.Value.ExpectedElement.Value].Group.GetDescription()
+						<div class="element-info-group-name">
+							@TableOfElementsData.ElementByNumber[GameState.Value.ExpectedElement.Value].Group.GetDescription()
+						</div>
 					</div>
 				</div>
 			</div>
