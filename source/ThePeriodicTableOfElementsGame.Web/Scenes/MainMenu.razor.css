@@ -18,6 +18,14 @@ h1,h2 {
 	text-shadow: 3px 4px 5px black;
 }
 
+h1 {
+	font-size: 6vw;
+}
+
+h2 {
+	font-size: 2.5vw;
+}
+
 .menu {
 	margin-top: 8vh;
 }
