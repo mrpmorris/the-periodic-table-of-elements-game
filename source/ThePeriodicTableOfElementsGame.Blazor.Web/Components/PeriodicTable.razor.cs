@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 using System.Collections.Generic;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
 
-namespace ThePeriodicTableOfElementsGame.Web.Components
+namespace ThePeriodicTableOfElementsGame.Blazor.Web.Components
 {
 	public partial class PeriodicTable
 	{

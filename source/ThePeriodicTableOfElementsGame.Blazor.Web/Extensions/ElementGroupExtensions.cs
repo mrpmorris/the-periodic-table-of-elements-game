@@ -1,7 +1,7 @@
 ﻿using System;
 using ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData;
 
-namespace ThePeriodicTableOfElementsGame.Web.Extensions
+namespace ThePeriodicTableOfElementsGame.Blazor.Web.Extensions
 {
 	public static class ElementGroupExtensions
 	{

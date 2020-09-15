@@ -1,6 +1,6 @@
-﻿{
+{
 	"name": "Periodic table",
-	"short_name": "PeriodicTable",
+	"short_name": "Periodic Table",
 	"start_url": "./",
 	"display": "standalone",
 	"background_color": "#ffffff",

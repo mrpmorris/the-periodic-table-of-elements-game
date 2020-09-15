@@ -1,13 +1,14 @@
 ﻿using Fluxor;
 using Microsoft.AspNetCore.Components;
+using System;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.Navigation;
 using ThePeriodicTableOfElementsGame.GamePlay.Navigation.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData;
-using ThePeriodicTableOfElementsGame.Web.Extensions;
+using ThePeriodicTableOfElementsGame.Blazor.Web.Extensions;
 
-namespace ThePeriodicTableOfElementsGame.Web.Scenes
+namespace ThePeriodicTableOfElementsGame.Blazor.Web.Scenes
 {
 	public partial class ElementsMatchGame
 	{
@@ -29,11 +30,22 @@ namespace ThePeriodicTableOfElementsGame.Web.Scenes
 
 		private string GetUIStatusCss()
 		{
-			if (NavigationState.Value.Scene == SceneType.ElementsMatchGameOver)
-				return "--game-over";
-			if (NavigationState.Value.Scene == SceneType.TransitionFromElementsMatchGameToGameOver)
-				return "--game-over-sequence";
-			return null;
+			string matchmodeCSS = GameState.Value.MatchType switch
+			{
+				MatchType.PlaceTheName => "--place-the-name",
+				MatchType.PlaceTheSymbol => "--place-the-symbol",
+				_ => throw new NotImplementedException(GameState.Value.MatchType.ToString())
+			};
+
+			string sceneTypeCss = NavigationState.Value.Scene switch
+			{
+				SceneType.ElementsMatchGameOver => "--game-over",
+				SceneType.TransitionFromElementsMatchGameToGameOver => "--game-over-sequence",
+				SceneType.ElementsMatchGame => "--gameplay",
+				_ => throw new NotImplementedException(NavigationState.Value.Scene.ToString())
+			};
+
+			return $"{matchmodeCSS} {sceneTypeCss}";
 		}
 
 		private string GetElementGroupAsCssClass() =>
