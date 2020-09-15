@@ -1,19 +1,20 @@
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Fluxor;
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using System.Threading.Tasks;
+using ThePeriodicTableOfElementsGame.Blazor.Web.Services;
+using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
-using ThePeriodicTableOfElementsGame.Web.Services;
 
-namespace ThePeriodicTableOfElementsGame.Web
+namespace ThePeriodicTableOfElementsGame.Blazor.Web
 {
 	public class Program
 	{
 		public static async Task Main(string[] args)
 		{
 			var builder = WebAssemblyHostBuilder.CreateDefault(args);
-			builder.RootComponents.Add<App>("app");
+			builder.RootComponents.Add<App>("#app");
+
 			builder.Services.AddScoped<IAudioPlayer, AudioPlayer>();
 			builder.Services.AddFluxor(x => x
 				.ScanAssemblies(typeof(ElementsMatchGameState).Assembly)
@@ -21,6 +22,8 @@ namespace ThePeriodicTableOfElementsGame.Web
 				.UseReduxDevTools()
 #endif
 			);
+
+
 			await builder.Build().RunAsync();
 		}
 	}

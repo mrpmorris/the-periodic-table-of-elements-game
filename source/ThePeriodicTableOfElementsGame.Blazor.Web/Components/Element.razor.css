@@ -1,0 +1,111 @@
+﻿.element {
+	text-align: center;
+	margin: 1px;
+	perspective: 1000px;
+	background-color: transparent;
+	position: relative;
+	transition: transform 0.3s;
+	border-radius: 4px;
+	transform-style: preserve-3d;
+	cursor: pointer;
+	font-size: 0.8vw;
+}
+
+	.element > .front {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		padding: 0.5em;
+		-webkit-backface-visibility: hidden;
+		-moz-backface-visibility: hidden;
+		backface-visibility: hidden;
+	}
+
+	.element > .back {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		padding: 0.5em;
+		transform: rotateY(180deg);
+		-webkit-backface-visibility: hidden;
+		-moz-backface-visibility: hidden;
+		backface-visibility: hidden;
+	}
+
+	.element .atomic-number {
+		text-align: left;
+		margin: 0;
+		min-height: 1.1em;
+	}
+
+	.element .symbol {
+		margin: 0;
+		text-align: center;
+		font-weight: bold;
+		font-size: 1.5em;
+	}
+
+	.element .name {
+		margin: 0;
+		text-align: center;
+		min-height: 1.1em;
+		margin-top: 0.25em;
+	}
+
+	.element.--lathanide {
+		margin-top: 1.5rem;
+	}
+
+	.element.--actinide > .front,
+	.element.--actinide > .back {
+		background-color: var(--actinide);
+	}
+
+	.element.--alkali-metal > .front,
+	.element.--alkali-metal > .back {
+		background-color: var(--alkali-metal);
+	}
+
+	.element.--alkaline-earth-metal > .front,
+	.element.--alkaline-earth-metal > .back {
+		background-color: var(--alkaline-earth-metal);
+	}
+
+	.element.--basic-metal > .front,
+	.element.--basic-metal > .back {
+		background-color: var(--basic-metal);
+	}
+
+	.element.--halogen > .front,
+	.element.--halogen > .back {
+		background-color: var(--halogen);
+	}
+
+	.element.--lathanide > .front,
+	.element.--lathanide > .back {
+		background-color: var(--lathanide);
+	}
+
+	.element.--noble-gas > .front,
+	.element.--noble-gas > .back {
+		background-color: var(--noble-gas);
+	}
+
+	.element.--non-metal > .front,
+	.element.--non-metal > .back {
+		background-color: var(--non-metal);
+	}
+
+	.element.--semi-metal > .front,
+	.element.--semi-metal > .back {
+		background-color: var(--semi-metal);
+	}
+
+	.element.--transitional-metal > .front,
+	.element.--transitional-metal > .back {
+		background-color: var(--transitional-metal);
+	}
+
+	.element.--concealed {
+		transform: rotateY(180deg)
+	}

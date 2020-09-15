@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Components;
 using ThePeriodicTableOfElementsGame.GamePlay.Navigation;
 
-namespace ThePeriodicTableOfElementsGame.Web
+namespace ThePeriodicTableOfElementsGame.Blazor.Web
 {
 	public partial class App
 	{

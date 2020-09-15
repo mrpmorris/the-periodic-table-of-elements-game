@@ -5,7 +5,7 @@ using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.Navigation;
 using ThePeriodicTableOfElementsGame.GamePlay.Navigation.Actions;
 
-namespace ThePeriodicTableOfElementsGame.Web.Scenes
+namespace ThePeriodicTableOfElementsGame.Blazor.Web.Scenes
 {
 	public partial class MainMenu
 	{
