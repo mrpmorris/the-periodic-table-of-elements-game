@@ -2,6 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>net5.0</TargetFramework>
+		<BlazorEnableTimeZoneSupport>false</BlazorEnableTimeZoneSupport>
 		<ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
 	</PropertyGroup>
 
@@ -11,11 +12,20 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Watch Remove="wwwroot\scripts\brotti-decode.min.js" />
+	  <Content Remove="wwwroot\audio\ElementsSong.ogg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Watch Remove="wwwroot\scripts\decode.min.js" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="wwwroot\audio\ElementsSong.ogg" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Fluxor.Blazor.Web" Version="3.7.0" />
+		<PackageReference Include="Fluxor.Blazor.Web.ReduxDevTools" Version="3.7.0" Condition="'$(Configuration)' == 'Debug'" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.0-rc.1.20451.17" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.0-rc.1.20451.17" PrivateAssets="all" />
 	</ItemGroup>
@@ -27,13 +37,4 @@
 	<ItemGroup>
 		<ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
 	</ItemGroup>
-
-	<Choose>
-		<When Condition="'$(Configuration)' == 'Debug'">
-			<ItemGroup>
-				<PackageReference Include="Fluxor.Blazor.Web.ReduxDevTools" Version="3.7.0" />
-			</ItemGroup>
-		</When>
-	</Choose>
-
 </Project>
