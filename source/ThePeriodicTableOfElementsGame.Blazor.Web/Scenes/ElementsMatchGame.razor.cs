@@ -42,6 +42,7 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Scenes
 				SceneType.ElementsMatchGameOver => "--game-over",
 				SceneType.TransitionFromElementsMatchGameToGameOver => "--game-over-sequence",
 				SceneType.ElementsMatchGame => "--gameplay",
+				SceneType.MainMenu => "",
 				_ => throw new NotImplementedException(NavigationState.Value.Scene.ToString())
 			};
 
