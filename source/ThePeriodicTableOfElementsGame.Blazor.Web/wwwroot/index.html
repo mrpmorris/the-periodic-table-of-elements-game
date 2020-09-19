@@ -36,7 +36,7 @@
 			loadBootResource: function (type, name, defaultUri, integrity) {
 				if (type !== 'dotnetjs' && location.hostname !== 'localhost') {
 					return (async function () {
-						const response = await fetch(defaultUri + '.br', { cache: 'no-cache' });
+						const response = await fetch(defaultUri + '.br');
 						if (!response.ok) {
 							throw new Error(response.statusText);
 						}
