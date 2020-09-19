@@ -89,14 +89,14 @@ h2 {
 }
 
 	.menu > li {
-		margin: 3vh;
+		margin: 3vmin;
 	}
 
 	.menu .button {
 		border-radius: 8px;
 		border: none;
 		font-size: 4vmin;
-		height: 8vh;
+		height: 8vmin;
 		width: 50vw;
 		vertical-align: middle;
 		text-align: center;

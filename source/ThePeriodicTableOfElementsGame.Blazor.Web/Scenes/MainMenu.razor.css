@@ -8,7 +8,7 @@
 
 #credits {
 	position: absolute;
-	bottom: 2vh;
+	bottom: 2vmin;
 	text-align: center;
 	font-size: 3vmin;
 	width: 100%;
@@ -27,5 +27,5 @@ h2 {
 }
 
 .menu {
-	margin-top: 8vh;
+	margin-top: 8vmin;
 }
