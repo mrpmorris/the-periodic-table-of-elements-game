@@ -2,6 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>net5.0</TargetFramework>
+		<BlazorEnableTimeZoneSupport>false</BlazorEnableTimeZoneSupport>
 		<ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
 	</PropertyGroup>
 
@@ -12,6 +13,7 @@
 
 	<ItemGroup>
 	  <Watch Remove="wwwroot\scripts\brotti-decode.min.js" />
+	  <Watch Remove="wwwroot\scripts\decode.min.js" />
 	</ItemGroup>
 
 	<ItemGroup>
