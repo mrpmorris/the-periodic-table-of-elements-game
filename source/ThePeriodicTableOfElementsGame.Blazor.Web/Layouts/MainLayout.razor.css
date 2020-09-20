@@ -1,0 +1,19 @@
+﻿#rotate-your-device {
+	display: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+@media (max-width: 600px) and (orientation: portrait) {
+  #scene {
+    display: none;
+  }
+
+  #rotate-your-device {
+    display: flex;
+  }
+}
