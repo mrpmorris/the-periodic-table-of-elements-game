@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>The periodic table of elements game</title>
 	<base href="/" />
 	<link href="css/app.css" rel="stylesheet" />
@@ -36,7 +36,7 @@
 			loadBootResource: function (type, name, defaultUri, integrity) {
 				if (type !== 'dotnetjs' && location.hostname !== 'localhost') {
 					return (async function () {
-						const response = await fetch(defaultUri + '.br');
+						const response = await fetch(defaultUri + '.br',);
 						if (!response.ok) {
 							throw new Error(response.statusText);
 						}

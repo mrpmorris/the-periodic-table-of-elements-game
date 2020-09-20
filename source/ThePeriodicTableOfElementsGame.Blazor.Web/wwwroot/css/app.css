@@ -274,7 +274,6 @@ h2 {
 }
 
 .--place-the-symbol .element > .back > .name {
-	font-weight: bold;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -283,6 +282,8 @@ h2 {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	transform: scaleY(2);
+	font-family: Tahoma, Geneva, sans-serif;
 }
 
 @keyframes fade-and-zoom-in {

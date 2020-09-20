@@ -16,10 +16,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Watch Remove="wwwroot\scripts\decode.min.js" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <None Include="wwwroot\audio\ElementsSong.ogg" />
 	</ItemGroup>
 
