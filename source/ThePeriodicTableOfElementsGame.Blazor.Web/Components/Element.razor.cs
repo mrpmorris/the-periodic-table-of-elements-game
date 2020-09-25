@@ -17,6 +17,7 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Components
 
 		private ElementState _state;
 		private ElementData Data;
+		private bool NeedsRender = true;
 
 		public string GetStyles() => 
 			$"grid-column-start:{Data.Column}; grid-row-start:{Data.Row}";
@@ -24,10 +25,22 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Components
 		public string GetClasses() =>
 			$"{Data.Group.GetAsCssClass()} " + (State.Concealed ? "--concealed" : "");
 
+		protected override bool ShouldRender() => NeedsRender;
+
+		protected override void OnAfterRender(bool firstRender)
+		{
+			base.OnAfterRender(firstRender);
+			NeedsRender = false;
+		}
+
 		private void SetState(ElementState state)
 		{
+			if (state == _state)
+				return;
+
 			_state = state;
 			Data = TableOfElementsData.ElementByNumber[state.AtomicNumber];
+			NeedsRender = true;
 		}
 
 		private void Clicked()
