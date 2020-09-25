@@ -46,7 +46,16 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Scenes
 				_ => throw new NotImplementedException(NavigationState.Value.Scene.ToString())
 			};
 
-			return $"{matchmodeCSS} {sceneTypeCss}";
+			string highlightedElementGroup = "";
+			byte? expectedAtomicNumber = GameState.Value.ExpectedElement;
+			if (GameState.Value.HighlighElementsInExpectedGroup && expectedAtomicNumber.HasValue)
+			{
+				ElementGroup expectedElementGroup =
+					TableOfElementsData.ElementByNumber[expectedAtomicNumber.Value].Group;
+				highlightedElementGroup = "--highlight-group" + expectedElementGroup.GetAsCssClass(); 
+			}
+
+			return $"{matchmodeCSS} {sceneTypeCss} {highlightedElementGroup}";
 		}
 
 		private string GetElementGroupAsCssClass() =>

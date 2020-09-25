@@ -1,16 +1,16 @@
 ﻿.element {
 	text-align: center;
-	margin: 1px;
 	perspective: 1000px;
 	background-color: transparent;
 	position: absolute;
 	transition: transform 0.3s;
-	border-radius: 4px;
+	border-radius: 8px;
 	transform-style: preserve-3d;
 	cursor: pointer;
 	font-size: 0.75vw;
-	width: calc(100% / 18.5);
-	height: calc(100% / 19.5 * 2);
+	width: calc(100% / 17.5);
+	height: calc(100% / 19 * 2);
+	border: 3px solid transparent;
 }
 
 	.element > .front {
@@ -107,3 +107,55 @@
 	.element.--concealed {
 		transform: rotateY(180deg)
 	}
+
+.--highlight-group--actinide .--actinide {
+	animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
+}
+
+.--highlight-group--alkali-metal .--alkali-metal {
+	animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
+}
+
+.--highlight-group--alkaline-earth-metal .--alkaline-earth-metal {
+	animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
+}
+
+.--highlight-group--basic-metal .--basic-metal {
+	animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
+}
+
+.--highlight-group--halogen .--halogen {
+	animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
+}
+
+.--highlight-group--lathanide .--lathanide {
+	animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
+}
+
+.--highlight-group--noble-gas .--noble-gas {
+	animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
+}
+
+.--highlight-group--non-metal .--non-metal {
+	animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
+}
+
+.--highlight-group--semi-metal .--semi-metal {
+	animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
+}
+
+.--highlight-group--transitional-metal .--transitional-metal {
+	animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
+}
+
+
+@keyframes pulse-highlighted-element {
+	0% {
+		border: 3px solid rgba(255, 255, 255, 0);
+		border-radius: 25%;
+	}
+	100% {
+		border: 3px solid rgba(255, 255, 255, 1);
+		border-radius: 0;
+	}
+}

@@ -63,6 +63,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Reducers
 				_ => throw new NotImplementedException(state.MatchType.ToString())
 			},
 			ShowElementGroup = false,
+			HighlighElementsInExpectedGroup = false,
 			AvailableElements = state.AvailableElements.Remove(action.AtomicNumber)
 		};
 
@@ -70,13 +71,14 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Reducers
 		public static ElementsMatchGameState Reduce(ElementsMatchGameState state, RevealElementGroupAction action) =>
 			(state.ExpectedElement != action.AtomicNumber)
 			? state
-			: state with { ShowElementGroup = true };
+			: state with { ShowElementGroup = true, HighlighElementsInExpectedGroup = true };
 
 		[ReducerMethod]
 		public static ElementsMatchGameState Reduce(ElementsMatchGameState state, ElementMatchedAction _) =>
 			state with
 		{
-			TotalMatched = state.TotalMatched + 1
+			TotalMatched = state.TotalMatched + 1,
+			HighlighElementsInExpectedGroup = false
 		};
 
 		[ReducerMethod]
