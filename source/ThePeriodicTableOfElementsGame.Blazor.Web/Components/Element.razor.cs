@@ -20,7 +20,7 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Components
 		private bool NeedsRender = true;
 
 		public string GetStyles() => 
-			$"grid-column-start:{Data.Column}; grid-row-start:{Data.Row}";
+			$"top: calc(100% / 9.5 * {Data.Row - 1}); left: calc(100% / 18 * {Data.Column - 1})";
 
 		public string GetClasses() =>
 			$"{Data.Group.GetAsCssClass()} " + (State.Concealed ? "--concealed" : "");

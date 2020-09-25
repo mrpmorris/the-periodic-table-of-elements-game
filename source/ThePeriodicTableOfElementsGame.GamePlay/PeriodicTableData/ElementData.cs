@@ -6,7 +6,7 @@
 		public string Symbol { get; }
 		public string Name { get; }
 		public byte Column { get; }
-		public byte Row { get; }
+		public decimal Row { get; }
 		public ElementGroup Group { get; }
 
 		public ElementData(
@@ -14,7 +14,7 @@
 			string symbol,
 			string name,
 			byte column,
-			byte row,
+			decimal row,
 			ElementGroup group)
 		{
 			AtomicNumber = atomicNumber;
