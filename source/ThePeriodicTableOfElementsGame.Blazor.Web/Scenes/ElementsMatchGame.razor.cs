@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Components;
 using System;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Actions;
-using ThePeriodicTableOfElementsGame.GamePlay.Navigation;
-using ThePeriodicTableOfElementsGame.GamePlay.Navigation.Actions;
+using ThePeriodicTableOfElementsGame.GamePlay.Shared;
+using ThePeriodicTableOfElementsGame.GamePlay.Shared.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData;
 using ThePeriodicTableOfElementsGame.Blazor.Web.Extensions;
 
@@ -16,7 +16,7 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Scenes
 		private IState<ElementsMatchGameState> GameState { get; set; }
 
 		[Inject]
-		private IState<NavigationState> NavigationState { get; set; }
+		private IState<SharedState> SharedState { get; set; }
 
 		[Inject]
 		private IDispatcher Dispatcher { get; set; }
@@ -37,13 +37,13 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Scenes
 				_ => throw new NotImplementedException(GameState.Value.MatchType.ToString())
 			};
 
-			string sceneTypeCss = NavigationState.Value.Scene switch
+			string sceneTypeCss = SharedState.Value.Scene switch
 			{
 				SceneType.ElementsMatchGameOver => "--game-over",
 				SceneType.TransitionFromElementsMatchGameToGameOver => "--game-over-sequence",
 				SceneType.ElementsMatchGame => "--gameplay",
 				SceneType.MainMenu => "",
-				_ => throw new NotImplementedException(NavigationState.Value.Scene.ToString())
+				_ => throw new NotImplementedException(SharedState.Value.Scene.ToString())
 			};
 
 			string highlightedElementGroup = "";

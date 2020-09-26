@@ -1,4 +1,4 @@
-﻿namespace ThePeriodicTableOfElementsGame.GamePlay.Navigation
+﻿namespace ThePeriodicTableOfElementsGame.GamePlay.Shared
 {
 	public enum SceneType
 	{

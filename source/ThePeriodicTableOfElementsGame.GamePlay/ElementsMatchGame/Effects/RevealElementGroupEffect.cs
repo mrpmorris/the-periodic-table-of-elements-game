@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Actions;
-using ThePeriodicTableOfElementsGame.GamePlay.Navigation.Actions;
+using ThePeriodicTableOfElementsGame.GamePlay.Shared.Actions;
 
 namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Effects
 {

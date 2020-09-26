@@ -1,8 +1,8 @@
 ﻿using Fluxor;
 using Microsoft.AspNetCore.Components;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
-using ThePeriodicTableOfElementsGame.GamePlay.Navigation;
-using ThePeriodicTableOfElementsGame.GamePlay.Navigation.Actions;
+using ThePeriodicTableOfElementsGame.GamePlay.Shared;
+using ThePeriodicTableOfElementsGame.GamePlay.Shared.Actions;
 
 namespace ThePeriodicTableOfElementsGame.Blazor.Web.Scenes
 {
@@ -12,16 +12,16 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Scenes
 		private IState<ElementsMatchGameState> GameState { get; set; }
 
 		[Inject]
-		private IState<NavigationState> NavigationState { get; set; }
+		private IState<SharedState> SharedState { get; set; }
 
 		[Inject]
 		private IDispatcher Dispatcher { get; set; }
 
 		private string GetUIStatusCss()
 		{
-			if (NavigationState.Value.Scene == SceneType.TransitionFromElementsMatchGameToGameOver)
+			if (SharedState.Value.Scene == SceneType.TransitionFromElementsMatchGameToGameOver)
 				return "--game-over-sequence";
-			if (NavigationState.Value.Scene == SceneType.ElementsMatchGameOver)
+			if (SharedState.Value.Scene == SceneType.ElementsMatchGameOver)
 				return "--game-over";
 			return null;
 		}

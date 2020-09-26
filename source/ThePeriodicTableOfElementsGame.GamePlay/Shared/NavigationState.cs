@@ -1,6 +1,6 @@
-﻿namespace ThePeriodicTableOfElementsGame.GamePlay.Navigation
+﻿namespace ThePeriodicTableOfElementsGame.GamePlay.Shared
 {
-	public record NavigationState
+	public record SharedState
 	{
 		public SceneType Scene { get; init; }
 
@@ -15,7 +15,7 @@
 			Scene == SceneType.TransitionFromElementsMatchGameToGameOver
 			|| Scene == SceneType.ElementsMatchGameOver;
 
-		public NavigationState(SceneType scene)
+		public SharedState(SceneType scene)
 		{
 			Scene = scene;
 		}

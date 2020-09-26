@@ -1,15 +1,15 @@
 @inherits Fluxor.Blazor.Web.Components.FluxorComponent
 <Fluxor.Blazor.Web.StoreInitializer />
 <LayoutView Layout=typeof(MainLayout)>
-	@if (NavigationState.Value.ShowMainMenu)
+	@if (SharedState.Value.ShowMainMenu)
 	{
 		<MainMenu />
 	}
-	@if (NavigationState.Value.ShowElementsMatchGame)
+	@if (SharedState.Value.ShowElementsMatchGame)
 	{
 		<ElementsMatchGame />
 	}
-	@if (NavigationState.Value.ShowGameOver)
+	@if (SharedState.Value.ShowGameOver)
 	{
 		<ElementsMatchGameOver />
 	}
