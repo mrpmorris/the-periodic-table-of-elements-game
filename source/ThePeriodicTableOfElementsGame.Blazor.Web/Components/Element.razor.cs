@@ -4,6 +4,7 @@ using ThePeriodicTableOfElementsGame.Blazor.Web.Extensions;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
 using ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Actions;
+using ThePeriodicTableOfElementsGame.GamePlay.Shared.Actions;
 
 namespace ThePeriodicTableOfElementsGame.Blazor.Web.Components
 {
@@ -45,7 +46,7 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Components
 
 		private void Clicked()
 		{
-			Dispatcher.Dispatch(new ClickElementAction(AtomicNumber: State.AtomicNumber));
+			Dispatcher.Dispatch(new ElementClickedEvent(AtomicNumber: State.AtomicNumber));
 		}
 	}
 }

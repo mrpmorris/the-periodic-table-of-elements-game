@@ -4,16 +4,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
+using ThePeriodicTableOfElementsGame.GamePlay.Shared;
+using ThePeriodicTableOfElementsGame.GamePlay.Shared.Actions;
 
 namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Effects
 {
 	public class Effects
 	{
+		private IState<SharedState> SharedState;
 		private IState<ElementsMatchGameState> GameState;
 		private IAudioPlayer AudioPlayer;
 
-		public Effects(IState<ElementsMatchGameState> gameState, IAudioPlayer audioPlayer)
+		public Effects(
+			IState<SharedState> sharedState,
+			IState<ElementsMatchGameState> gameState,
+			IAudioPlayer audioPlayer)
 		{
+			SharedState = sharedState ?? throw new ArgumentNullException(nameof(sharedState));
 			GameState = gameState ?? throw new ArgumentNullException(nameof(gameState));
 			AudioPlayer = audioPlayer ?? throw new ArgumentNullException(nameof(audioPlayer));
 		}
@@ -23,6 +30,14 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Effects
 		{
 			await Task.Delay(500);
 			dispatcher.Dispatch(new SetExpectedElementAction(AtomicNumber: GetRandomElementAtomicNumber()));
+		}
+
+		[EffectMethod]
+		public Task Handle(ElementClickedEvent action, IDispatcher dispatcher)
+		{
+			if (SharedState.Value.ShowElementsMatchGame)
+				dispatcher.Dispatch(new ClickElementAction(action.AtomicNumber));
+			return Task.CompletedTask;
 		}
 
 		[EffectMethod]
