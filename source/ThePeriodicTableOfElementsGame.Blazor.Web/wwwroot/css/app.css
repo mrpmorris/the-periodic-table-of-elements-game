@@ -132,8 +132,6 @@ h2 {
 }
 
 
-
-
 .table-of-elements_header {
 	position: relative;
 	overflow: hidden;
@@ -284,6 +282,22 @@ h2 {
 	justify-content: center;
 	transform: scaleY(2);
 	font-family: Tahoma, Geneva, sans-serif;
+}
+
+.exit-button-container {
+	position: relative;
+	grid-column: 1 / span 2;
+	grid-row: 8 / span 2;
+}
+
+.exit-button {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 70%;
+	margin-top: -35%;
+	margin-left: -35%;
+	cursor: pointer;
 }
 
 @keyframes fade-and-zoom-in {

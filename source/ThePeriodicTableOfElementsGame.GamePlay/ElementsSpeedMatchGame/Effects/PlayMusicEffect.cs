@@ -22,7 +22,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGame.Effects
 			TheElementsSong = await AudioPlayer.CreateAsync(AudioSample.ElementsSong)
 				.ConfigureAwait(false);
 
-			await TheElementsSong.Play();
+			await TheElementsSong.PlayAsync().ConfigureAwait(false);
 		}
 
 		[ReducerMethod]
@@ -30,6 +30,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGame.Effects
 		{
 			if (TheElementsSong != null)
 			{
+				await TheElementsSong.StopAsync().ConfigureAwait(false);
 				await TheElementsSong.DisposeAsync().ConfigureAwait(false);
 				TheElementsSong = null;
 			}

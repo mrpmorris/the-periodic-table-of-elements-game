@@ -53,8 +53,11 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Services
 		public ValueTask<float> GetCurrentTime() =>
 			JSAudio.InvokeAsync<float>("getCurrentTime");
 
-		public ValueTask Play() =>
+		public ValueTask PlayAsync() =>
 			JSAudio.InvokeVoidAsync("play");
+
+		public ValueTask StopAsync() =>
+			JSAudio.InvokeVoidAsync("pause");
 
 		public ValueTask DisposeAsync() =>
 			JSAudio.DisposeAsync();

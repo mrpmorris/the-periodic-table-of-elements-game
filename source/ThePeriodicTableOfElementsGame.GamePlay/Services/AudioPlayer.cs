@@ -20,7 +20,8 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.Services
 	public interface IAudioClip: IAsyncDisposable
 	{
 		ValueTask<float> GetCurrentTime();
-		ValueTask Play();
+		ValueTask PlayAsync();
+		ValueTask StopAsync();
 	}
 
 }
