@@ -17,5 +17,10 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Scenes
 			Dispatcher.Dispatch(new SelectGameAction(matchType));
 			Dispatcher.Dispatch(new NavigateAction(SceneType.ElementsMatchGame));
 		}
+
+		private void PlaySpeedMatchGame()
+		{
+			Dispatcher.Dispatch(new NavigateAction(SceneType.ElementSpeedMatchGame));
+		}
 	}
 }

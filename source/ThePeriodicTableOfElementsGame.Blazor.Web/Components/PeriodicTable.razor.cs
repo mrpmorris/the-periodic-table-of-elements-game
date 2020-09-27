@@ -1,5 +1,4 @@
-﻿using Fluxor;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using System.Collections.Generic;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
 
@@ -10,8 +9,8 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Components
 		[Parameter]
 		public RenderFragment ChildContent { get; set; }
 
-		[Inject]
-		private IState<ElementsMatchGameState> GameState { get; set; }
+		[Parameter]
+		public IEnumerable<ElementState> ElementStates { get; set; }
 
 		[Parameter(CaptureUnmatchedValues = true)]
 		public Dictionary<string, object> Attributes { get; set; }

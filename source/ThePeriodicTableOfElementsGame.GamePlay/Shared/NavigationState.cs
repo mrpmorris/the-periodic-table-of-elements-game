@@ -11,9 +11,12 @@
 			Scene == SceneType.ElementsMatchGame
 			|| Scene == SceneType.TransitionFromElementsMatchGameToGameOver;
 
-		public bool ShowGameOver =>
+		public bool ShowElementsMatchGameOver =>
 			Scene == SceneType.TransitionFromElementsMatchGameToGameOver
 			|| Scene == SceneType.ElementsMatchGameOver;
+
+		public bool ShowElementsSpeedMatchGame =>
+			Scene == SceneType.ElementSpeedMatchGame;
 
 		public SharedState(SceneType scene)
 		{

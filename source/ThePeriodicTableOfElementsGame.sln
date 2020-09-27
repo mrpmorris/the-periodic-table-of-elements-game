@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThePeriodicTableOfElementsGame.GamePlay", "ThePeriodicTableOfElementsGame.GamePlay\ThePeriodicTableOfElementsGame.GamePlay.csproj", "{14C4F8D1-F7FA-4D9E-860E-8F4D58E08A4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThePeriodicTableOfElementsGame.Blazor.Web", "ThePeriodicTableOfElementsGame.Blazor.Web\ThePeriodicTableOfElementsGame.Blazor.Web.csproj", "{F99D3E6C-8144-4752-B430-490A1C8805D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThePeriodicTableOfElementsGame.Blazor.Web", "ThePeriodicTableOfElementsGame.Blazor.Web\ThePeriodicTableOfElementsGame.Blazor.Web.csproj", "{F99D3E6C-8144-4752-B430-490A1C8805D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

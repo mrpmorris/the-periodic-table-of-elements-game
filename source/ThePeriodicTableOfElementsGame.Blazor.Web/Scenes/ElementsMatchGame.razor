@@ -1,6 +1,6 @@
 ﻿@inherits Fluxor.Blazor.Web.Components.FluxorComponent
 
-<PeriodicTable class="@GetUIStatusCss()">
+<PeriodicTable class="@GetUIStatusCss()" ElementStates=@GameState.Value.ElementStates.Values>
 	<div class="table-of-elements_header">
 		@if (GameState.Value.ExpectedElement.HasValue)
 		{

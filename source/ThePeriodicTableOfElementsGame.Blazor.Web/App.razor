@@ -9,8 +9,12 @@
 	{
 		<ElementsMatchGame />
 	}
-	@if (SharedState.Value.ShowGameOver)
+	@if (SharedState.Value.ShowElementsMatchGameOver)
 	{
 		<ElementsMatchGameOver />
+	}
+	@if (SharedState.Value.ShowElementsSpeedMatchGame)
+	{
+		<ElementsSpeedMatchGame />
 	}
 </LayoutView>

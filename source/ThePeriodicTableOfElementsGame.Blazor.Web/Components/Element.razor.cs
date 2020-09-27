@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Components;
 using ThePeriodicTableOfElementsGame.Blazor.Web.Extensions;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
 using ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData;
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.Shared.Actions;
 
 namespace ThePeriodicTableOfElementsGame.Blazor.Web.Components
