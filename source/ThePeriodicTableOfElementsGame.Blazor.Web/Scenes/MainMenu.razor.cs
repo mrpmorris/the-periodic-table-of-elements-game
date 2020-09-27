@@ -1,9 +1,6 @@
 ﻿using Fluxor;
 using Microsoft.AspNetCore.Components;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature;
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature.Actions;
-using ThePeriodicTableOfElementsGame.GamePlay.SharedFeature;
-using ThePeriodicTableOfElementsGame.GamePlay.SharedFeature.Actions;
 
 namespace ThePeriodicTableOfElementsGame.Blazor.Web.Scenes
 {
@@ -14,13 +11,12 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Scenes
 
 		private void PlayMatchGame(MatchType matchType)
 		{
-			Dispatcher.Dispatch(new SelectGameAction(matchType));
-			Dispatcher.Dispatch(new NavigateAction(SceneType.ElementsMatchGame));
+			Dispatcher.Dispatch(new GamePlay.ElementsMatchGameFeature.Actions.StartGameAction(matchType));
 		}
 
 		private void PlaySpeedMatchGame()
 		{
-			Dispatcher.Dispatch(new NavigateAction(SceneType.ElementSpeedMatchGame));
+			Dispatcher.Dispatch(new GamePlay.ElementsSpeedMatchGame.Actions.StartGameAction());
 		}
 	}
 }

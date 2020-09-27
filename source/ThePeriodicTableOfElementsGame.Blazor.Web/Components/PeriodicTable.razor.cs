@@ -16,3 +16,7 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Components
 		public Dictionary<string, object> Attributes { get; set; }
 	}
 }
+
+#if !DEBUG
+The elements in the table overlap, their heights need fixing
+#endif

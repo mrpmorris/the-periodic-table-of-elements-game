@@ -19,13 +19,6 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Scenes
 		[Inject]
 		private IAudioPlayer AudioPlayer { get; set; }
 
-		protected override void OnAfterRender(bool firstRender)
-		{
-			base.OnAfterRender(firstRender);
-			if (firstRender)
-				Dispatcher.Dispatch(new StartGameAction());
-		}
-
 		private void GoToMainMenu()
 		{
 			Dispatcher.Dispatch(new NavigateAction(SceneType.MainMenu));

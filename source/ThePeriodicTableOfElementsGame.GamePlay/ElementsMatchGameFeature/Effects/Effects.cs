@@ -26,14 +26,15 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature.Effec
 		}
 
 		[EffectMethod]
-		public async Task Handle(StartGameAction _, IDispatcher dispatcher)
+		public async Task StartGame(StartGameAction _, IDispatcher dispatcher)
 		{
+			dispatcher.Dispatch(new NavigateAction(SceneType.ElementsMatchGame));
 			await Task.Delay(500);
 			dispatcher.Dispatch(new SetExpectedElementAction(AtomicNumber: GetRandomElementAtomicNumber()));
 		}
 
 		[EffectMethod]
-		public Task Handle(ElementClickedEvent action, IDispatcher dispatcher)
+		public Task ElementClickedEvent(ElementClickedEvent action, IDispatcher dispatcher)
 		{
 			if (SharedState.Value.ShowElementsMatchGame)
 				dispatcher.Dispatch(new ClickElementAction(action.AtomicNumber));
@@ -41,7 +42,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature.Effec
 		}
 
 		[EffectMethod]
-		public Task Handle(ClickElementAction action, IDispatcher dispatcher)
+		public Task ClickElement(ClickElementAction action, IDispatcher dispatcher)
 		{
 			if (!GameState.Value.ElementStates[action.AtomicNumber].Concealed)
 				return Task.CompletedTask;
@@ -61,13 +62,13 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature.Effec
 		}
 
 		[EffectMethod]
-		public Task Handle(ElementMismatchedAction _, IDispatcher dispatcher)
+		public Task ElementMismatched(ElementMismatchedAction _, IDispatcher dispatcher)
 		{
 			return AudioPlayer.PlayOneShotAsync(AudioSample.ElementMismatched);
 		}
 
 		[EffectMethod]
-		public async Task Handle(ElementMatchedAction _, IDispatcher dispatcher)
+		public async Task ElementMatched(ElementMatchedAction _, IDispatcher dispatcher)
 		{
 			await AudioPlayer.PlayOneShotAsync(AudioSample.ElementFastMatched1);
 			await Task.Delay(1000);
@@ -80,11 +81,11 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature.Effec
 		}
 
 		[EffectMethod]
-		public Task Handle(SetExpectedElementAction _, IDispatcher dispatcher) =>
+		public Task SetExpectedElement(SetExpectedElementAction _, IDispatcher dispatcher) =>
 			AudioPlayer.PlayOneShotAsync(AudioSample.ElementAppeared);
 
 		[EffectMethod]
-		public async Task Handle(StartGameOverSequenceAction _, IDispatcher dispatcher)
+		public async Task StartGameOverSequence(StartGameOverSequenceAction _, IDispatcher dispatcher)
 		{
 			await Task.Delay(2050);
 			dispatcher.Dispatch(new CompleteGameOverAction());

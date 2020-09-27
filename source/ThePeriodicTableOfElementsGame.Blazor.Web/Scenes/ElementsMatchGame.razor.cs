@@ -21,13 +21,6 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Scenes
 		[Inject]
 		private IDispatcher Dispatcher { get; set; }
 
-		protected override void OnAfterRender(bool firstRender)
-		{
-			base.OnAfterRender(firstRender);
-			if (firstRender)
-				Dispatcher.Dispatch(new StartGameAction());
-		}
-
 		private string GetUIStatusCss()
 		{
 			string matchmodeCSS = GameState.Value.MatchType switch
