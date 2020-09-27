@@ -21,6 +21,15 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Services
 				GetAudioFilename(audioSample));
 		}
 
+		public async Task<IAudioClip> CreateAsync(AudioSample audioSample)
+		{
+			JSObjectReference jsAudio = await JSRuntime.InvokeAsync<JSObjectReference>(
+				"ThePeriodicTableOfElementsGame.audio.create",
+				GetAudioFilename(audioSample));
+
+			return new AudioClip(jsAudio);
+		}
+
 		private static string GetAudioFilename(AudioSample audioSample) =>
 			audioSample switch
 			{
@@ -30,5 +39,24 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Services
 				AudioSample.ElementsSong => "ElementsSong.ogg",
 				_ => throw new NotImplementedException(audioSample.ToString())
 			};
+	}
+
+	public class AudioClip: IAudioClip
+	{
+		private readonly JSObjectReference JSAudio;
+
+		public AudioClip(JSObjectReference jsAudio)
+		{
+			JSAudio = jsAudio ?? throw new ArgumentNullException(nameof(jsAudio));
+		}
+
+		public ValueTask<float> GetCurrentTime() =>
+			JSAudio.InvokeAsync<float>("getCurrentTime");
+
+		public ValueTask Play() =>
+			JSAudio.InvokeVoidAsync("play");
+
+		public ValueTask DisposeAsync() =>
+			JSAudio.DisposeAsync();
 	}
 }

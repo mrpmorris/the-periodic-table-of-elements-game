@@ -1,10 +1,12 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace ThePeriodicTableOfElementsGame.GamePlay.Services
 {
 	public interface IAudioPlayer
 	{
 		Task PlayOneShotAsync(AudioSample audioSample);
+		Task<IAudioClip> CreateAsync(AudioSample audioSample);
 	}
 
 	public enum AudioSample
@@ -14,4 +16,11 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.Services
 		ElementFastMatched1,
 		ElementsSong
 	}
+
+	public interface IAudioClip: IAsyncDisposable
+	{
+		ValueTask<float> GetCurrentTime();
+		ValueTask Play();
+	}
+
 }
