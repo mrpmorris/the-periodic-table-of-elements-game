@@ -1,6 +1,6 @@
 ﻿using Fluxor;
 
-namespace ThePeriodicTableOfElementsGame.GamePlay.Shared
+namespace ThePeriodicTableOfElementsGame.GamePlay.SharedFeature
 {
 	public class Feature : Feature<SharedState>
 	{

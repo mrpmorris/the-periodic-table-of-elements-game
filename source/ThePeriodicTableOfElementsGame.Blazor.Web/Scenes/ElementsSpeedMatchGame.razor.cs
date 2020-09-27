@@ -1,7 +1,7 @@
 ﻿using Fluxor;
 using Microsoft.AspNetCore.Components;
-using ThePeriodicTableOfElementsGame.GamePlay.Shared;
-using ThePeriodicTableOfElementsGame.GamePlay.Shared.Actions;
+using ThePeriodicTableOfElementsGame.GamePlay.SharedFeature;
+using ThePeriodicTableOfElementsGame.GamePlay.SharedFeature.Actions;
 
 namespace ThePeriodicTableOfElementsGame.Blazor.Web.Scenes
 {

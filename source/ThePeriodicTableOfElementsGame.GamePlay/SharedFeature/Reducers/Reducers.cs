@@ -1,8 +1,8 @@
 ﻿using Fluxor;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature.Actions;
-using ThePeriodicTableOfElementsGame.GamePlay.Shared.Actions;
+using ThePeriodicTableOfElementsGame.GamePlay.SharedFeature.Actions;
 
-namespace ThePeriodicTableOfElementsGame.GamePlay.Shared.Reducers
+namespace ThePeriodicTableOfElementsGame.GamePlay.SharedFeature.Reducers
 {
 	public static class Reducers
 	{

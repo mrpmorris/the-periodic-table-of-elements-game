@@ -1,4 +1,4 @@
-﻿namespace ThePeriodicTableOfElementsGame.GamePlay.Shared
+﻿namespace ThePeriodicTableOfElementsGame.GamePlay.SharedFeature
 {
 	public record SharedState
 	{

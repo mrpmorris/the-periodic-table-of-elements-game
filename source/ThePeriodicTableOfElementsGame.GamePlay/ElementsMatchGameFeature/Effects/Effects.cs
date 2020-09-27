@@ -4,8 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
-using ThePeriodicTableOfElementsGame.GamePlay.Shared;
-using ThePeriodicTableOfElementsGame.GamePlay.Shared.Actions;
+using ThePeriodicTableOfElementsGame.GamePlay.SharedFeature;
+using ThePeriodicTableOfElementsGame.GamePlay.SharedFeature.Actions;
 
 namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature.Effects
 {

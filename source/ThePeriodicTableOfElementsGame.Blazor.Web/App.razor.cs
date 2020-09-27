@@ -1,6 +1,6 @@
 ﻿using Fluxor;
 using Microsoft.AspNetCore.Components;
-using ThePeriodicTableOfElementsGame.GamePlay.Shared;
+using ThePeriodicTableOfElementsGame.GamePlay.SharedFeature;
 
 namespace ThePeriodicTableOfElementsGame.Blazor.Web
 {
