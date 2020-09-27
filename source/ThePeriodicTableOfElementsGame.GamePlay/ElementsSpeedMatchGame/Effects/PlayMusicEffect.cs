@@ -25,7 +25,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGame.Effects
 			await TheElementsSong.PlayAsync().ConfigureAwait(false);
 		}
 
-		[ReducerMethod]
+		[EffectMethod]
 		public async Task NavigateAwayFromScene(NavigateAction action, IDispatcher dispatcher)
 		{
 			if (TheElementsSong != null)
