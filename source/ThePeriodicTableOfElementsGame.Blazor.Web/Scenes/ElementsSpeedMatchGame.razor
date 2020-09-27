@@ -1,6 +1,6 @@
 ﻿@inherits Fluxor.Blazor.Web.Components.FluxorComponent
 
-<PeriodicTable>
+<PeriodicTable ElementStates=@GameState.Value.ElementStates>
 	<div class="exit-button-container">
 		<img class="exit-button" src="/images/BackButton.png" alt="Back" @onclick=GoToMainMenu />
 	</div>
