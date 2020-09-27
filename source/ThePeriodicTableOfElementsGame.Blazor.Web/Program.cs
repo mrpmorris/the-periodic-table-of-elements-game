@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
 using ThePeriodicTableOfElementsGame.Blazor.Web.Services;
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
+using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
 
 namespace ThePeriodicTableOfElementsGame.Blazor.Web

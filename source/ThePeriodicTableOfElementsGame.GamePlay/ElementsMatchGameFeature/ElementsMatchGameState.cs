@@ -1,7 +1,7 @@
 ﻿using System.Collections.Immutable;
 using System.Linq;
 
-namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
+namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature
 {
 	public record ElementsMatchGameState(
 		MatchType MatchType,

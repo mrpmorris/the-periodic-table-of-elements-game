@@ -2,10 +2,10 @@
 using System;
 using System.Collections.Immutable;
 using System.Linq;
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Actions;
+using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData;
 
-namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Reducers
+namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature.Reducers
 {
 	public static class Reducers
 	{

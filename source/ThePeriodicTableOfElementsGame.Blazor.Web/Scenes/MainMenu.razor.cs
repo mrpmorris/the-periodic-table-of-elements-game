@@ -1,7 +1,7 @@
 ﻿using Fluxor;
 using Microsoft.AspNetCore.Components;
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Actions;
+using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature;
+using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.Shared;
 using ThePeriodicTableOfElementsGame.GamePlay.Shared.Actions;
 

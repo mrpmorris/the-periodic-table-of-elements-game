@@ -1,6 +1,6 @@
 ﻿using Fluxor;
 using Microsoft.AspNetCore.Components;
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
+using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature;
 using ThePeriodicTableOfElementsGame.GamePlay.Shared;
 using ThePeriodicTableOfElementsGame.GamePlay.Shared.Actions;
 

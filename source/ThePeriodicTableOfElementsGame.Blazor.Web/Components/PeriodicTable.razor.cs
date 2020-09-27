@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System.Collections.Generic;
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
+using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature;
 
 namespace ThePeriodicTableOfElementsGame.Blazor.Web.Components
 {
