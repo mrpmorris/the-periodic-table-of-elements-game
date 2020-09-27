@@ -19,8 +19,8 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature.Reduc
 				{
 					Back = x.Back with
 					{
-						ShowSymbol = state.MatchType == MatchType.PlaceTheName,
-						ShowName = state.MatchType == MatchType.PlaceTheSymbol
+						ShowSymbol = action.MatchType == MatchType.PlaceTheName,
+						ShowName = action.MatchType == MatchType.PlaceTheSymbol
 					}
 				})
 				.ToImmutableDictionary(x => x.AtomicNumber)

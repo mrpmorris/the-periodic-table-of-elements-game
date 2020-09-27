@@ -8,6 +8,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGame.Effects
 {
 	public static class Effects
 	{
+		[EffectMethod]
 		public static Task StartGame(StartGameAction action, IDispatcher dispatcher)
 		{
 			dispatcher.Dispatch(new NavigateAction(SceneType.ElementSpeedMatchGame));
