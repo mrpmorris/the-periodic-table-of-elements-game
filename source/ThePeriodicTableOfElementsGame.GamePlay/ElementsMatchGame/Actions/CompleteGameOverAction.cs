@@ -1,6 +1,4 @@
 ﻿namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Actions
 {
-	public class CompleteGameOverAction
-	{
-	}
+	public record CompleteGameOverAction { }
 }
