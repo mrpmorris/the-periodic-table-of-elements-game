@@ -1,0 +1,28 @@
+﻿#ElementHighlighter {
+	border: 0.75em solid transparent;
+	border-radius: 4px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: calc(100% / 18);
+	height: calc(100% / 19 * 2);
+	transition: top 0.25s ease-in-out, left 0.25s ease-in-out;
+}
+
+#ElementHighlighter.--visible {
+	border-color: white;
+}
+
+#ElementHighlighter.--fade-out {
+	animation: element-highlighter-fade-out 1s ease-out;
+}
+
+@keyframes element-highlighter-fade-out {
+	0% {
+		border-color: white;
+	}
+	100% {
+		border-color: rgba(255, 255, 255, 0);
+		transform: scale(2) translate(0px, 1.5em);
+	}
+}
