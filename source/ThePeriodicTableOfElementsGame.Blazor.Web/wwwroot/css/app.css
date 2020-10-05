@@ -89,7 +89,7 @@ h2 {
 }
 
 	.menu > li {
-		margin: 3vmin;
+		margin: 2em;
 	}
 
 	.menu .button {
@@ -97,7 +97,7 @@ h2 {
 		border: none;
 		font-size: 4vmin;
 		height: 8vmin;
-		width: 50vw;
+		width: 50%;
 		vertical-align: middle;
 		text-align: center;
 		cursor: pointer;
