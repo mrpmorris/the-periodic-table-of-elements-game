@@ -2,7 +2,6 @@ using Fluxor;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
-using ThePeriodicTableOfElementsGame.Blazor.Web.Services;
 using ThePeriodicTableOfElementsGame.Blazor.Web.Services.Audio;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
@@ -14,7 +13,7 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web
 		public static async Task Main(string[] args)
 		{
 			var builder = WebAssemblyHostBuilder.CreateDefault(args);
-			builder.RootComponents.Add<App>("app");
+			builder.RootComponents.Add<App>("#app");
 
 			builder.Services.AddScoped<IAudioPlayer, AudioPlayer>();
 			builder.Services.AddFluxor(x => x

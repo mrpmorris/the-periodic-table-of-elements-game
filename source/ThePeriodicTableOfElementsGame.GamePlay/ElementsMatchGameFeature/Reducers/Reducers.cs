@@ -1,7 +1,6 @@
 ﻿using Fluxor;
 using System;
 using System.Linq;
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.Extensions;
 using ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData;
@@ -11,17 +10,17 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature.Reduc
 	public static class Reducers
 	{
 		[ReducerMethod]
-		public static ElementsMatchGameState StartGameAction(ElementsMatchGameState state, StartGameAction _) =>
+		public static ElementsMatchGameState StartGameAction(ElementsMatchGameState state, StartGameAction action) =>
 			ElementsMatchGameStateExtensions.DefaultState.With
 			(
-				matchType: state.MatchType,
+				matchType: action.MatchType,
 				elementStates: ElementsMatchGameStateExtensions.DefaultState.ElementStates.Values
 					.Select(x => x.With
 					(
 						back: x.Back.With
 						(
-							showName: state.MatchType != MatchType.PlaceTheName,
-							showSymbol: state.MatchType != MatchType.PlaceTheSymbol
+							showName: action.MatchType != MatchType.PlaceTheName,
+							showSymbol: action.MatchType != MatchType.PlaceTheSymbol
 						)
 					))
 					.ToDictionary(x => x.AtomicNumber).AsReadOnly()

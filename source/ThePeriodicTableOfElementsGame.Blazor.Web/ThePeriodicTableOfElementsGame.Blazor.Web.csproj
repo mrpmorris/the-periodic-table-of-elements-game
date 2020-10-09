@@ -7,31 +7,24 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Watch Include="**\*.js;**\*.css;**\*.cs;**\*.razor;**\*.html" />
-		<Watch Remove="**\service-worker-assets.js;**\service-worker.js" />
-	</ItemGroup>
-	
-	<ItemGroup>
-	  <Content Remove="wwwroot\audio\ElementsSong.ogg" />
-	</ItemGroup>
-	
-	<ItemGroup>
-	  <Watch Remove="Services\Audio\AudioClip.cs" />
-	  <Watch Remove="Services\Audio\Consts.cs" />
-	</ItemGroup>	
-
-	<ItemGroup>
+		<PackageReference Include="Fluxor" Version="3.7.0" />
 		<PackageReference Include="Fluxor.Blazor.Web" Version="3.7.0" />
 		<PackageReference Include="Fluxor.Blazor.Web.ReduxDevTools" Version="3.7.0" Condition="'$(Configuration)' == 'Debug'" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="3.2.1" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="3.2.1" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\ThePeriodicTableOfElementsGame.GamePlay\ThePeriodicTableOfElementsGame.GamePlay.csproj" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Build" Version="3.2.1" PrivateAssets="all" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="3.2.1" PrivateAssets="all" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
 	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="wwwroot\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\ThePeriodicTableOfElementsGame.GamePlay\ThePeriodicTableOfElementsGame.GamePlay.csproj" />
+	</ItemGroup>
+
 </Project>
