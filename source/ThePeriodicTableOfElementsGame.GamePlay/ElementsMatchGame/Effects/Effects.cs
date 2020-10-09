@@ -9,8 +9,8 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Effects
 {
 	public class Effects
 	{
-		private IState<ElementsMatchGameState> GameState;
-		private IAudioPlayer AudioPlayer;
+		private readonly IState<ElementsMatchGameState> GameState;
+		private readonly IAudioPlayer AudioPlayer;
 
 		public Effects(IState<ElementsMatchGameState> gameState, IAudioPlayer audioPlayer)
 		{
@@ -22,7 +22,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Effects
 		public async Task Handle(StartGameAction _, IDispatcher dispatcher)
 		{
 			await Task.Delay(500);
-			dispatcher.Dispatch(new SetExpectedElementAction(AtomicNumber: GetRandomElementAtomicNumber()));
+			dispatcher.Dispatch(new SetExpectedElementAction(atomicNumber: GetRandomElementAtomicNumber()));
 		}
 
 		[EffectMethod]
@@ -36,11 +36,11 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Effects
 			dispatcher.Dispatch(new RevealElementAction(action.AtomicNumber));
 
 			if (expectedElement.HasValue && expectedElement == action.AtomicNumber)
-				dispatcher.Dispatch(new ElementMatchedAction(AtomicNumber: action.AtomicNumber));
+				dispatcher.Dispatch(new ElementMatchedAction(atomicNumber: action.AtomicNumber));
 			else
 				dispatcher.Dispatch(new ElementMismatchedAction(
-					ClickedAtomicNumber: action.AtomicNumber,
-					ExpectedAtomicNumber: GameState.Value.ExpectedElement));
+					clickedAtomicNumber: action.AtomicNumber,
+					expectedAtomicNumber: GameState.Value.ExpectedElement));
 
 			return Task.CompletedTask;
 		}
@@ -59,7 +59,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Effects
 			dispatcher.Dispatch(new ConcealAllElementsAction());
 			await Task.Delay(500);
 			if (GameState.Value.AvailableElements.Any())
-				dispatcher.Dispatch(new SetExpectedElementAction(AtomicNumber: GetRandomElementAtomicNumber()));
+				dispatcher.Dispatch(new SetExpectedElementAction(atomicNumber: GetRandomElementAtomicNumber()));
 			else
 				dispatcher.Dispatch(new StartGameOverSequenceAction());
 		}

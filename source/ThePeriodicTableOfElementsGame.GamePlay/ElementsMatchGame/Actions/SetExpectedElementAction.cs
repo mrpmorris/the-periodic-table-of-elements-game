@@ -1,4 +1,12 @@
 ﻿namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Actions
 {
-	public record SetExpectedElementAction(byte AtomicNumber);
+	public class SetExpectedElementAction
+	{
+		public readonly byte AtomicNumber;
+
+		public SetExpectedElementAction(byte atomicNumber)
+		{
+			AtomicNumber = atomicNumber;
+		}
+	}
 }
