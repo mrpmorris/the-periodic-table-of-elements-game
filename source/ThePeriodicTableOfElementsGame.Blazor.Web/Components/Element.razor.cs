@@ -45,7 +45,7 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Components
 
 		private void Clicked()
 		{
-			Dispatcher.Dispatch(new ElementClickedEvent(AtomicNumber: State.AtomicNumber));
+			Dispatcher.Dispatch(new ElementClickedEvent(atomicNumber: State.AtomicNumber));
 		}
 	}
 }

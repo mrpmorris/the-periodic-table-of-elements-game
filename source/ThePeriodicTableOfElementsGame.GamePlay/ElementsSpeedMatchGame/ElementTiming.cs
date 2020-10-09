@@ -1,6 +1,16 @@
 ﻿using System;
 
-namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGame
+namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGameFeature
 {
-	public record ElementTiming(TimeSpan Time, byte AtomicNumber);
+	public class ElementTiming
+	{
+		public readonly TimeSpan Time;
+		public readonly byte AtomicNumber;
+
+		public ElementTiming(TimeSpan time, byte atomicNumber)
+		{
+			Time = time;
+			AtomicNumber = atomicNumber;
+		}
+	}
 }

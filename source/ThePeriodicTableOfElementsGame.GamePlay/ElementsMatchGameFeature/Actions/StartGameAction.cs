@@ -1,4 +1,12 @@
 ﻿namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature.Actions
 {
-	public record StartGameAction(MatchType MatchType);
+	public class StartGameAction
+	{
+		public readonly MatchType MatchType;
+
+		public StartGameAction(MatchType matchType)
+		{
+			MatchType = matchType;
+		}
+	}
 }

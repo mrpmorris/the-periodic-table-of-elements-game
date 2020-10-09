@@ -1,6 +1,6 @@
 ﻿using Fluxor;
 
-namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGame
+namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGameFeature
 {
 	public class Feature : Feature<ElementsSpeedMatchGameState>
 	{

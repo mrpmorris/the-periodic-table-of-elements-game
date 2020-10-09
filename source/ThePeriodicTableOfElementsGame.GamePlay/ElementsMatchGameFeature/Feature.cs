@@ -1,4 +1,5 @@
 ﻿using Fluxor;
+using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature;
 
 namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature
 {

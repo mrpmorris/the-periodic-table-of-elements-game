@@ -1,8 +1,13 @@
 ﻿namespace ThePeriodicTableOfElementsGame.GamePlay.SharedFeature
 {
-	public record SharedState
+	public class SharedState
 	{
-		public SceneType Scene { get; init; }
+		public readonly SceneType Scene;
+
+		public SharedState(SceneType scene)
+		{
+			Scene = scene;
+		}
 
 		public bool ShowMainMenu =>
 			Scene == SceneType.MainMenu;
@@ -17,10 +22,5 @@
 
 		public bool ShowElementsSpeedMatchGame =>
 			Scene == SceneType.ElementSpeedMatchGame;
-
-		public SharedState(SceneType scene)
-		{
-			Scene = scene;
-		}
 	}
 }

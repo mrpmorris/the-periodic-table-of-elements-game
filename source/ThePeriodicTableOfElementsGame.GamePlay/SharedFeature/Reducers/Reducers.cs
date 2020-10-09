@@ -8,7 +8,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.SharedFeature.Reducers
 	{
 		[ReducerMethod]
 		public static SharedState Navigate(SharedState state, NavigateAction action) =>
-			state with { Scene = action.Scene };
+			new SharedState(action.Scene);
 
 		[ReducerMethod]
 		public static SharedState StartGameOverSequence(SharedState state, StartGameOverSequenceAction _) =>

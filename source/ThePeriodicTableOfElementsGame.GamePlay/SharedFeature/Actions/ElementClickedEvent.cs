@@ -1,4 +1,12 @@
 ﻿namespace ThePeriodicTableOfElementsGame.GamePlay.SharedFeature.Actions
 {
-	public record ElementClickedEvent(byte AtomicNumber);
+	public class ElementClickedEvent
+	{
+		public readonly byte AtomicNumber;
+
+		public ElementClickedEvent(byte atomicNumber)
+		{
+			AtomicNumber = atomicNumber;
+		}
+	}
 }

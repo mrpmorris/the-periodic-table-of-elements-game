@@ -1,11 +1,11 @@
 ﻿using Fluxor;
 using System;
 using System.Threading.Tasks;
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGame.Actions;
+using ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGameFeature.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
 using ThePeriodicTableOfElementsGame.GamePlay.SharedFeature.Actions;
 
-namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGame.Effects
+namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGameFeature.Effects
 {
 	public class PlayMusicEffect : Effect<StartGameAction>
 	{

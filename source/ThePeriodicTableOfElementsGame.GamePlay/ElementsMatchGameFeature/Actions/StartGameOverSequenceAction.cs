@@ -1,4 +1,4 @@
 ﻿namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature.Actions
 {
-	public record StartGameOverSequenceAction { }
+	public class StartGameOverSequenceAction { }
 }

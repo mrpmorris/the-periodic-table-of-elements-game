@@ -3,7 +3,7 @@ using System;
 using System.Threading.Tasks;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
 
-namespace ThePeriodicTableOfElementsGame.Blazor.Web.Services
+namespace ThePeriodicTableOfElementsGame.Blazor.Web.Services.Audio
 {
 	public class AudioPlayer : IAudioPlayer
 	{
@@ -23,11 +23,11 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Services
 
 		public async Task<IAudioClip> CreateAsync(AudioSample audioSample)
 		{
-			JSObjectReference jsAudio = await JSRuntime.InvokeAsync<JSObjectReference>(
+			int audioId = await JSRuntime.InvokeAsync<int>(
 				"ThePeriodicTableOfElementsGame.audio.create",
 				GetAudioFilename(audioSample));
 
-			return new AudioClip(jsAudio);
+			return new AudioClip(JSRuntime, audioId);
 		}
 
 		private static string GetAudioFilename(AudioSample audioSample) =>
@@ -39,27 +39,5 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Services
 				AudioSample.ElementsSong => "ElementsSong.ogg",
 				_ => throw new NotImplementedException(audioSample.ToString())
 			};
-	}
-
-	public class AudioClip: IAudioClip
-	{
-		private readonly JSObjectReference JSAudio;
-
-		public AudioClip(JSObjectReference jsAudio)
-		{
-			JSAudio = jsAudio ?? throw new ArgumentNullException(nameof(jsAudio));
-		}
-
-		public ValueTask<float> GetCurrentTime() =>
-			JSAudio.InvokeAsync<float>("getCurrentTime");
-
-		public ValueTask PlayAsync() =>
-			JSAudio.InvokeVoidAsync("play");
-
-		public ValueTask StopAsync() =>
-			JSAudio.InvokeVoidAsync("pause");
-
-		public ValueTask DisposeAsync() =>
-			JSAudio.DisposeAsync();
 	}
 }

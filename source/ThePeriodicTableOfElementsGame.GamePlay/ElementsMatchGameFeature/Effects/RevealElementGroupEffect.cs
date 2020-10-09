@@ -1,6 +1,7 @@
 ﻿using Fluxor;
 using System.Threading;
 using System.Threading.Tasks;
+using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.SharedFeature.Actions;
 
@@ -34,14 +35,14 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature.Effec
 		}
 
 		[EffectMethod]
-		public Task HandleAsync(StartGameOverSequenceAction action, IDispatcher dispatcher)
+		public Task StartGameOverSequenceAction(StartGameOverSequenceAction action, IDispatcher dispatcher)
 		{
 			Timer?.Dispose();
 			return Task.CompletedTask;
 		}
 
 		[EffectMethod]
-		public Task HandleAsync(NavigateAction action, IDispatcher dispatcher)
+		public Task NavigateAction(NavigateAction action, IDispatcher dispatcher)
 		{
 			Timer?.Dispose();
 			return Task.CompletedTask;

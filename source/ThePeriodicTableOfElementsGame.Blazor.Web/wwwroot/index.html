@@ -7,7 +7,13 @@
 	<title>The periodic table of elements game</title>
 	<base href="/" />
 	<link href="css/app.css" rel="stylesheet" />
-	<link href="_framework/scoped.styles.css" rel="stylesheet" />
+	<link href="css/element.css" rel="stylesheet" />
+	<link href="css/periodic-table.css" rel="stylesheet" />
+	<link href="css/periodic-table.css" rel="stylesheet" />
+	<link href="css/main-layout.css" rel="stylesheet" />
+	<link href="css/elements-match-game.css" rel="stylesheet" />
+	<link href="css/elements-match-game-over.css" rel="stylesheet" />
+	<link href="css/main-menu.css" rel="stylesheet" />
 	<link href="manifest.json" rel="manifest" />
 	<link rel="apple-touch-icon" sizes="512x512" href="Mendeleev.png" />
 </head>
@@ -32,24 +38,28 @@
 	<script src="/scripts/decode.min.js"></script>
 	<script src="_framework/blazor.webassembly.js" autostart="false"></script>
 	<script>
-		Blazor.start({
-			loadBootResource: function (type, name, defaultUri, integrity) {
-				if (type !== 'dotnetjs' && location.hostname !== 'localhost') {
-					return (async function () {
-						const response = await fetch(defaultUri + '.br',);
-						if (!response.ok) {
-							throw new Error(response.statusText);
-						}
-						const originalResponseBuffer = await response.arrayBuffer();
-						const originalResponseArray = new Int8Array(originalResponseBuffer);
-						const decompressedResponseArray = BrotliDecode(originalResponseArray);
-						const contentType = type ===
-							'dotnetwasm' ? 'application/wasm' : 'application/octet-stream';
-						return new Response(decompressedResponseArray,
-							{ headers: { 'content-type': contentType } });
-					})();
+		debugger;
+		document.addEventListener("DOMContentLoaded", function () {
+			debugger;
+			Blazor.start({
+				loadBootResource: function (type, name, defaultUri, integrity) {
+					if (type !== 'dotnetjs' && location.hostname !== 'localhost') {
+						return (async function () {
+							const response = await fetch(defaultUri + '.br',);
+							if (!response.ok) {
+								throw new Error(response.statusText);
+							}
+							const originalResponseBuffer = await response.arrayBuffer();
+							const originalResponseArray = new Int8Array(originalResponseBuffer);
+							const decompressedResponseArray = BrotliDecode(originalResponseArray);
+							const contentType = type ===
+								'dotnetwasm' ? 'application/wasm' : 'application/octet-stream';
+							return new Response(decompressedResponseArray,
+								{ headers: { 'content-type': contentType } });
+						})();
+					}
 				}
-			}
+			});
 		});
 	</script>
 	<script src="_content/Fluxor.Blazor.Web/scripts/index.js"></script>

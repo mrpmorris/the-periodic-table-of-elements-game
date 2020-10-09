@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
 using ThePeriodicTableOfElementsGame.GamePlay.SharedFeature;
@@ -30,7 +31,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature.Effec
 		{
 			dispatcher.Dispatch(new NavigateAction(SceneType.ElementsMatchGame));
 			await Task.Delay(500);
-			dispatcher.Dispatch(new SetExpectedElementAction(AtomicNumber: GetRandomElementAtomicNumber()));
+			dispatcher.Dispatch(new SetExpectedElementAction(atomicNumber: GetRandomElementAtomicNumber()));
 		}
 
 		[EffectMethod]
@@ -52,11 +53,11 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature.Effec
 			dispatcher.Dispatch(new RevealElementAction(action.AtomicNumber));
 
 			if (expectedElement.HasValue && expectedElement == action.AtomicNumber)
-				dispatcher.Dispatch(new ElementMatchedAction(AtomicNumber: action.AtomicNumber));
+				dispatcher.Dispatch(new ElementMatchedAction(atomicNumber: action.AtomicNumber));
 			else
 				dispatcher.Dispatch(new ElementMismatchedAction(
-					ClickedAtomicNumber: action.AtomicNumber,
-					ExpectedAtomicNumber: GameState.Value.ExpectedElement));
+					clickedAtomicNumber: action.AtomicNumber,
+					expectedAtomicNumber: GameState.Value.ExpectedElement));
 
 			return Task.CompletedTask;
 		}
@@ -75,7 +76,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature.Effec
 			dispatcher.Dispatch(new ConcealAllElementsAction());
 			await Task.Delay(500);
 			if (GameState.Value.AvailableElements.Any())
-				dispatcher.Dispatch(new SetExpectedElementAction(AtomicNumber: GetRandomElementAtomicNumber()));
+				dispatcher.Dispatch(new SetExpectedElementAction(atomicNumber: GetRandomElementAtomicNumber()));
 			else
 				dispatcher.Dispatch(new StartGameOverSequenceAction());
 		}

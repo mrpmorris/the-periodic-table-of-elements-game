@@ -1,8 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
-		<TargetFramework>net5.0</TargetFramework>
-		<BlazorEnableTimeZoneSupport>false</BlazorEnableTimeZoneSupport>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<RazorLangVersion>3.0</RazorLangVersion>
 		<ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
 	</PropertyGroup>
 
@@ -10,12 +10,21 @@
 		<Watch Include="**\*.js;**\*.css;**\*.cs;**\*.razor;**\*.html" />
 		<Watch Remove="**\service-worker-assets.js;**\service-worker.js" />
 	</ItemGroup>
+	
+	<ItemGroup>
+	  <Content Remove="wwwroot\audio\ElementsSong.ogg" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <Watch Remove="Services\Audio\AudioClip.cs" />
+	  <Watch Remove="Services\Audio\Consts.cs" />
+	</ItemGroup>	
 
 	<ItemGroup>
 		<PackageReference Include="Fluxor.Blazor.Web" Version="3.7.0" />
 		<PackageReference Include="Fluxor.Blazor.Web.ReduxDevTools" Version="3.7.0" Condition="'$(Configuration)' == 'Debug'" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.0-rc.1.20451.17" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.0-rc.1.20451.17" PrivateAssets="all" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="3.2.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="3.2.1" />
 	</ItemGroup>
 
 	<ItemGroup>
