@@ -34,14 +34,14 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Effects
 		}
 
 		[EffectMethod]
-		public Task HandleAsync(StartGameOverSequenceAction action, IDispatcher dispatcher)
+		public Task StartGameOverSequenceAction(StartGameOverSequenceAction action, IDispatcher dispatcher)
 		{
 			Timer?.Dispose();
 			return Task.CompletedTask;
 		}
 
 		[EffectMethod]
-		public Task HandleAsync(NavigateAction action, IDispatcher dispatcher)
+		public Task NavigateAction(NavigateAction action, IDispatcher dispatcher)
 		{
 			Timer?.Dispose();
 			return Task.CompletedTask;

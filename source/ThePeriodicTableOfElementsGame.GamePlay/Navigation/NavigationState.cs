@@ -1,8 +1,13 @@
 ﻿namespace ThePeriodicTableOfElementsGame.GamePlay.Navigation
 {
-	public record NavigationState
+	public class NavigationState
 	{
-		public SceneType Scene { get; init; }
+		public readonly SceneType Scene;
+
+		public NavigationState(SceneType scene)
+		{
+			Scene = scene;
+		}
 
 		public bool ShowMainMenu =>
 			Scene == SceneType.MainMenu;
@@ -14,10 +19,5 @@
 		public bool ShowGameOver =>
 			Scene == SceneType.TransitionFromElementsMatchGameToGameOver
 			|| Scene == SceneType.ElementsMatchGameOver;
-
-		public NavigationState(SceneType scene)
-		{
-			Scene = scene;
-		}
 	}
 }

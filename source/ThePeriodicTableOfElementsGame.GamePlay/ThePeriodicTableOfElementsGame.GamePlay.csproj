@@ -1,15 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net5.0</TargetFramework>
+		<TargetFramework>netstandard2.1</TargetFramework>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-	  <NoWarn>1701;1702;IDE0060</NoWarn>
+		<NoWarn>1701;1702;IDE0060</NoWarn>
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Fluxor" Version="3.7.0" />
+		<PackageReference Include="Fluxor" Version="3.7.0" />
 	</ItemGroup>
 
 </Project>

@@ -9,8 +9,8 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Effects
 {
 	public class Effects
 	{
-		private IState<ElementsMatchGameState> GameState;
-		private IAudioPlayer AudioPlayer;
+		private readonly IState<ElementsMatchGameState> GameState;
+		private readonly IAudioPlayer AudioPlayer;
 
 		public Effects(IState<ElementsMatchGameState> gameState, IAudioPlayer audioPlayer)
 		{
@@ -19,14 +19,14 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Effects
 		}
 
 		[EffectMethod]
-		public async Task Handle(StartGameAction _, IDispatcher dispatcher)
+		public async Task StartGameAction(StartGameAction _, IDispatcher dispatcher)
 		{
 			await Task.Delay(500);
-			dispatcher.Dispatch(new SetExpectedElementAction(AtomicNumber: GetRandomElementAtomicNumber()));
+			dispatcher.Dispatch(new SetExpectedElementAction(atomicNumber: GetRandomElementAtomicNumber()));
 		}
 
 		[EffectMethod]
-		public Task Handle(ClickElementAction action, IDispatcher dispatcher)
+		public Task ClickElementAction(ClickElementAction action, IDispatcher dispatcher)
 		{
 			if (!GameState.Value.ElementStates[action.AtomicNumber].Concealed)
 				return Task.CompletedTask;
@@ -36,40 +36,40 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Effects
 			dispatcher.Dispatch(new RevealElementAction(action.AtomicNumber));
 
 			if (expectedElement.HasValue && expectedElement == action.AtomicNumber)
-				dispatcher.Dispatch(new ElementMatchedAction(AtomicNumber: action.AtomicNumber));
+				dispatcher.Dispatch(new ElementMatchedAction(atomicNumber: action.AtomicNumber));
 			else
 				dispatcher.Dispatch(new ElementMismatchedAction(
-					ClickedAtomicNumber: action.AtomicNumber,
-					ExpectedAtomicNumber: GameState.Value.ExpectedElement));
+					clickedAtomicNumber: action.AtomicNumber,
+					expectedAtomicNumber: GameState.Value.ExpectedElement));
 
 			return Task.CompletedTask;
 		}
 
 		[EffectMethod]
-		public Task Handle(ElementMismatchedAction _, IDispatcher dispatcher)
+		public Task ElementMismatchedAction(ElementMismatchedAction _, IDispatcher dispatcher)
 		{
 			return AudioPlayer.PlayOneShotAsync(AudioSample.ElementMismatched);
 		}
 
 		[EffectMethod]
-		public async Task Handle(ElementMatchedAction _, IDispatcher dispatcher)
+		public async Task ElementMatchedAction(ElementMatchedAction _, IDispatcher dispatcher)
 		{
 			await AudioPlayer.PlayOneShotAsync(AudioSample.ElementFastMatched1);
 			await Task.Delay(1000);
 			dispatcher.Dispatch(new ConcealAllElementsAction());
 			await Task.Delay(500);
 			if (GameState.Value.AvailableElements.Any())
-				dispatcher.Dispatch(new SetExpectedElementAction(AtomicNumber: GetRandomElementAtomicNumber()));
+				dispatcher.Dispatch(new SetExpectedElementAction(atomicNumber: GetRandomElementAtomicNumber()));
 			else
 				dispatcher.Dispatch(new StartGameOverSequenceAction());
 		}
 
 		[EffectMethod]
-		public Task Handle(SetExpectedElementAction _, IDispatcher dispatcher) =>
+		public Task SetExpectedElementAction(SetExpectedElementAction _, IDispatcher dispatcher) =>
 			AudioPlayer.PlayOneShotAsync(AudioSample.ElementAppeared);
 
 		[EffectMethod]
-		public async Task Handle(StartGameOverSequenceAction _, IDispatcher dispatcher)
+		public async Task StartGameOverSequenceAction(StartGameOverSequenceAction _, IDispatcher dispatcher)
 		{
 			await Task.Delay(2050);
 			dispatcher.Dispatch(new CompleteGameOverAction());
