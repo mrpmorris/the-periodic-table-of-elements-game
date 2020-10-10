@@ -15,7 +15,7 @@
 		<div class="name">
 			@if (State.Front.ShowName)
 			{
-				@Data.Name
+				@Data.Name.ToLowerInvariant()
 			}
 		</div>
 	</div>
@@ -35,7 +35,7 @@
 		<div class="name">
 			@if (State.Back.ShowName)
 			{
-				@Data.Name
+				@Data.Name.ToLowerInvariant()
 			}
 		</div>
 	</div>
