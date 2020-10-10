@@ -9,10 +9,11 @@ ThePeriodicTableOfElementsGame.audio = {
 		audio.play();
 	},
 
-	create: function (filename, eventTimings) {
-		let audio = new AudioClip(filename, eventTimings);
+	create: function (dotNetObjRef, filename, eventTimings) {
+		let audio = new AudioClip(dotNetObjRef, filename, eventTimings);
 		let currentAudioId = this._nextId++;
 		this._audioClips[currentAudioId] = audio;
+		this._dotNetObjRef = dotNetObjRef;
 		return currentAudioId;
 	},
 
@@ -31,11 +32,12 @@ ThePeriodicTableOfElementsGame.audio = {
 }
 
 class AudioClip {
-	constructor(filename, eventTimings) {
+	constructor(dotNetObjRef, filename, eventTimings) {
 		this._audio = new Audio(`audio/${filename}`);
 		this._filename = filename;
 		this._eventTimings = eventTimings || [];
 		this._timeoutId = null;
+		this._dotNetObjRef = dotNetObjRef;
 	}
 
 	play() {
@@ -72,17 +74,16 @@ class AudioClip {
 		this._clearTimeout();
 
 		// If we are too early, wait
-		let nextEventTimeSeconds = this._eventTimings[0] / 1000;
-		let audioTime = this._audio.currentTime;
-		if (audioTime < nextEventTimeSeconds) {
+		let audioTimeMs = this._audio.currentTime * 1000;
+		if (audioTimeMs < this._eventTimings[0]) {
 			this._setTimeoutForNextEvent();
 			return;
 		}
 
 		// Otherwise, trigger the event
-		while (this._eventTimings.length > 0 && this._eventTimings[0] <= audioTime) {
-			console.log(`At ${this._audio.currentTime}: Event = ${this._eventTimings[0]}`);
-			this._eventTimings.splice(0, 1);
+		while (this._eventTimings.length > 0 && this._eventTimings[0] <= audioTimeMs) {
+			let eventTimeMs = this._eventTimings.splice(0, 1)[0];
+			this._dotNetObjRef.invokeMethodAsync(`TriggerTimingEvent`, eventTimeMs);
 		}
 		this._setTimeoutForNextEvent(this);
 	}

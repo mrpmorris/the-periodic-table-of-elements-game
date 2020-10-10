@@ -9,7 +9,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.Services
 		Task PlayOneShotAsync(AudioSample audioSample);
 		Task<IAudioClip> CreateAsync(
 			AudioSample audioSample,
-			IEnumerable<int> eventTimingsMs);
+			int[] eventTimingsMs = null);
 	}
 
 	public enum AudioSample
@@ -22,7 +22,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.Services
 
 	public interface IAudioClip: IAsyncDisposable
 	{
-		ValueTask<float> GetCurrentTime();
+		event EventHandler<int> TimingEvent;
 		ValueTask PlayAsync();
 		ValueTask StopAsync();
 	}

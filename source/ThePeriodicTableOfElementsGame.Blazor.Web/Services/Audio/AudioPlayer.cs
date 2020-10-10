@@ -1,8 +1,6 @@
 ﻿using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
 
@@ -20,22 +18,17 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Services.Audio
 		public async Task PlayOneShotAsync(AudioSample audioSample)
 		{
 			await JSRuntime.InvokeVoidAsync(
-				"ThePeriodicTableOfElementsGame.audio.playOneShot",
+				Consts.Namespace + "playOneShot",
 				GetAudioFilename(audioSample));
 		}
 
-		public async Task<IAudioClip> CreateAsync(
+		public Task<IAudioClip> CreateAsync(
 			AudioSample audioSample,
-			IEnumerable<int> eventTimingsMs)
-		{
-			eventTimingsMs = eventTimingsMs ?? Array.Empty<int>();
-			int audioId = await JSRuntime.InvokeAsync<int>(
-				"ThePeriodicTableOfElementsGame.audio.create",
-				GetAudioFilename(audioSample),
-				eventTimingsMs);
-
-			return new AudioClip(JSRuntime, audioId);
-		}
+			int[] eventTimingsMs = null)
+			=> AudioClip.CreateAsync(
+					JSRuntime,
+					GetAudioFilename(audioSample),
+					eventTimingsMs ?? Array.Empty<int>());
 
 		private static string GetAudioFilename(AudioSample audioSample) =>
 			audioSample switch

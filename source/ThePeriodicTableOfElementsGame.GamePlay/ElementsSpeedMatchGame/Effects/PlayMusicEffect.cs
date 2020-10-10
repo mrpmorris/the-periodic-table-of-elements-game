@@ -11,7 +11,16 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGameFeature.
 	{
 		private IAudioPlayer AudioPlayer;
 		private IAudioClip TheElementsSong;
-		private static readonly int[] EventTimingsMs = new int[] { 1, 2, 3, 5, 8, 13, 21 };
+		private static readonly int[] EventTimingsMs = new int[] 
+		{
+			1_000,
+			2_000,
+			3_000,
+			5_000,
+			8_000,
+			13_000,
+			21_000
+		};
 
 		public PlayMusicEffect(IAudioPlayer audioPlayer)
 		{
