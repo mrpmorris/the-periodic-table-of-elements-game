@@ -108,43 +108,43 @@
     transform: rotateY(180deg)
   }
 
-.--highlight-group--actinide .--actinide {
+.--highlight-group--actinide .element.--actinide {
   animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
-.--highlight-group--alkali-metal .--alkali-metal {
+.--highlight-group--alkali-metal .element.--alkali-metal {
   animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
-.--highlight-group--alkaline-earth-metal .--alkaline-earth-metal {
+.--highlight-group--alkaline-earth-metal .element.--alkaline-earth-metal {
   animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
-.--highlight-group--basic-metal .--basic-metal {
+.--highlight-group--basic-metal .element.--basic-metal {
   animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
-.--highlight-group--halogen .--halogen {
+.--highlight-group--halogen .element.--halogen {
   animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
-.--highlight-group--lathanide .--lathanide {
+.--highlight-group--lathanide .element.--lathanide {
   animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
-.--highlight-group--noble-gas .--noble-gas {
+.--highlight-group--noble-gas .element.--noble-gas {
   animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
-.--highlight-group--non-metal .--non-metal {
+.--highlight-group--non-metal .element.--non-metal {
   animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
-.--highlight-group--semi-metal .--semi-metal {
+.--highlight-group--semi-metal .element.--semi-metal {
   animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
-.--highlight-group--transitional-metal .--transitional-metal {
+.--highlight-group--transitional-metal .element.--transitional-metal {
   animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
