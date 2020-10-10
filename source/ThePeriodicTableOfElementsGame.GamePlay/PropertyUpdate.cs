@@ -6,6 +6,9 @@
 		internal readonly T Value;
 
 		public static implicit operator PropertyUpdate<T>(T value) => new PropertyUpdate<T>(value);
+		public static readonly PropertyUpdate<T> Default = new PropertyUpdate<T>();
+
+		private PropertyUpdate() { }
 
 		private PropertyUpdate(T value)
 		{
