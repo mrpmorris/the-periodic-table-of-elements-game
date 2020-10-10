@@ -58,7 +58,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 					showElementGroup: showElementGroup.GetUpdatedValue(ShowElementGroup),
 					highlighElementsInExpectedGroup: highlighElementsInExpectedGroup.GetUpdatedValue(HighlighElementsInExpectedGroup),
 					totalMatched: totalMatched.GetUpdatedValue(TotalMatched),
-					totalMismatched: totalMismatched.GetUpdatedValue(TotalMatched),
+					totalMismatched: totalMismatched.GetUpdatedValue(TotalMismatched),
 					availableElements: availableElements.GetUpdatedValue(AvailableElements),
 					elementStates: elementStates.GetUpdatedValue(ElementStates));
 	}
