@@ -11,6 +11,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGameFeature.
 	{
 		private IAudioPlayer AudioPlayer;
 		private IAudioClip TheElementsSong;
+		private static readonly int[] EventTimingsMs = new int[] { 1, 2, 3, 5, 8, 13, 21 };
 
 		public PlayMusicEffect(IAudioPlayer audioPlayer)
 		{
@@ -19,7 +20,9 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGameFeature.
 
 		protected override async Task HandleAsync(StartGameAction action, IDispatcher dispatcher)
 		{
-			TheElementsSong = await AudioPlayer.CreateAsync(AudioSample.ElementsSong)
+
+			TheElementsSong = 
+				await AudioPlayer.CreateAsync(AudioSample.ElementsSong, EventTimingsMs)
 				.ConfigureAwait(false);
 
 			await TheElementsSong.PlayAsync().ConfigureAwait(false);

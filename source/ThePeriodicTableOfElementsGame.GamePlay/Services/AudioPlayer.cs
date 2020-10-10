@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ThePeriodicTableOfElementsGame.GamePlay.Services
@@ -6,7 +7,9 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.Services
 	public interface IAudioPlayer
 	{
 		Task PlayOneShotAsync(AudioSample audioSample);
-		Task<IAudioClip> CreateAsync(AudioSample audioSample);
+		Task<IAudioClip> CreateAsync(
+			AudioSample audioSample,
+			IEnumerable<int> eventTimingsMs);
 	}
 
 	public enum AudioSample
