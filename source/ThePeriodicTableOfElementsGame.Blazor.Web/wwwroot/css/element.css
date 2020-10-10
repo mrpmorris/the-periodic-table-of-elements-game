@@ -69,19 +69,14 @@
     background-color: var(--alkaline-earth-metal);
   }
 
-  .element.--basic-metal > .front,
-  .element.--basic-metal > .back {
-    background-color: var(--basic-metal);
-  }
-
-  .element.--halogen > .front,
-  .element.--halogen > .back {
-    background-color: var(--halogen);
-  }
-
   .element.--lathanide > .front,
   .element.--lathanide > .back {
     background-color: var(--lathanide);
+  }
+
+  .element.--metalloid > .front,
+  .element.--metalloid > .back {
+    background-color: var(--metalloid);
   }
 
   .element.--noble-gas > .front,
@@ -89,19 +84,24 @@
     background-color: var(--noble-gas);
   }
 
-  .element.--non-metal > .front,
-  .element.--non-metal > .back {
-    background-color: var(--non-metal);
+  .element.--post-transitional-metal > .front,
+  .element.--post-transitional-metal > .back {
+    background-color: var(--post-transitional-metal);
   }
 
-  .element.--semi-metal > .front,
-  .element.--semi-metal > .back {
-    background-color: var(--semi-metal);
+  .element.--reactive-non-metal > .front,
+  .element.--reactive-non-metal > .back {
+    background-color: var(--reactive-non-metal);
   }
 
   .element.--transitional-metal > .front,
   .element.--transitional-metal > .back {
     background-color: var(--transitional-metal);
+  }
+
+  .element.--unknown > .front,
+  .element.--unknown > .back {
+    background-color: var(--unknown);
   }
 
   .element.--concealed {
@@ -120,15 +120,15 @@
   animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
-.--highlight-group--basic-metal .element.--basic-metal {
-  animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
-}
-
-.--highlight-group--halogen .element.--halogen {
-  animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
-}
-
 .--highlight-group--lathanide .element.--lathanide {
+  animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
+}
+
+.--highlight-group--post-transitional-metal .element.--post-transitional-metal {
+  animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
+}
+
+.--highlight-group--metalloid .element.--metalloid {
   animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
@@ -136,11 +136,11 @@
   animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
-.--highlight-group--non-metal .element.--non-metal {
+.--highlight-group--post-transitional-metal .element.--post-transitional-metal {
   animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
-.--highlight-group--semi-metal .element.--semi-metal {
+.--highlight-group--reactive-non-metal .element.--reactive-non-metal {
   animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
@@ -148,6 +148,9 @@
   animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
+.--highlight-group--unknown .element.--unknown {
+  animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
+}
 
 @keyframes pulse-highlighted-element {
   0% {

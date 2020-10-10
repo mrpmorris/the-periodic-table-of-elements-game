@@ -19,7 +19,7 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web
 			builder.Services.AddFluxor(x => x
 				.ScanAssemblies(typeof(ElementsMatchGameState).Assembly)
 #if DEBUG
-				.UseReduxDevTools()
+				//.UseReduxDevTools()
 #endif
 			);
 

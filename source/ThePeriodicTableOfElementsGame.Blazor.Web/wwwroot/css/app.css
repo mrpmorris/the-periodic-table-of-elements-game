@@ -1,14 +1,15 @@
 ﻿:root {
-	--actinide: rgb(173, 209, 120);
+	--actinide: rgb(144, 176, 97);
 	--alkali-metal: rgb(248, 178, 181);
 	--alkaline-earth-metal: rgb(252, 227, 199);
-	--basic-metal: rgb(170, 242, 204);
-	--halogen: rgb(252, 201, 250);
 	--lathanide: rgb(214, 235, 187);
+	--metalloid: rgb(255, 182, 89);
 	--noble-gas: rgb(171, 148, 255);
 	--non-metal: rgb(191, 234, 250);
-	--semi-metal: rgb(217, 202, 226);
-	--transitional-metal: rgb(187, 187, 187);
+	--post-transitional-metal: rgb(252, 201, 250);
+	--reactive-non-metal: rgb(170, 242, 204);
+	--transitional-metal: rgb(223, 223, 223);
+	--unknown: rgb(162, 162, 162);
 }
 
 html {
@@ -197,9 +198,9 @@ h2 {
 				background-color: var(--alkaline-earth-metal);
 			}
 
-			.table-of-elements_header-contents > .element-info > .element-info-background.--basic-metal {
+			.table-of-elements_header-contents > .element-info > .element-info-background.--post-transitional-metal {
 				opacity: 1;
-				background-color: var(--basic-metal);
+				background-color: var(--post-transitional-metal);
 			}
 
 			.table-of-elements_header-contents > .element-info > .element-info-background.--halogen {
@@ -217,14 +218,14 @@ h2 {
 				background-color: var(--noble-gas);
 			}
 
-			.table-of-elements_header-contents > .element-info > .element-info-background.--non-metal {
+			.table-of-elements_header-contents > .element-info > .element-info-background.--reactive-non-metal {
 				opacity: 1;
-				background-color: var(--non-metal);
+				background-color: var(--reactive-non-metal);
 			}
 
-			.table-of-elements_header-contents > .element-info > .element-info-background.--semi-metal {
+			.table-of-elements_header-contents > .element-info > .element-info-background.--metalloid {
 				opacity: 1;
-				background-color: var(--semi-metal);
+				background-color: var(--metalloid);
 			}
 
 			.table-of-elements_header-contents > .element-info > .element-info-background.--transitional-metal {
