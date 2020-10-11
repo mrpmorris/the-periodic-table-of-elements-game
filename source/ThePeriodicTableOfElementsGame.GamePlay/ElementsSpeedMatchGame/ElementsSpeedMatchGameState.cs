@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableFeature;
 
@@ -8,11 +8,11 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGameFeature
 	public class ElementsSpeedMatchGameState
 	{
 		public readonly IEnumerable<ElementState> ElementStates;
-		public readonly IEnumerable<ElementTiming> ElementTimings;
+		public readonly ReadOnlyDictionary<int, byte> ElementTimings;
 
 		public ElementsSpeedMatchGameState(
 			IEnumerable<ElementState> elementStates,
-			IEnumerable<ElementTiming> elementTimings)
+			ReadOnlyDictionary<int, byte> elementTimings)
 		{
 			ElementStates = elementStates;
 			ElementTimings = elementTimings;
@@ -20,7 +20,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGameFeature
 
 		public ElementsSpeedMatchGameState With(
 			PropertyUpdate<IEnumerable<ElementState>> elementStates = null,
-			PropertyUpdate<IEnumerable<ElementTiming>> elementTimings = null)
+			PropertyUpdate<ReadOnlyDictionary<int, byte>> elementTimings = null)
 			=>
 				new ElementsSpeedMatchGameState(
 					elementStates: elementStates.GetUpdatedValue(ElementStates),
@@ -38,25 +38,26 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGameFeature
 						back: new CardState(),
 						concealed: false))
 					.ToArray(),
-				elementTimings: new ElementTiming[]
-				{
-					new ElementTiming(time: new TimeSpan(0, 0, 0, 07, 466), atomicNumber: 51), // Sb
-					new ElementTiming(time: new TimeSpan(0, 0, 0, 07, 945), atomicNumber: 33), // As
-					new ElementTiming(time: new TimeSpan(0, 0, 0, 08, 207), atomicNumber: 13), // Al
-					new ElementTiming(time: new TimeSpan(0, 0, 0, 08, 643), atomicNumber: 34), // Se
-					new ElementTiming(time: new TimeSpan(0, 0, 0, 09, 229), atomicNumber: 01), // H
-					new ElementTiming(time: new TimeSpan(0, 0, 0, 09, 547), atomicNumber: 08), // O
-					new ElementTiming(time: new TimeSpan(0, 0, 0, 10, 001), atomicNumber: 07), // N
-					new ElementTiming(time: new TimeSpan(0, 0, 0, 10, 421), atomicNumber: 75), // Re
-					new ElementTiming(time: new TimeSpan(0, 0, 0, 10, 897), atomicNumber: 28), // Ni
-					new ElementTiming(time: new TimeSpan(0, 0, 0, 11, 071), atomicNumber: 60), // Nd
-					new ElementTiming(time: new TimeSpan(0, 0, 0, 11, 601), atomicNumber: 93), // Np
-					new ElementTiming(time: new TimeSpan(0, 0, 0, 12, 030), atomicNumber: 32), // Ge
-					new ElementTiming(time: new TimeSpan(0, 0, 0, 12, 597), atomicNumber: 26), // Fe
-					new ElementTiming(time: new TimeSpan(0, 0, 0, 12, 871), atomicNumber: 95), // Am
-					new ElementTiming(time: new TimeSpan(0, 0, 0, 13, 270), atomicNumber: 44), // Ru
-					new ElementTiming(time: new TimeSpan(0, 0, 0, 13, 775), atomicNumber: 92), // U
-				}
+				elementTimings: new ReadOnlyDictionary<int, byte>(
+					new Dictionary<int, byte>
+					{
+						[009_377] = 051, // Sb
+						[009_859] = 033, // As
+						[010_250] = 013, // Al
+						[010_684] = 034, // Se
+						[011_342] = 001, // H
+						[011_844] = 008, // O
+						[012_336] = 007, // N
+						[012_900] = 075, // Re
+						[013_385] = 028, // Ni
+						[013_638] = 060, // Nd
+						[014_282] = 093, // Np
+						[014_790] = 032, // Ge
+						[015_416] = 026, // Fe
+						[015_714] = 095, // Am
+						[016_357] = 044, // Ru
+						[016_914] = 092 // U
+					})
 			);
 	}
 }
