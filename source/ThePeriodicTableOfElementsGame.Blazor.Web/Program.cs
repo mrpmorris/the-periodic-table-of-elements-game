@@ -1,6 +1,7 @@
 using Fluxor;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.JSInterop;
 using System.Threading.Tasks;
 using ThePeriodicTableOfElementsGame.Blazor.Web.Services.Audio;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature;
@@ -16,6 +17,9 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web
 			builder.RootComponents.Add<App>("#app");
 
 			builder.Services.AddScoped<IAudioPlayer, AudioPlayer>();
+			builder.Services.AddScoped(
+				sp => (IJSInProcessRuntime)sp.GetRequiredService<IJSRuntime>());
+
 			builder.Services.AddFluxor(x => x
 				.ScanAssemblies(typeof(ElementsMatchGameState).Assembly)
 #if DEBUG

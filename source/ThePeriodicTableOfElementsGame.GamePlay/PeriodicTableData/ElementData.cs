@@ -1,6 +1,6 @@
 ﻿namespace ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData
 {
-	public struct ElementData
+	public class ElementData
 	{
 		public byte AtomicNumber { get; }
 		public string Symbol { get; }

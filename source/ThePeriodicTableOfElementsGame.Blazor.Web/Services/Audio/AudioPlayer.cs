@@ -1,31 +1,29 @@
 ﻿using Microsoft.JSInterop;
 using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
 
 namespace ThePeriodicTableOfElementsGame.Blazor.Web.Services.Audio
 {
 	public class AudioPlayer : IAudioPlayer
 	{
-		private readonly IJSRuntime JSRuntime;
+		private readonly IJSInProcessRuntime JSRuntime;
 
-		public AudioPlayer(IJSRuntime jSRuntime)
+		public AudioPlayer(IJSInProcessRuntime jSRuntime)
 		{
 			JSRuntime = jSRuntime;
 		}
 
-		public async Task PlayOneShotAsync(AudioSample audioSample)
+		public void PlayOneShot(AudioSample audioSample)
 		{
-			await JSRuntime.InvokeVoidAsync(
+			JSRuntime.InvokeVoid(
 				Consts.Namespace + "playOneShot",
 				GetAudioFilename(audioSample));
 		}
 
-		public Task<IAudioClip> CreateAsync(
+		public IAudioClip Create(
 			AudioSample audioSample,
 			int[] eventTimingsMs = null)
-			=> AudioClip.CreateAsync(
+			=> AudioClip.Create(
 					JSRuntime,
 					GetAudioFilename(audioSample),
 					eventTimingsMs ?? Array.Empty<int>());

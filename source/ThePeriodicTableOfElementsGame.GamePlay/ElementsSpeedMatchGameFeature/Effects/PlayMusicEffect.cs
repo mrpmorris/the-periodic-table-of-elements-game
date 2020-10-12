@@ -2,7 +2,6 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGame.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGameFeature.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
 using ThePeriodicTableOfElementsGame.GamePlay.SharedFeature.Actions;
@@ -24,38 +23,36 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGameFeature.
 			State = state;
 		}
 
-		protected override async Task HandleAsync(StartGameAction action, IDispatcher dispatcher)
+		protected override Task HandleAsync(StartGameAction action, IDispatcher dispatcher)
 		{
 			Dispatcher = dispatcher;
 
 			int[] elementTimingsMs =
 				State.Value.ElementTimings.Select(x => x.Key).ToArray();
 
-			TheElementsSong = 
-				await AudioPlayer.CreateAsync(AudioSample.ElementsSong, elementTimingsMs)
-				.ConfigureAwait(false);
+			TheElementsSong = AudioPlayer.Create(AudioSample.ElementsSong, elementTimingsMs);
 			TheElementsSong.TimingEvent += OnTimingEvent;
 
-			await TheElementsSong.PlayAsync().ConfigureAwait(false);
+			TheElementsSong.Play();
+
+			return Task.CompletedTask;
 		}
 
 		private void OnTimingEvent(object sender, int eventTimeMs)
 		{
-			//TODO: PeteM - D1
-			System.Diagnostics.Debug.WriteLine("EventTimeMs: " + eventTimeMs);
 			Dispatcher.Dispatch(new TimingEventAction(eventTimeMs));
 		}
 
 		[EffectMethod]
-		public async Task NavigateAwayFromScene(NavigateAction action, IDispatcher dispatcher)
+		public Task NavigateAwayFromScene(NavigateAction action, IDispatcher dispatcher)
 		{
-			if (TheElementsSong != null)
+			if (TheElementsSong != null && action.Scene != SharedFeature.SceneType.ElementSpeedMatchGame)
 			{
 				TheElementsSong.TimingEvent -= OnTimingEvent;
-				await TheElementsSong.StopAsync().ConfigureAwait(false);
-				await TheElementsSong.DisposeAsync().ConfigureAwait(false);
+				TheElementsSong.Dispose();
 				TheElementsSong = null;
 			}
+			return Task.CompletedTask;
 		}
 	}
 }

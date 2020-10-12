@@ -1,25 +1,25 @@
 ﻿using Microsoft.JSInterop;
 using System;
-using System.Threading.Tasks;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
 
 namespace ThePeriodicTableOfElementsGame.Blazor.Web.Services.Audio
 {
-	public class AudioClip: IAudioClip
+	public sealed class AudioClip: IAudioClip
 	{
-		private readonly IJSRuntime JSRuntime;
+		private readonly IJSInProcessRuntime JSRuntime;
 		private int AudioId;
 		private DotNetObjectReference<AudioClip> ObjRef;
+		private bool IsDisposed;
 
 		public event EventHandler<int> TimingEvent;
 
-		private AudioClip(IJSRuntime jsRuntime)
+		private AudioClip(IJSInProcessRuntime jsRuntime)
 		{
 			JSRuntime = jsRuntime;
 		}
 
-		public static async Task<IAudioClip> CreateAsync(
-			IJSRuntime jsRuntime,
+		public static IAudioClip Create(
+			IJSInProcessRuntime jsRuntime,
 			string filename,
 			int[] eventTimingsMs)
 		{
@@ -32,7 +32,7 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Services.Audio
 			var objRef = DotNetObjectReference.Create<AudioClip>(audio);
 
 			eventTimingsMs = eventTimingsMs ?? Array.Empty<int>();
-			int audioId = await jsRuntime.InvokeAsync<int>(
+			int audioId = jsRuntime.Invoke<int>(
 				Consts.Namespace + "create",
 				objRef,
 				filename,
@@ -43,17 +43,19 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Services.Audio
 			return audio;
 		}
 
-
-		public ValueTask PlayAsync() =>
-			JSRuntime.InvokeVoidAsync(Consts.Play, AudioId);
-
-		public ValueTask StopAsync() =>
-			JSRuntime.InvokeVoidAsync(Consts.Pause, AudioId);
-
-		public ValueTask DisposeAsync()
+		public void Play()
 		{
-			ObjRef.Dispose();
-			return JSRuntime.InvokeVoidAsync(Consts.Dispose, AudioId);
+			JSRuntime.InvokeVoid(Consts.Play, AudioId);
+		}
+
+		public void Stop()
+		{
+			JSRuntime.InvokeVoid(Consts.Pause, AudioId);
+		}
+
+		public void Dispose()
+		{
+			Dispose(disposing: true);
 		}
 
 		[JSInvokable("TriggerTimingEvent")]
@@ -68,6 +70,19 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Services.Audio
 		{
 			AudioId = audioId;
 			ObjRef = objRef;
+		}
+
+		private void Dispose(bool disposing)
+		{
+			if (!IsDisposed)
+			{
+				IsDisposed = true;
+				if (disposing)
+				{
+					ObjRef.Dispose();
+					JSRuntime.InvokeVoid(Consts.Dispose, AudioId);
+				}
+			}
 		}
 	}
 }

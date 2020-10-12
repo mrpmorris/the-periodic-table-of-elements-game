@@ -65,13 +65,14 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature.Effec
 		[EffectMethod]
 		public Task ElementMismatched(ElementMismatchedAction _, IDispatcher dispatcher)
 		{
-			return AudioPlayer.PlayOneShotAsync(AudioSample.ElementMismatched);
+			AudioPlayer.PlayOneShot(AudioSample.ElementMismatched);
+			return Task.CompletedTask;
 		}
 
 		[EffectMethod]
 		public async Task ElementMatched(ElementMatchedAction _, IDispatcher dispatcher)
 		{
-			await AudioPlayer.PlayOneShotAsync(AudioSample.ElementFastMatched1);
+			AudioPlayer.PlayOneShot(AudioSample.ElementFastMatched1);
 			await Task.Delay(1000);
 			dispatcher.Dispatch(new ConcealAllElementsAction());
 			await Task.Delay(500);
@@ -82,8 +83,11 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGameFeature.Effec
 		}
 
 		[EffectMethod]
-		public Task SetExpectedElement(SetExpectedElementAction _, IDispatcher dispatcher) =>
-			AudioPlayer.PlayOneShotAsync(AudioSample.ElementAppeared);
+		public Task SetExpectedElement(SetExpectedElementAction _, IDispatcher dispatcher)
+		{
+			AudioPlayer.PlayOneShot(AudioSample.ElementAppeared);
+			return Task.CompletedTask;
+		}
 
 		[EffectMethod]
 		public async Task StartGameOverSequence(StartGameOverSequenceAction _, IDispatcher dispatcher)

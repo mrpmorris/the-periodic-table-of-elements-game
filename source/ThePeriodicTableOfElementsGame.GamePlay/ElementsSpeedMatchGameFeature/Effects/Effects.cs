@@ -14,5 +14,14 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGameFeature.
 			dispatcher.Dispatch(new NavigateAction(SceneType.ElementSpeedMatchGame));
 			return Task.CompletedTask;
 		}
+
+		[EffectMethod]
+		public static async Task TimingEvent(TimingEventAction action, IDispatcher dispatcher)
+		{
+			await Task.Delay(500);
+			var actionToDispatch =
+				ElementsSpeedMatchGameStateExtensions.DefaultState.ElementTimings[action.EventTimeMs];
+			dispatcher.Dispatch(actionToDispatch);
+		}
 	}
 }

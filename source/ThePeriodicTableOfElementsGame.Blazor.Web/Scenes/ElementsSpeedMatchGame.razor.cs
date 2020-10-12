@@ -1,10 +1,11 @@
 ﻿using Fluxor;
 using Microsoft.AspNetCore.Components;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGameFeature;
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGameFeature.Actions;
+using ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
 using ThePeriodicTableOfElementsGame.GamePlay.SharedFeature;
 using ThePeriodicTableOfElementsGame.GamePlay.SharedFeature.Actions;
+using ThePeriodicTableOfElementsGame.Blazor.Web.Extensions;
 
 namespace ThePeriodicTableOfElementsGame.Blazor.Web.Scenes
 {
@@ -22,6 +23,16 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Scenes
 		private void GoToMainMenu()
 		{
 			Dispatcher.Dispatch(new NavigateAction(SceneType.MainMenu));
+		}
+
+		private string GetElementHighlighterStyle()
+		{
+			byte? highlightedAtomicNumber = GameState.Value.HighlightedAtomicNumber;
+			if (highlightedAtomicNumber == null)
+				return "";
+
+			ElementData data = TableOfElementsData.ElementByNumber[highlightedAtomicNumber.Value];
+			return $"top: {data.GetCssStyleTop()}; left: {data.GetCssStyleLeft()};";
 		}
 	}
 }

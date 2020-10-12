@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace ThePeriodicTableOfElementsGame.GamePlay.Services
 {
 	public interface IAudioPlayer
 	{
-		Task PlayOneShotAsync(AudioSample audioSample);
-		Task<IAudioClip> CreateAsync(
+		void PlayOneShot(AudioSample audioSample);
+		IAudioClip Create(
 			AudioSample audioSample,
 			int[] eventTimingsMs = null);
 	}
@@ -20,10 +18,10 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.Services
 		ElementsSong
 	}
 
-	public interface IAudioClip: IAsyncDisposable
+	public interface IAudioClip: IDisposable
 	{
 		event EventHandler<int> TimingEvent;
-		ValueTask PlayAsync();
-		ValueTask StopAsync();
+		void Play();
+		void Stop();
 	}
 }

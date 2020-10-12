@@ -83,7 +83,8 @@ class AudioClip {
 		// Otherwise, trigger the event
 		while (this._eventTimings.length > 0 && this._eventTimings[0] <= audioTimeMs) {
 			let eventTimeMs = this._eventTimings.splice(0, 1)[0];
-			this._dotNetObjRef.invokeMethodAsync(`TriggerTimingEvent`, eventTimeMs);
+			console.log(`${eventTimeMs} at ${this._audio.currentTime * 1000}`);
+			this._dotNetObjRef.invokeMethod(`TriggerTimingEvent`, eventTimeMs);
 		}
 		this._setTimeoutForNextEvent(this);
 	}
