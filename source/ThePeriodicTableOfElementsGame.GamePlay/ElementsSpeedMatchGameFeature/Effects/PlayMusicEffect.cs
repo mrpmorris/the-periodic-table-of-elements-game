@@ -28,7 +28,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGameFeature.
 			Dispatcher = dispatcher;
 
 			int[] elementTimingsMs =
-				State.Value.ElementTimings.Select(x => x.Key).ToArray();
+				State.Value.ElementTimings.Select(x => x.Key - Consts.LeadInTimeMs).ToArray();
 
 			TheElementsSong = AudioPlayer.Create(AudioSample.ElementsSong, elementTimingsMs);
 			TheElementsSong.TimingEvent += OnTimingEvent;
@@ -40,7 +40,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGameFeature.
 
 		private void OnTimingEvent(object sender, int eventTimeMs)
 		{
-			Dispatcher.Dispatch(new TimingEventAction(eventTimeMs));
+			Dispatcher.Dispatch(new TimingEventAction(eventTimeMs + Consts.LeadInTimeMs));
 		}
 
 		[EffectMethod]

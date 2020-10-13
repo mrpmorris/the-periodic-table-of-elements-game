@@ -18,7 +18,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGameFeature.
 		[EffectMethod]
 		public static async Task TimingEvent(TimingEventAction action, IDispatcher dispatcher)
 		{
-			await Task.Delay(500);
+			await Task.Delay(Consts.LeadInTimeMs - 25);
 			var actionToDispatch =
 				ElementsSpeedMatchGameStateExtensions.DefaultState.ElementTimings[action.EventTimeMs];
 			dispatcher.Dispatch(actionToDispatch);
