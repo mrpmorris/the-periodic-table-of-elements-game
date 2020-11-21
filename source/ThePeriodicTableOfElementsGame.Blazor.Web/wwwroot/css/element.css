@@ -1,165 +1,167 @@
 ﻿.element {
-  text-align: center;
-  perspective: 1000px;
-  background-color: transparent;
-  position: absolute;
-  transition: transform 0.3s;
-  border-radius: 8px;
-  transform-style: preserve-3d;
-  cursor: pointer;
-  font-size: 0.75vw;
-  width: calc(100% / 18);
-  height: calc(100% / 19 * 2);
-  border: 1px solid transparent;
+	text-align: center;
+	perspective: 1000px;
+	background-color: transparent;
+	position: absolute;
+	transition: transform 0.3s;
+	border-radius: 8px;
+	transform-style: preserve-3d;
+	cursor: pointer;
+	font-size: 0.75vw;
+	width: calc(100% / 18);
+	height: calc(100% / 19 * 2);
+	border: 1px solid transparent;
 }
 
-  .element > .front {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    padding: 0.5em;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
+	.element > .front {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		padding: 0.5em;
+		pointer-events: none;
+		-webkit-backface-visibility: hidden;
+		-moz-backface-visibility: hidden;
+		backface-visibility: hidden;
+	}
 
-  .element > .back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    padding: 0.5em;
-    transform: rotateY(180deg);
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
+	.element > .back {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		padding: 0.5em;
+		pointer-events: none;
+		transform: rotateY(180deg);
+		-webkit-backface-visibility: hidden;
+		-moz-backface-visibility: hidden;
+		backface-visibility: hidden;
+	}
 
-  .element .atomic-number {
-    text-align: left;
-    margin: 0;
-    min-height: 1.1em;
-  }
+	.element .atomic-number {
+		text-align: left;
+		margin: 0;
+		min-height: 1.1em;
+	}
 
-  .element .symbol {
-    margin: 0;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.5em;
-  }
+	.element .symbol {
+		margin: 0;
+		text-align: center;
+		font-weight: bold;
+		font-size: 1.5em;
+	}
 
-  .element .name {
-    margin: 0;
-    text-align: center;
-    min-height: 1.1em;
-    margin-top: 0.25em;
-  }
+	.element .name {
+		margin: 0;
+		text-align: center;
+		min-height: 1.1em;
+		margin-top: 0.25em;
+	}
 
-  .element.--actinide > .front,
-  .element.--actinide > .back {
-    background-color: var(--actinide);
-  }
+	.element.--actinide > .front,
+	.element.--actinide > .back {
+		background-color: var(--actinide);
+	}
 
-  .element.--alkali-metal > .front,
-  .element.--alkali-metal > .back {
-    background-color: var(--alkali-metal);
-  }
+	.element.--alkali-metal > .front,
+	.element.--alkali-metal > .back {
+		background-color: var(--alkali-metal);
+	}
 
-  .element.--alkaline-earth-metal > .front,
-  .element.--alkaline-earth-metal > .back {
-    background-color: var(--alkaline-earth-metal);
-  }
+	.element.--alkaline-earth-metal > .front,
+	.element.--alkaline-earth-metal > .back {
+		background-color: var(--alkaline-earth-metal);
+	}
 
-  .element.--lathanide > .front,
-  .element.--lathanide > .back {
-    background-color: var(--lathanide);
-  }
+	.element.--lathanide > .front,
+	.element.--lathanide > .back {
+		background-color: var(--lathanide);
+	}
 
-  .element.--metalloid > .front,
-  .element.--metalloid > .back {
-    background-color: var(--metalloid);
-  }
+	.element.--metalloid > .front,
+	.element.--metalloid > .back {
+		background-color: var(--metalloid);
+	}
 
-  .element.--noble-gas > .front,
-  .element.--noble-gas > .back {
-    background-color: var(--noble-gas);
-  }
+	.element.--noble-gas > .front,
+	.element.--noble-gas > .back {
+		background-color: var(--noble-gas);
+	}
 
-  .element.--post-transitional-metal > .front,
-  .element.--post-transitional-metal > .back {
-    background-color: var(--post-transitional-metal);
-  }
+	.element.--post-transitional-metal > .front,
+	.element.--post-transitional-metal > .back {
+		background-color: var(--post-transitional-metal);
+	}
 
-  .element.--reactive-non-metal > .front,
-  .element.--reactive-non-metal > .back {
-    background-color: var(--reactive-non-metal);
-  }
+	.element.--reactive-non-metal > .front,
+	.element.--reactive-non-metal > .back {
+		background-color: var(--reactive-non-metal);
+	}
 
-  .element.--transitional-metal > .front,
-  .element.--transitional-metal > .back {
-    background-color: var(--transitional-metal);
-  }
+	.element.--transitional-metal > .front,
+	.element.--transitional-metal > .back {
+		background-color: var(--transitional-metal);
+	}
 
-  .element.--unknown > .front,
-  .element.--unknown > .back {
-    background-color: var(--unknown);
-  }
+	.element.--unknown > .front,
+	.element.--unknown > .back {
+		background-color: var(--unknown);
+	}
 
-  .element.--concealed {
-    transform: rotateY(180deg)
-  }
+	.element.--concealed {
+		transform: rotateY(180deg)
+	}
 
 .--highlight-group--actinide .element.--actinide {
-  animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
+	animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
 .--highlight-group--alkali-metal .element.--alkali-metal {
-  animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
+	animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
 .--highlight-group--alkaline-earth-metal .element.--alkaline-earth-metal {
-  animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
+	animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
 .--highlight-group--lathanide .element.--lathanide {
-  animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
+	animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
 .--highlight-group--post-transitional-metal .element.--post-transitional-metal {
-  animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
+	animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
 .--highlight-group--metalloid .element.--metalloid {
-  animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
+	animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
 .--highlight-group--noble-gas .element.--noble-gas {
-  animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
+	animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
 .--highlight-group--post-transitional-metal .element.--post-transitional-metal {
-  animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
+	animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
 .--highlight-group--reactive-non-metal .element.--reactive-non-metal {
-  animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
+	animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
 .--highlight-group--transitional-metal .element.--transitional-metal {
-  animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
+	animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
 .--highlight-group--unknown .element.--unknown {
-  animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
+	animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
 @keyframes pulse-highlighted-element {
-  0% {
-    border: 1px solid rgba(255, 255, 255, 0);
-    border-radius: 25%;
-  }
+	0% {
+		border: 1px solid rgba(255, 255, 255, 0);
+		border-radius: 25%;
+	}
 
-  100% {
-    border: 1px solid rgba(255, 255, 255, 1);
-    border-radius: 0;
-  }
+	100% {
+		border: 1px solid rgba(255, 255, 255, 1);
+		border-radius: 0;
+	}
 }
