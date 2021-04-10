@@ -31,8 +31,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Fluxor.Blazor.Web" Version="3.7.0" />
-		<PackageReference Include="Fluxor.Blazor.Web.ReduxDevTools" Version="3.7.0" Condition="'$(Configuration)' == 'Debug'" />
+		<PackageReference Include="Fluxor.Blazor.Web" Version="4.0.0" />
+		<PackageReference Include="Fluxor.Blazor.Web.ReduxDevTools" Version="4.0.0" Condition="'$(Configuration)' == 'Debug'" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="3.2.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Build" Version="3.2.1" PrivateAssets="all" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="3.2.1" PrivateAssets="all" />

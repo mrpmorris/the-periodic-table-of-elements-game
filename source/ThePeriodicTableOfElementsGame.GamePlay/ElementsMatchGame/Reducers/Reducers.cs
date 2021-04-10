@@ -13,8 +13,8 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Reducers
 		public static ElementsMatchGameState SelectGameAction(ElementsMatchGameState state, SelectGameAction action) =>
 			ElementsMatchGameStateExtensions.DefaultState.With(matchType: action.MatchType);
 
-		[ReducerMethod]
-		public static ElementsMatchGameState StartGameAction(ElementsMatchGameState state, StartGameAction _) =>
+		[ReducerMethod(typeof(StartGameAction))]
+		public static ElementsMatchGameState StartGameAction(ElementsMatchGameState state) =>
 			ElementsMatchGameStateExtensions.DefaultState.With
 			(
 				matchType: state.MatchType,
@@ -42,8 +42,8 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Reducers
 					.ToDictionary(x => x.AtomicNumber).AsReadOnly()
 			);
 
-		[ReducerMethod]
-		public static ElementsMatchGameState ConcealAllElementsAction(ElementsMatchGameState state, ConcealAllElementsAction _) =>
+		[ReducerMethod(typeof(ConcealAllElementsAction))]
+		public static ElementsMatchGameState ConcealAllElementsAction(ElementsMatchGameState state) =>
 			state.With
 			(
 				elementStates: state.ElementStates.Values
@@ -75,16 +75,16 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Reducers
 					showElementGroup: true,
 					highlighElementsInExpectedGroup: true);
 
-		[ReducerMethod]
-		public static ElementsMatchGameState ElementMatchedAction(ElementsMatchGameState state, ElementMatchedAction _) =>
+		[ReducerMethod(typeof(ElementMatchedAction))]
+		public static ElementsMatchGameState ElementMatchedAction(ElementsMatchGameState state) =>
 			state.With
 			(
 				totalMatched: state.TotalMatched + 1,
 				highlighElementsInExpectedGroup: false
 			);
 
-		[ReducerMethod]
-		public static ElementsMatchGameState ElementMismatchedAction(ElementsMatchGameState state, ElementMismatchedAction _) =>
+		[ReducerMethod(typeof(ElementMismatchedAction))]
+		public static ElementsMatchGameState ElementMismatchedAction(ElementsMatchGameState state) =>
 			state.With
 			(
 				totalMismatched: state.TotalMismatched + 1

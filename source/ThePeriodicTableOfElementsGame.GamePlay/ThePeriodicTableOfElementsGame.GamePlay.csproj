@@ -9,7 +9,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Fluxor" Version="3.7.0" />
+		<PackageReference Include="Fluxor" Version="4.0.0" />
 	</ItemGroup>
 
 </Project>

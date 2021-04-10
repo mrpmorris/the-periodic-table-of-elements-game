@@ -10,12 +10,12 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.Navigation.Reducers
 		public static NavigationState NavigateAction(NavigationState state, NavigateAction action) =>
 			new NavigationState(action.Scene);
 
-		[ReducerMethod]
-		public static NavigationState StartGameOverSequenceAction(NavigationState state, StartGameOverSequenceAction _) =>
+		[ReducerMethod(typeof(StartGameOverSequenceAction))]
+		public static NavigationState StartGameOverSequenceAction(NavigationState state) =>
 			new NavigationState(SceneType.TransitionFromElementsMatchGameToGameOver);
 
-		[ReducerMethod]
-		public static NavigationState CompleteGameOverAction(NavigationState state, CompleteGameOverAction _) =>
+		[ReducerMethod(typeof(CompleteGameOverAction))]
+		public static NavigationState CompleteGameOverAction(NavigationState state) =>
 			new NavigationState(SceneType.ElementsMatchGameOver);
 	}
 }
