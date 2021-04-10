@@ -14,20 +14,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Content Remove="wwwroot\audio\ElementsSong.ogg" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <Watch Remove="wwwroot\css\element.css" />
 	  <Watch Remove="wwwroot\css\elements-match-game-over.css" />
 	  <Watch Remove="wwwroot\css\elements-match-game.css" />
 	  <Watch Remove="wwwroot\css\main-layout.css" />
 	  <Watch Remove="wwwroot\css\main-menu.css" />
 	  <Watch Remove="wwwroot\css\periodic-table.css" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Include="wwwroot\audio\ElementsSong.ogg" />
 	</ItemGroup>
 
 	<ItemGroup>

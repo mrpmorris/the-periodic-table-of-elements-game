@@ -7,6 +7,7 @@
   left: 0;
   font-size: 4vmin;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -19,6 +20,10 @@
 #end-game-stats-contents {
   display: grid;
 }
+
+  #end-game-stats-contents > .menu {
+    grid-column : 1 / span 2;
+  }
 
   #end-game-stats-contents > .matched.label {
     font-weight: bold;

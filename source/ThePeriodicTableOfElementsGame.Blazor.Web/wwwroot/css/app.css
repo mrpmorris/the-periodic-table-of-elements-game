@@ -98,7 +98,7 @@ h2 {
 		border: none;
 		font-size: 4vmin;
 		height: 8vmin;
-		width: 50%;
+		width: 50vw;
 		vertical-align: middle;
 		text-align: center;
 		cursor: pointer;
@@ -277,6 +277,7 @@ h2 {
 .--place-the-symbol .element > .back > .name {
 	position: absolute;
 	top: 40%;
+	left: 0;
 	width:100%;
 	text-align: center;
 	transform: scaleY(2);
