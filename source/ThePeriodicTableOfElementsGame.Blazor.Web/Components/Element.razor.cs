@@ -4,6 +4,8 @@ using ThePeriodicTableOfElementsGame.Blazor.Web.Extensions;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
 using ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Actions;
+using System;
+using System.Globalization;
 
 namespace ThePeriodicTableOfElementsGame.Blazor.Web.Components
 {
@@ -20,7 +22,7 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Components
 		private bool NeedsRender = true;
 
 		public string GetStyles() => 
-			$"top: calc(100% / 9.5 * {Data.Row - 1}); left: calc(100% / 18 * {Data.Column - 1})";
+			$"top: calc(100% / 9.5 * {(Data.Row - 1).ToString(CultureInfo.InvariantCulture)}); left: calc(100% / 18 * {Data.Column - 1})";
 
 		public string GetClasses() =>
 			$"{Data.Group.GetAsCssClass()} " + (State.Concealed ? "--concealed" : "");
