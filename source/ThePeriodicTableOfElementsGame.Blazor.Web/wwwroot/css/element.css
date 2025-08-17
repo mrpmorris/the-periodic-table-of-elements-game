@@ -7,7 +7,7 @@
 	border-radius: 8px;
 	transform-style: preserve-3d;
 	cursor: pointer;
-	font-size: 0.75vw;
+	font-size: 0.75dvw;
 	width: calc(100% / 18);
 	height: calc(100% / 19 * 2);
 	border: 1px solid transparent;

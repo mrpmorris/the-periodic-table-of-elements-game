@@ -27,19 +27,19 @@ body {
 	padding: 0;
 	overflow: hidden;
 	background-color: #444A5F;
-	font-size: 1vw;
+	font-size: 1dvw;
 	user-select: none;
 }
 
 h1 {
 	color: white;
-	font-size: 5vmin;
+	font-size: 5dvmin;
 	text-align: center;
 }
 
 h2 {
 	color: white;
-	font-size: 3vmin;
+	font-size: 3dvmin;
 	text-align: center;
 }
 
@@ -54,7 +54,7 @@ h2 {
 	justify-content: center;
 	align-items: center;
 	color: white;
-	font-size: 5vw;
+	font-size: 5dvw;
 }
 
 	#app .loading .loading_dot-1 {
@@ -79,7 +79,7 @@ h2 {
 }
 
 #app .loading .loading_mendeleev {
-	width: 40vmin;
+	width: 40dvmin;
 }
 
 
@@ -96,9 +96,9 @@ h2 {
 	.menu .button {
 		border-radius: 8px;
 		border: none;
-		font-size: 4vmin;
-		height: 8vmin;
-		width: 50vw;
+		font-size: 4dvmin;
+		height: 8dvmin;
+		width: 50%;
 		vertical-align: middle;
 		text-align: center;
 		cursor: pointer;
@@ -106,12 +106,12 @@ h2 {
 
 #scene {
 	position: relative;
-	top: 50vh;
-	left: 50vw;
-	width: 100vw;
-	height: 50vw;
-	max-height: 100vh;
-	max-width: calc(100vh * 2);
+	top: 50dvh;
+	left: 50dvw;
+	width: 100dvw;
+	height: 50dvw;
+	max-height: 100dvh;
+	max-width: calc(100dvh * 2);
 	transform: translate(-50%, -50%);
 	transition: transform 2s ease-in-out;
 	background-color: #535A73;
@@ -127,8 +127,8 @@ h2 {
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	width: 40vmin;
-	height: calc(1.77 * 40vmin);
+	width: 40dvmin;
+	height: calc(1.77 * 40dvmin);
 	transform: translate(-50%, -50%);
 }
 
@@ -142,7 +142,7 @@ h2 {
 	grid-column-end: 13;
 	grid-row-start: 1;
 	grid-row-end: 4;
-	font-size: 6vw;
+	font-size: 6dvw;
 	color: white;
 }
 
@@ -240,7 +240,7 @@ h2 {
 	grid-column-start: 13;
 	grid-column-end: 18;
 	position: relative;
-	font-size: 2vw;
+	font-size: 2dvw;
 	color: #a5a985;
 }
 

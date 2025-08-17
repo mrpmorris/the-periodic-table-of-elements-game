@@ -1,16 +1,16 @@
 ﻿#mendeleev {
   position: absolute;
-  right: 2vw;
-  bottom: 2vh;
+  right: 2dvw;
+  bottom: 2dvh;
   height: 66%;
   z-index: -1000;
 }
 
 #credits {
   position: absolute;
-  bottom: 2vmin;
+  bottom: 2dvmin;
   text-align: center;
-  font-size: 3vmin;
+  font-size: 3dvmin;
   width: 100%;
 }
 
@@ -19,13 +19,13 @@ h1, h2 {
 }
 
 h1 {
-  font-size: 6vw;
+  font-size: 10dvmin;
 }
 
 h2 {
-  font-size: 2.5vw;
+  font-size: 6dvmin;
 }
 
 .menu {
-  margin-top: 4vmin;
+  margin-top: 4dvmin;
 }
