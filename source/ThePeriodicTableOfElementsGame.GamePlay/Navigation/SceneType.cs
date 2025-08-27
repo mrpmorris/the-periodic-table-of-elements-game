@@ -5,6 +5,7 @@
 		MainMenu,
 		ElementsMatchGame,
 		TransitionFromElementsMatchGameToGameOver,
-		ElementsMatchGameOver
+		ElementsMatchGameOver,
+		ElementSpeedMatchGame
 	}
 }

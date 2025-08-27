@@ -16,6 +16,9 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web
 			builder.RootComponents.Add<App>("#app");
 
 			builder.Services.AddScoped<IAudioPlayer, AudioPlayer>();
+			builder.Services.AddScoped(
+				sp => (IJSInProcessRuntime)sp.GetRequiredService<IJSRuntime>());
+
 			builder.Services.AddFluxor(x => x
 				.ScanAssemblies(typeof(ElementsMatchGameState).Assembly)
 #if DEBUG
