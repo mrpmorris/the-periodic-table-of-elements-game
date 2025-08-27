@@ -19,5 +19,8 @@
 		public bool ShowGameOver =>
 			Scene == SceneType.TransitionFromElementsMatchGameToGameOver
 			|| Scene == SceneType.ElementsMatchGameOver;
+
+		public bool ShowElementsSpeedMatchGame =>
+			Scene == SceneType.ElementSpeedMatchGame;
 	}
 }

@@ -3,6 +3,7 @@
 	public enum MatchType
 	{
 		PlaceTheSymbol,
-		PlaceTheName
+		PlaceTheName,
+		SpeedMatch
 	}
 }

@@ -1,8 +1,10 @@
 using Fluxor;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.JSInterop;
 using System.Threading.Tasks;
 using ThePeriodicTableOfElementsGame.Blazor.Web.Services;
+using ThePeriodicTableOfElementsGame.Blazor.Web.Services.Audio;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
 

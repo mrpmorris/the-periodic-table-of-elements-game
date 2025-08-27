@@ -1,5 +1,6 @@
 ﻿using Microsoft.JSInterop;
 using System;
+using System.Threading.Tasks;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
 
 namespace ThePeriodicTableOfElementsGame.Blazor.Web.Services.Audio
@@ -13,11 +14,12 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Services.Audio
 			JSRuntime = jSRuntime;
 		}
 
-		public void PlayOneShot(AudioSample audioSample)
+		public Task PlayOneShotAsync(AudioSample audioSample)
 		{
 			JSRuntime.InvokeVoid(
 				Consts.Namespace + "playOneShot",
 				GetAudioFilename(audioSample));
+			return Task.CompletedTask;
 		}
 
 		public IAudioClip Create(
