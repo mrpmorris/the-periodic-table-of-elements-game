@@ -2,11 +2,10 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.Features.App;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
 
-namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Effects
+namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 {
 	public class Effects
 	{

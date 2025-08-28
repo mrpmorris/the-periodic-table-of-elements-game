@@ -1,5 +1,5 @@
 ﻿using Fluxor;
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Actions;
+using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
 using ThePeriodicTableOfElementsGame.GamePlay.Navigation.Actions;
 
 namespace ThePeriodicTableOfElementsGame.GamePlay.Navigation.Reducers

@@ -1,4 +1,4 @@
-﻿namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Actions
+﻿namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 {
 	public class RevealElementAction
 	{

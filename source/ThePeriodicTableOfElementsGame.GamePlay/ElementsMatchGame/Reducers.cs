@@ -1,11 +1,10 @@
 ﻿using Fluxor;
 using System;
 using System.Linq;
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.Extensions;
 using ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData;
 
-namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Reducers
+namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 {
 	public static class Reducers
 	{
