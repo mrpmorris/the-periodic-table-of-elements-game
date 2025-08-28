@@ -1,5 +1,4 @@
 ﻿@inherits Fluxor.Blazor.Web.Components.FluxorComponent
-@using Fluxor
 @inject IDispatcher Dispatcher
 
 <h1>
@@ -9,17 +8,17 @@
 <img id="mendeleev" src="/images/Mendeleev.png" />
 <ul class="menu">
     <li>
-        <button type=button class="button">
+        <button type=button class="button" @onclick=StartPlaceTheNameGame>
            Place the name
         </button>
     </li>
     <li>
-        <button type=button class="button">
+        <button type=button class="button" @onclick=StartPlaceTheSymbolGame>
            Place the symbol
         </button>
     </li>
     <li>
-        <button type=button class="button">
+        <button type=button class="button" @onclick=StartSpeedMatchGame>
             Speed match game
         </button>
     </li>

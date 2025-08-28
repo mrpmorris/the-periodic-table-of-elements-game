@@ -1,21 +1,19 @@
-@using ThePeriodicTableOfElementsGame.Blazor.Web.Scenes.MainMenu
 @inherits Fluxor.Blazor.Web.Components.FluxorComponent
+@using ThePeriodicTableOfElementsGame.Blazor.Web.Scenes.TitleScreen
+@using ThePeriodicTableOfElementsGame.GamePlay.Features.App
+@inject IState<AppState> AppState
 <Fluxor.Blazor.Web.StoreInitializer />
 <LayoutView Layout=typeof(MainLayout)>
-	@if (NavigationState.Value.ShowMainMenu)
+	@if (AppState.Value.ActiveScene == Scene.TitleScreen)
 	{
-		<MainMenu />
+		<TitleScreen />
 	}
-	@if (NavigationState.Value.ShowElementsMatchGame)
+	else if (AppState.Value.ActiveScene == Scene.ElementsMatchGame)
 	{
-		<ElementsMatchGame />
+		<ElementsMatchGame/>
 	}
-	@if (NavigationState.Value.ShowGameOver)
+	else if (AppState.Value.ActiveScene == Scene.SpeedMatchGame)
 	{
-		<ElementsMatchGameOver />
-	}
-	@if (NavigationState.Value.ShowElementsSpeedMatchGame)
-	{
-		<ElementsSpeedMatchGame />
+		<h1>// TODO</h1>
 	}
 </LayoutView>

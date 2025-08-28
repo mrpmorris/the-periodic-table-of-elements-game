@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Actions;
+using ThePeriodicTableOfElementsGame.GamePlay.Features.App;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
 
 namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Effects
@@ -19,8 +20,9 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Effects
 		}
 
 		[EffectMethod]
-		public async Task StartGameAction(StartGameAction _, IDispatcher dispatcher)
+		public async Task StartGameAction(StartElementsMatchGameAction _, IDispatcher dispatcher)
 		{
+			dispatcher.Dispatch(new ChangeSceneAction(Scene.ElementsMatchGame));
 			await Task.Delay(500);
 			dispatcher.Dispatch(new SetExpectedElementAction(atomicNumber: GetRandomElementAtomicNumber()));
 		}

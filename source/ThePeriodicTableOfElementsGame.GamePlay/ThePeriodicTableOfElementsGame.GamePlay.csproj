@@ -9,8 +9,4 @@
 	<ItemGroup>
 		<PackageReference Include="Fluxor" Version="6.7.0" />
 	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Features\" />
-	</ItemGroup>
 </Project>
