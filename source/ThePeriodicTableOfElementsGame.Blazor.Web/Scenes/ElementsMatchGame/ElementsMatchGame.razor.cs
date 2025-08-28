@@ -1,7 +1,6 @@
 ﻿using Fluxor;
 using Microsoft.AspNetCore.Components;
 using System;
-using ThePeriodicTableOfElementsGame.GamePlay.Navigation;
 using ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData;
 using ThePeriodicTableOfElementsGame.Blazor.Web.Extensions;
 using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame;
@@ -12,9 +11,6 @@ public partial class ElementsMatchGame
 {
 	[Inject]
 	private IState<ElementsMatchGameState> GameState { get; set; }
-
-	[Inject]
-	private IState<NavigationState> NavigationState { get; set; }
 
 	[Inject]
 	private IDispatcher Dispatcher { get; set; }
@@ -28,13 +24,12 @@ public partial class ElementsMatchGame
 			_ => throw new NotImplementedException(GameState.Value.MatchType.ToString())
 		};
 
-		string sceneTypeCss = NavigationState.Value.Scene switch
+		string sceneTypeCss = GameState.Value.SubSceneType switch
 		{
-			SceneType.ElementsMatchGameOver => "--game-over",
-			SceneType.TransitionFromElementsMatchGameToGameOver => "--game-over-sequence",
-			SceneType.ElementsMatchGame => "--gameplay",
-			SceneType.MainMenu => "",
-			_ => throw new NotImplementedException(NavigationState.Value.Scene.ToString())
+			SubSceneType.GameOver => "--game-over",
+			SubSceneType.TransitionToGameOver => "--game-over-sequence",
+			SubSceneType.Gameplay => "--gameplay",
+			_ => throw new NotImplementedException(GameState.Value.SubSceneType.ToString())
 		};
 
 		string highlightedElementGroup = "";
@@ -57,6 +52,7 @@ public partial class ElementsMatchGame
 
 	private void GoToMainMenu()
 	{
-		Dispatcher.Dispatch(new NavigateAction(SceneType.MainMenu));
+		var action = new GamePlay.Features.App.Actions.ChangeSceneAction(GamePlay.Features.App.Scene.TitleScreen);
+		Dispatcher.Dispatch(action);
 	}
 }

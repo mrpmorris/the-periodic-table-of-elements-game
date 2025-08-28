@@ -1,7 +1,6 @@
 ﻿using Fluxor;
 using System.Threading;
 using System.Threading.Tasks;
-using ThePeriodicTableOfElementsGame.GamePlay.Features.App.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame.Actions;
 
 namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame;
@@ -34,14 +33,15 @@ public class RevealElementGroupEffect
 	}
 
 	[EffectMethod]
-	public Task StartGameOverSequenceAction(StartGameOverSequenceAction action, IDispatcher dispatcher)
+	public Task SetSubSceneAction(SetSubSceneAction action, IDispatcher dispatcher)
 	{
-		Timer?.Dispose();
+		if (action.NewSubSceneType != SubSceneType.Gameplay)
+			Timer?.Dispose();
 		return Task.CompletedTask;
 	}
 
 	[EffectMethod]
-	public Task NavigateAction(ChangeSceneAction action, IDispatcher dispatcher)
+	public Task ChangeSceneAction(Features.App.Actions.ChangeSceneAction action, IDispatcher dispatcher)
 	{
 		Timer?.Dispose();
 		return Task.CompletedTask;

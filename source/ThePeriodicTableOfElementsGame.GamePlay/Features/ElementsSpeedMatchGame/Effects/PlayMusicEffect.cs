@@ -2,8 +2,8 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using ThePeriodicTableOfElementsGame.GamePlay.Features.App.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame.Actions;
-using ThePeriodicTableOfElementsGame.GamePlay.Navigation;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
 
 namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame.Effects
@@ -44,9 +44,9 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGam
 		}
 
 		[EffectMethod]
-		public Task NavigateAwayFromScene(NavigateAction action, IDispatcher dispatcher)
+		public Task NavigateAwayFromScene(ChangeSceneAction action, IDispatcher dispatcher)
 		{
-			if (TheElementsSong != null && action.Scene != SceneType.ElementSpeedMatchGame)
+			if (TheElementsSong != null)
 			{
 				TheElementsSong.TimingEvent -= OnTimingEvent;
 				TheElementsSong.Dispose();

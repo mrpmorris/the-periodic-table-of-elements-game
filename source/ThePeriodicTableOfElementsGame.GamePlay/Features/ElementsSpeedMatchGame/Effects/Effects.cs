@@ -1,20 +1,11 @@
 ﻿using Fluxor;
 using System.Threading.Tasks;
-using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame;
 using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame.Actions;
-using ThePeriodicTableOfElementsGame.GamePlay.Navigation;
 
 namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame.Effects
 {
 	public static class Effects
 	{
-		[EffectMethod]
-		public static Task StartGame(StartGameAction action, IDispatcher dispatcher)
-		{
-			dispatcher.Dispatch(new NavigateAction(SceneType.ElementSpeedMatchGame));
-			return Task.CompletedTask;
-		}
-
 		[EffectMethod]
 		public static async Task TimingEvent(TimingEventAction action, IDispatcher dispatcher)
 		{

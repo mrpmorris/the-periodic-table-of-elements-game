@@ -10,6 +10,10 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame
 	public static class Reducers
 	{
 		[ReducerMethod]
+		public static ElementsMatchGameState SetSubSceneAction(ElementsMatchGameState state, SetSubSceneAction action) =>
+			state with { SubSceneType = action.NewSubSceneType };
+
+		[ReducerMethod]
 		public static ElementsMatchGameState StartGameAction(ElementsMatchGameState state, StartElementsMatchGameAction action) =>
 			ElementsMatchGameState.Default with
 			{

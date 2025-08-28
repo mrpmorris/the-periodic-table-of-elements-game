@@ -1,9 +1,7 @@
 ﻿using Fluxor;
 using Microsoft.AspNetCore.Components;
 using ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData;
-using ThePeriodicTableOfElementsGame.GamePlay.Services;
 using ThePeriodicTableOfElementsGame.Blazor.Web.Extensions;
-using ThePeriodicTableOfElementsGame.GamePlay.Navigation;
 using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame;
 
 namespace ThePeriodicTableOfElementsGame.Blazor.Web.Scenes.ElementsMatchSpeedGame;
@@ -16,12 +14,10 @@ public partial class ElementsSpeedMatchGame
 	[Inject]
 	private IDispatcher Dispatcher { get; set; }
 
-	[Inject]
-	private IAudioPlayer AudioPlayer { get; set; }
-
 	private void GoToMainMenu()
 	{
-		Dispatcher.Dispatch(new NavigateAction(SceneType.MainMenu));
+		var action = new GamePlay.Features.App.Actions.ChangeSceneAction(GamePlay.Features.App.Scene.TitleScreen);
+		Dispatcher.Dispatch(action);
 	}
 
 	private string GetElementHighlighterStyle()

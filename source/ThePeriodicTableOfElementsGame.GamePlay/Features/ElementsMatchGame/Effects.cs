@@ -2,8 +2,6 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using ThePeriodicTableOfElementsGame.GamePlay.Features.App;
-using ThePeriodicTableOfElementsGame.GamePlay.Features.App.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
 
@@ -20,13 +18,14 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame
 			AudioPlayer = audioPlayer ?? throw new ArgumentNullException(nameof(audioPlayer));
 		}
 
-		[EffectMethod]
-		public async Task StartGameAction(StartElementsMatchGameAction _, IDispatcher dispatcher)
+		[EffectMethod(typeof(StartElementsMatchGameAction))]
+		public async Task StartGameAction(IDispatcher dispatcher)
 		{
 #if DEBUG && I_WANNA_CHEAT
 			dispatcher.Dispatch(new CompleteAllButOneElementAction());
 #endif
-			dispatcher.Dispatch(new ChangeSceneAction(Scene.ElementsMatchGame));
+			var action = new Features.App.Actions.ChangeSceneAction(Features.App.Scene.ElementsMatchGame);
+			dispatcher.Dispatch(action);
 			await Task.Delay(500);
 			dispatcher.Dispatch(new SetExpectedElementAction(atomicNumber: GetRandomElementAtomicNumber()));
 		}
@@ -67,7 +66,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame
 			if (GameState.Value.AvailableElements.Any())
 				dispatcher.Dispatch(new SetExpectedElementAction(atomicNumber: GetRandomElementAtomicNumber()));
 			else
-				dispatcher.Dispatch(new StartGameOverSequenceAction());
+				dispatcher.Dispatch(new SetSubSceneAction(SubSceneType.TransitionToGameOver));
 		}
 
 		[EffectMethod]
@@ -76,14 +75,14 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame
 			await AudioPlayer.PlayOneShotAsync(AudioSample.ElementAppeared);
 		}
 
-		[EffectMethod]
-		public async Task StartGameOverSequenceAction(StartGameOverSequenceAction _, IDispatcher dispatcher)
+		[EffectMethod(typeof(SetSubSceneAction))]
+		public async Task StartGameOverSequenceAction(IDispatcher dispatcher)
 		{
 			await Task.Delay(2050);
-			dispatcher.Dispatch(new CompleteGameOverAction());
+			dispatcher.Dispatch(new SetSubSceneAction(SubSceneType.GameOver));
 		}
 
 		private byte GetRandomElementAtomicNumber() =>
-			GameState.Value.AvailableElements[new Random().Next(GameState.Value.AvailableElements.Length)];
+			GameState.Value.AvailableElements[Random.Shared.Next(GameState.Value.AvailableElements.Length)];
 	}
 }

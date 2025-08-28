@@ -9,6 +9,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame;
 [FeatureState]
 public record ElementsMatchGameState(
 	MatchType MatchType,
+	SubSceneType SubSceneType,
 	byte? ExpectedElement,
 	string ExpectedElementDisplayText,
 	bool ShowElementGroup,
@@ -22,6 +23,7 @@ public record ElementsMatchGameState(
 
 	public ElementsMatchGameState() : this(
 		MatchType: MatchType.PlaceTheSymbol,
+		SubSceneType: SubSceneType.Gameplay,
 		ExpectedElement: null,
 		ExpectedElementDisplayText: null,
 		ShowElementGroup: false,

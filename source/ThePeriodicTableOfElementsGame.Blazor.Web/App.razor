@@ -3,18 +3,25 @@
 @using ThePeriodicTableOfElementsGame.Blazor.Web.Scenes.TitleScreen
 @using ThePeriodicTableOfElementsGame.GamePlay.Features.App
 @inject IState<AppState> AppState
+
 <Fluxor.Blazor.Web.StoreInitializer />
-<LayoutView Layout=typeof(MainLayout)>
-	@if (AppState.Value.ActiveScene == Scene.TitleScreen)
-	{
-		<TitleScreen />
-	}
-	else if (AppState.Value.ActiveScene == Scene.ElementsMatchGame)
-	{
-		<ElementsMatchGame/>
-	}
-	else if (AppState.Value.ActiveScene == Scene.SpeedMatchGame)
-	{
-		<h1>// TODO</h1>
-	}
-</LayoutView>
+
+<div id="rotate-your-device">
+    <h1>Rotate your device</h1>
+    <h2>This game must be played in landscape orientation</h2>
+</div>
+
+<div id="scene">
+    @if (AppState.Value.ActiveScene == Scene.TitleScreen)
+    {
+        <TitleScreen />
+    }
+    else if (AppState.Value.ActiveScene == Scene.ElementsMatchGame)
+    {
+        <ElementsMatchGame />
+    }
+    else if (AppState.Value.ActiveScene == Scene.SpeedMatchGame)
+    {
+        <h1>// TODO</h1>
+    }
+</div>

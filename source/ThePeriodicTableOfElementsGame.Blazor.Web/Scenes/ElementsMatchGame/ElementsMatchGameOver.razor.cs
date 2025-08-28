@@ -1,7 +1,6 @@
 ﻿using Fluxor;
 using Microsoft.AspNetCore.Components;
 using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame;
-using ThePeriodicTableOfElementsGame.GamePlay.Navigation;
 
 namespace ThePeriodicTableOfElementsGame.Blazor.Web.Scenes.ElementsMatchGame;
 
@@ -11,22 +10,20 @@ public partial class ElementsMatchGameOver
 	private IState<ElementsMatchGameState> GameState { get; set; }
 
 	[Inject]
-	private IState<NavigationState> NavigationState { get; set; }
-
-	[Inject]
 	private IDispatcher Dispatcher { get; set; }
 
 	private string GetUIStatusCss()
 	{
-		if (NavigationState.Value.Scene == SceneType.TransitionFromElementsMatchGameToGameOver)
+		if (GameState.Value.SubSceneType == SubSceneType.TransitionToGameOver)
 			return "--game-over-sequence";
-		if (NavigationState.Value.Scene == SceneType.ElementsMatchGameOver)
+		if (GameState.Value.SubSceneType == SubSceneType.GameOver)
 			return "--game-over";
 		return null;
 	}
 
 	private void GoToMainMenu()
 	{
-		Dispatcher.Dispatch(new NavigateAction(SceneType.MainMenu));
+		var action = new GamePlay.Features.App.Actions.ChangeSceneAction(GamePlay.Features.App.Scene.TitleScreen);
+		Dispatcher.Dispatch(action);
 	}
 }
