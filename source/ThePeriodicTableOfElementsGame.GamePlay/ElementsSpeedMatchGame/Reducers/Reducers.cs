@@ -7,6 +7,9 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGame.Reducer
 	{
 		[ReducerMethod]
 		public static ElementsSpeedMatchGameState HighlightElement(ElementsSpeedMatchGameState state, HighlightElementAction action) =>
-			state.With(highlightedAtomicNumber: action.AtomicNumber);
+			state with
+			{
+				HighlightedAtomicNumber = action.AtomicNumber
+			};
 	}
 }

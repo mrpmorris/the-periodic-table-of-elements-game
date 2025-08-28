@@ -14,14 +14,16 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 			{
 				MatchType = action.MatchType,
 				ElementStates = ElementsMatchGameState.Default.ElementStates.Values
-					.Select(x => x.With
-					(
-						back: x.Back.With
-						(
-							showName: action.MatchType != MatchType.PlaceTheName,
-							showSymbol: action.MatchType != MatchType.PlaceTheSymbol
-						)
-					))
+					.Select(x =>
+						x with
+						{
+							Back = x.Back with
+							{
+								ShowName = action.MatchType != MatchType.PlaceTheName,
+								ShowSymbol = action.MatchType != MatchType.PlaceTheSymbol
+							}
+						}
+					)
 					.ToDictionary(x => x.AtomicNumber).AsReadOnly()
 			};
 
@@ -33,7 +35,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 					.Select(x =>
 						x.AtomicNumber != action.AtomicNumber
 						? x
-						: x.With(concealed: false))
+						: x with { Concealed = false })
 					.ToDictionary(x => x.AtomicNumber).AsReadOnly()
 			};
 
@@ -42,7 +44,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 			state with
 			{
 				ElementStates = state.ElementStates.Values
-					.Select(x => x.With(concealed: true))
+					.Select(x => x with { Concealed = true })
 					.ToDictionary(x => x.AtomicNumber).AsReadOnly()
 			};
 

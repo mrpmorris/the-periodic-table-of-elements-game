@@ -19,7 +19,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGame.Effects
 		{
 			await Task.Delay(Consts.LeadInTimeMs - 25);
 			var actionToDispatch =
-				ElementsSpeedMatchGameStateExtensions.DefaultState.ElementTimings[action.EventTimeMs];
+				ElementsSpeedMatchGameState.Default.ElementTimings[action.EventTimeMs];
 			dispatcher.Dispatch(actionToDispatch);
 		}
 	}

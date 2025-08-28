@@ -1,26 +1,12 @@
-﻿namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
+﻿namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
+
+public record CardState(
+	bool ShowAtomicNumber,
+	bool ShowSymbol,
+	bool ShowName)
 {
-	public class CardState
-	{
-		public readonly bool ShowAtomicNumber;
-		public readonly bool ShowSymbol;
-		public readonly bool ShowName;
-
-		public CardState(bool showAtomicNumberbool = true, bool showSymbol = true, bool showName = true)
-		{
-			ShowAtomicNumber = showAtomicNumberbool;
-			ShowSymbol = showSymbol;
-			ShowName = showName;
-		}
-
-		public CardState With(
-			PropertyUpdate<bool> showAtomicNumber = null,
-			PropertyUpdate<bool> showSymbol = null,
-			PropertyUpdate<bool> showName = null)
-			=>
-				new CardState(
-					showAtomicNumberbool: showAtomicNumber.GetUpdatedValue(ShowAtomicNumber),
-					showSymbol: showSymbol.GetUpdatedValue(ShowSymbol),
-					showName: showName.GetUpdatedValue(ShowName));
-	}
+	public static readonly CardState Default = new(
+		ShowAtomicNumber: true,
+		ShowSymbol: true,
+		ShowName: true);
 }
