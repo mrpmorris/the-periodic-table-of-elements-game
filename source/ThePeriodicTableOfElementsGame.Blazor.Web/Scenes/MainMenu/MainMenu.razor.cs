@@ -1,8 +1,8 @@
 using ThePeriodicTableOfElementsGame.GamePlay.Features.MainMenu;
 
-namespace ThePeriodicTableOfElementsGame.Blazor.Web.Scenes;
+namespace ThePeriodicTableOfElementsGame.Blazor.Web.Scenes.MainMenu;
 
-public partial class NewMainMenu
+public partial class MainMenu
 {
 	private void ShowSubMenu(SubMenuType subMenuType)
 	{

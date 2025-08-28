@@ -1,9 +1,10 @@
+@using ThePeriodicTableOfElementsGame.Blazor.Web.Scenes.MainMenu
 @inherits Fluxor.Blazor.Web.Components.FluxorComponent
 <Fluxor.Blazor.Web.StoreInitializer />
 <LayoutView Layout=typeof(MainLayout)>
 	@if (NavigationState.Value.ShowMainMenu)
 	{
-		<NewMainMenu />
+		<MainMenu />
 	}
 	@if (NavigationState.Value.ShowElementsMatchGame)
 	{

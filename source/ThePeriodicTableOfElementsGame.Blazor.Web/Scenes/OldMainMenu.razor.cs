@@ -7,7 +7,7 @@ using ThePeriodicTableOfElementsGame.GamePlay.Navigation.Actions;
 
 namespace ThePeriodicTableOfElementsGame.Blazor.Web.Scenes
 {
-	public partial class MainMenu
+	public partial class OldMainMenu
 	{
 		[Inject]
 		private IDispatcher Dispatcher { get; set; }
