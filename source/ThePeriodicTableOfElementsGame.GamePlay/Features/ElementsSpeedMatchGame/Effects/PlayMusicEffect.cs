@@ -2,11 +2,11 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGame.Actions;
+using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.Navigation;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
 
-namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGame.Effects
+namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame.Effects
 {
 	public class PlayMusicEffect : Effect<StartGameAction>
 	{

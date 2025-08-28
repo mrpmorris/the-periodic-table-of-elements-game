@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using ThePeriodicTableOfElementsGame.GamePlay.Features.App;
 
-namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
+namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame;
 
 public class RevealElementGroupEffect
 {

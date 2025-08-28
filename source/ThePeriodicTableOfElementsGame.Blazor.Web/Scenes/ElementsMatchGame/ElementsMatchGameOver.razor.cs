@@ -1,6 +1,6 @@
 ﻿using Fluxor;
 using Microsoft.AspNetCore.Components;
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
+using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame;
 using ThePeriodicTableOfElementsGame.GamePlay.Navigation;
 
 namespace ThePeriodicTableOfElementsGame.Blazor.Web.Scenes.ElementsMatchGame;

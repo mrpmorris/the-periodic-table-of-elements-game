@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Components;
 using ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
 using ThePeriodicTableOfElementsGame.Blazor.Web.Extensions;
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGame;
 using ThePeriodicTableOfElementsGame.GamePlay.Navigation;
+using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame;
 
 namespace ThePeriodicTableOfElementsGame.Blazor.Web.Scenes.ElementsMatchSpeedGame;
 

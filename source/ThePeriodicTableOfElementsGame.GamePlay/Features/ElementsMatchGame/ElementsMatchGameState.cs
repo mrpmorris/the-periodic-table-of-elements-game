@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using ThePeriodicTableOfElementsGame.GamePlay.Extensions;
 
-namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
+namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame;
 
 [FeatureState]
 public record ElementsMatchGameState(

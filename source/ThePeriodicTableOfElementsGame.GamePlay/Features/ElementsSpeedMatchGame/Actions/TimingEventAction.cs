@@ -1,4 +1,4 @@
-﻿namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGame.Actions
+﻿namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame.Actions
 {
 	public class TimingEventAction
 	{

@@ -1,7 +1,8 @@
 ﻿using Fluxor;
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGame.Actions;
+using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame;
+using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame.Actions;
 
-namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGame.Reducers
+namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame.Reducers
 {
 	public static class Reducers
 	{

@@ -4,7 +4,7 @@ using System.Linq;
 using ThePeriodicTableOfElementsGame.GamePlay.Extensions;
 using ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData;
 
-namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
+namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame
 {
 	public static class Reducers
 	{

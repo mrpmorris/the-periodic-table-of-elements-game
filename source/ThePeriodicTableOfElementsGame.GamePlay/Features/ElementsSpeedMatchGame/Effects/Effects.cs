@@ -1,9 +1,10 @@
 ﻿using Fluxor;
 using System.Threading.Tasks;
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGame.Actions;
+using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame;
+using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.Navigation;
 
-namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGame.Effects
+namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame.Effects
 {
 	public static class Effects
 	{

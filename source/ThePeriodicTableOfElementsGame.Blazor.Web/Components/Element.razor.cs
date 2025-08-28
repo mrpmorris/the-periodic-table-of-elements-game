@@ -1,10 +1,10 @@
 ﻿using Fluxor;
 using Microsoft.AspNetCore.Components;
 using ThePeriodicTableOfElementsGame.Blazor.Web.Extensions;
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
 using ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData;
 using System;
 using System.Globalization;
+using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame;
 
 namespace ThePeriodicTableOfElementsGame.Blazor.Web.Components
 {

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGame.Actions;
+using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame;
+using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame.Actions;
 
-namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGame;
+namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame;
 
 [FeatureState]
 public record ElementsSpeedMatchGameState(

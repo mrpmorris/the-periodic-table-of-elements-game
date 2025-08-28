@@ -4,8 +4,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.JSInterop;
 using ThePeriodicTableOfElementsGame.Blazor.Web;
 using ThePeriodicTableOfElementsGame.Blazor.Web.Services.Audio;
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
+using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame;
+
 #if DEBUG
 using Fluxor.Blazor.Web.ReduxDevTools;
 #endif

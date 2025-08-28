@@ -6,7 +6,7 @@ using ThePeriodicTableOfElementsGame.GamePlay.Features.App;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
 using static System.Collections.Specialized.BitVector32;
 
-namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
+namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame
 {
 	public class Effects
 	{

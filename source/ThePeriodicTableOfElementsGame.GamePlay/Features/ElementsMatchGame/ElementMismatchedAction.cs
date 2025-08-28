@@ -1,4 +1,4 @@
-﻿namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
+﻿namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame
 {
 	public class ElementMismatchedAction
 	{

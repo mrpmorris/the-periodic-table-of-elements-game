@@ -1,5 +1,4 @@
-
-using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
+using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame;
 
 namespace ThePeriodicTableOfElementsGame.Blazor.Web.Scenes.TitleScreen;
 

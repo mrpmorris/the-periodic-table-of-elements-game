@@ -1,3 +1,0 @@
-﻿namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
-
-public record StartElementsMatchGameAction(MatchType MatchType);
