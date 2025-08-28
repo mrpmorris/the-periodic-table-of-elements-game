@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Components;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
 using ThePeriodicTableOfElementsGame.GamePlay.Navigation;
-using ThePeriodicTableOfElementsGame.GamePlay.Navigation.Actions;
 
 namespace ThePeriodicTableOfElementsGame.Blazor.Web.Scenes.ElementsMatchGame;
 

@@ -1,8 +1,7 @@
 ﻿using Fluxor;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
-using ThePeriodicTableOfElementsGame.GamePlay.Navigation.Actions;
 
-namespace ThePeriodicTableOfElementsGame.GamePlay.Navigation.Reducers
+namespace ThePeriodicTableOfElementsGame.GamePlay.Navigation
 {
 	public static class Reducers
 	{

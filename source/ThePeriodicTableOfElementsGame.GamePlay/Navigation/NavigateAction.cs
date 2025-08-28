@@ -1,4 +1,4 @@
-﻿namespace ThePeriodicTableOfElementsGame.GamePlay.Navigation.Actions
+﻿namespace ThePeriodicTableOfElementsGame.GamePlay.Navigation
 {
 	public class NavigateAction
 	{

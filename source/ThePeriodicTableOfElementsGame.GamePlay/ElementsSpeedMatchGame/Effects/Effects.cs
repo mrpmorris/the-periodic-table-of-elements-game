@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGame.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.Navigation;
-using ThePeriodicTableOfElementsGame.GamePlay.Navigation.Actions;
 
 namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsSpeedMatchGame.Effects
 {
