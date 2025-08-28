@@ -1,41 +1,49 @@
 ﻿@using ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData
+@using GamePlay.Features.ElementsMatchGame
 @inherits Fluxor.Blazor.Web.Components.FluxorComponent
 
-<PeriodicTable class="@GetUIStatusCss()">
-	<div class="table-of-elements_header">
-		@if (GameState.Value.ExpectedElement.HasValue)
-		{
-			<div class="table-of-elements_header-contents" @key=@(GameState.Value.ExpectedElement ?? -1)>
-				<div class="element-info">
-					@GameState.Value.ExpectedElementDisplayText
-					<div class="element-info-background @GetElementGroupAsCssClass()">
-						<div class="element-info-group-name">
-							@TableOfElementsData.ElementByNumber[GameState.Value.ExpectedElement.Value].Group.GetDescription()
-						</div>
-					</div>
-				</div>
-			</div>
-		}
-	</div>
-	<div class="in-game-stats">
-		<div class="matched">
-			<span class="label">
-				Matched
-			</span>
-			<span class="value">
-				@GameState.Value.TotalMatched
-			</span>
-		</div>
-		<div class="mismatched">
-			<span class="label">
-				Mismatched
-			</span>
-			<span class="value">
-				@GameState.Value.TotalMismatched
-			</span>
-		</div>
-	</div>
-	<div class="exit-button-container">
-		<img class="exit-button" src="/images/BackButton.png" alt="Back" @onclick=GoToMainMenu />
-	</div>
-</PeriodicTable>
+@if (GameState.Value.SubSceneType is SubSceneType.Gameplay or SubSceneType.TransitionToGameOver)
+{
+    <PeriodicTable class="@GetUIStatusCss()">
+        <div class="table-of-elements_header">
+            @if (GameState.Value.ExpectedElement.HasValue)
+            {
+                <div class="table-of-elements_header-contents" @key=@(GameState.Value.ExpectedElement ?? -1)>
+                    <div class="element-info">
+                        @GameState.Value.ExpectedElementDisplayText
+                        <div class="element-info-background @GetElementGroupAsCssClass()">
+                            <div class="element-info-group-name">
+                                @TableOfElementsData.ElementByNumber[GameState.Value.ExpectedElement.Value].Group.GetDescription()
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="in-game-stats">
+            <div class="matched">
+                <span class="label">
+                    Matched
+                </span>
+                <span class="value">
+                    @GameState.Value.TotalMatched
+                </span>
+            </div>
+            <div class="mismatched">
+                <span class="label">
+                    Mismatched
+                </span>
+                <span class="value">
+                    @GameState.Value.TotalMismatched
+                </span>
+            </div>
+        </div>
+        <div class="exit-button-container">
+            <img class="exit-button" src="/images/BackButton.png" alt="Back" @onclick=GoToMainMenu />
+        </div>
+    </PeriodicTable>
+}
+@if (GameState.Value.SubSceneType is SubSceneType.TransitionToGameOver or SubSceneType.GameOver)
+{
+    <ElementsMatchGameOver />
+}

@@ -75,11 +75,14 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame
 			await AudioPlayer.PlayOneShotAsync(AudioSample.ElementAppeared);
 		}
 
-		[EffectMethod(typeof(SetSubSceneAction))]
-		public async Task StartGameOverSequenceAction(IDispatcher dispatcher)
+		[EffectMethod]
+		public async Task StartGameOverSequenceAction(SetSubSceneAction action, IDispatcher dispatcher)
 		{
-			await Task.Delay(2050);
-			dispatcher.Dispatch(new SetSubSceneAction(SubSceneType.GameOver));
+			if (action.NewSubSceneType == SubSceneType.TransitionToGameOver)
+			{
+				await Task.Delay(2050);
+				dispatcher.Dispatch(new SetSubSceneAction(SubSceneType.GameOver));
+			}
 		}
 
 		private byte GetRandomElementAtomicNumber() =>
