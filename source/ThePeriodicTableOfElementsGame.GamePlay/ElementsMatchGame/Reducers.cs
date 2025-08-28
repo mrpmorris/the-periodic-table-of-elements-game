@@ -59,7 +59,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 				},
 				showElementGroup: false,
 				highlighElementsInExpectedGroup: false,
-				availableElements: state.AvailableElements.Where(x =>x != action.AtomicNumber).ToArray()
+				availableElements: state.AvailableElements.Where(x => x != action.AtomicNumber).ToArray()
 			);
 
 		[ReducerMethod]
@@ -84,5 +84,11 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 			(
 				totalMismatched: state.TotalMismatched + 1
 			);
+
+#if DEBUG && I_WANNA_CHEAT
+		[ReducerMethod(typeof(CompleteAllButOneElementAction))]
+		public static ElementsMatchGameState CompleteAllButOneElementAction(ElementsMatchGameState state) =>
+			state.With(availableElements: new byte[] { 1 });
+#endif
 	}
 }

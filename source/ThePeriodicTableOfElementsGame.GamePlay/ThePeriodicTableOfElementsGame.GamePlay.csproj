@@ -6,6 +6,10 @@
 		<NoWarn>1701;1702;IDE0060</NoWarn>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <DefineConstants>$(DefineConstants);I_WANNA_CHEAT</DefineConstants>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<PackageReference Include="Fluxor" Version="6.7.0" />
 	</ItemGroup>

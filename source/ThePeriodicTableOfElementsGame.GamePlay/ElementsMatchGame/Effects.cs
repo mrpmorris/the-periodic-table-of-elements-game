@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ThePeriodicTableOfElementsGame.GamePlay.Features.App;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
+using static System.Collections.Specialized.BitVector32;
 
 namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 {
@@ -21,6 +22,9 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 		[EffectMethod]
 		public async Task StartGameAction(StartElementsMatchGameAction _, IDispatcher dispatcher)
 		{
+#if DEBUG && I_WANNA_CHEAT
+			dispatcher.Dispatch(new CompleteAllButOneElementAction());
+#endif
 			dispatcher.Dispatch(new ChangeSceneAction(Scene.ElementsMatchGame));
 			await Task.Delay(500);
 			dispatcher.Dispatch(new SetExpectedElementAction(atomicNumber: GetRandomElementAtomicNumber()));
@@ -66,8 +70,10 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 		}
 
 		[EffectMethod]
-		public Task SetExpectedElementAction(SetExpectedElementAction _, IDispatcher dispatcher) =>
-			AudioPlayer.PlayOneShotAsync(AudioSample.ElementAppeared);
+		public async Task SetExpectedElementAction(SetExpectedElementAction action, IDispatcher dispatcher)
+		{
+			await AudioPlayer.PlayOneShotAsync(AudioSample.ElementAppeared);
+		}
 
 		[EffectMethod]
 		public async Task StartGameOverSequenceAction(StartGameOverSequenceAction _, IDispatcher dispatcher)
