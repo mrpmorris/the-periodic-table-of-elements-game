@@ -26,9 +26,9 @@ public partial class ElementsMatchGame
 
 		string sceneTypeCss = GameState.Value.SubSceneType switch
 		{
-			SubSceneType.GameOver => "--game-over",
-			SubSceneType.TransitionToGameOver => "--game-over-sequence",
 			SubSceneType.Gameplay => "--gameplay",
+			SubSceneType.TransitionToGameOver => "--game-over-sequence",
+			SubSceneType.GameOver => "--game-over",
 			_ => throw new NotImplementedException(GameState.Value.SubSceneType.ToString())
 		};
 
