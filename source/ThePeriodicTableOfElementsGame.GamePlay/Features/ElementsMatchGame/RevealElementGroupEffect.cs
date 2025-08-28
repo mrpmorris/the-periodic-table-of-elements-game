@@ -1,7 +1,8 @@
 ﻿using Fluxor;
 using System.Threading;
 using System.Threading.Tasks;
-using ThePeriodicTableOfElementsGame.GamePlay.Features.App;
+using ThePeriodicTableOfElementsGame.GamePlay.Features.App.Actions;
+using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame.Actions;
 
 namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame;
 
