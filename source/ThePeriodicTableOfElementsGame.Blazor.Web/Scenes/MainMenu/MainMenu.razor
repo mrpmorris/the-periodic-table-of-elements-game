@@ -1,8 +1,6 @@
 ﻿@inherits Fluxor.Blazor.Web.Components.FluxorComponent
 @using Fluxor
-@using ThePeriodicTableOfElementsGame.GamePlay.Features.MainMenu
 @inject IDispatcher Dispatcher
-@inject IState<MainMenuState> State
 
 <h1>
     Dmitri Mendeleev's
@@ -10,15 +8,19 @@
 <h2>Periodic table of elements game</h2>
 <img id="mendeleev" src="/images/Mendeleev.png" />
 <ul class="menu">
-   @State.Value.VisibleSubMenu
     <li>
-        <button type=button class="button" @onclick=@(() => ShowSubMenu(SubMenuType.FindTheElementGame))>
-           Find the element
+        <button type=button class="button">
+           Place the name
         </button>
     </li>
     <li>
-        <button type=button class="button" @onclick=@(() => ShowSubMenu(SubMenuType.SpeedMatchGame))>
-           Speed match game
+        <button type=button class="button">
+           Place the symbol
+        </button>
+    </li>
+    <li>
+        <button type=button class="button">
+            Speed match game
         </button>
     </li>
 </ul>
