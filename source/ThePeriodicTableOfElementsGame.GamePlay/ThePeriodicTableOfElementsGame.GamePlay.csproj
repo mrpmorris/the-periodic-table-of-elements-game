@@ -1,15 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>netstandard2.1</TargetFramework>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>disable</Nullable>
 		<NoWarn>1701;1702;IDE0060</NoWarn>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Fluxor" Version="4.0.0" />
+		<PackageReference Include="Fluxor" Version="6.7.0" />
 	</ItemGroup>
-
 </Project>

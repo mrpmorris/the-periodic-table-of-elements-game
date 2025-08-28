@@ -12,7 +12,10 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Components
 	public partial class Element
 	{
 		[Parameter]
+		// TODO: PeteM - Use SetParametersAsync or state subscriber
+#pragma warning disable BL0007 // Component parameters should be auto properties
 		public ElementState State { get => _state; set { SetState(value); } }
+#pragma warning restore BL0007 // Component parameters should be auto properties
 
 		[Inject]
 		private IDispatcher Dispatcher { get; set; }

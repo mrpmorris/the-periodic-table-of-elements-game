@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 	<meta charset="utf-8" />
@@ -44,30 +44,14 @@
 				<span class="loading_dot-1">&#x25cf;</span><span class="loading_dot-2">&#x25cf;</span><span class="loading_dot-3">&#x25cf;</span>
 			</div>
 		</div>
+		<div class="loading-progress-text"></div>
+		<svg class="loading-progress">
+			<circle r="40%" cx="50%" cy="50%" />
+			<circle r="40%" cx="50%" cy="50%" />
+		</svg>
 	</div>
 	<script src="/scripts/decode.min.js"></script>
-	<script src="_framework/blazor.webassembly.js" autostart="false"></script>
-	<script>
-		Blazor.start({
-			loadBootResource: function (type, name, defaultUri, integrity) {
-				if (type !== 'dotnetjs' && location.hostname !== 'localhost') {
-					return (async function () {
-						const response = await fetch(defaultUri + '.br',);
-						if (!response.ok) {
-							throw new Error(response.statusText);
-						}
-						const originalResponseBuffer = await response.arrayBuffer();
-						const originalResponseArray = new Int8Array(originalResponseBuffer);
-						const decompressedResponseArray = BrotliDecode(originalResponseArray);
-						const contentType = type ===
-							'dotnetwasm' ? 'application/wasm' : 'application/octet-stream';
-						return new Response(decompressedResponseArray,
-							{ headers: { 'content-type': contentType } });
-					})();
-				}
-			}
-		});
-	</script>
+	<script src="_framework/blazor.webassembly.js"></script>
 	<script src="_content/Fluxor.Blazor.Web/scripts/index.js"></script>
 	<script src="/scripts/audio.js"></script>
 	<script>navigator.serviceWorker.register('service-worker.js');</script>
