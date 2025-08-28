@@ -10,10 +10,10 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 	{
 		[ReducerMethod]
 		public static ElementsMatchGameState StartGameAction(ElementsMatchGameState state, StartElementsMatchGameAction action) =>
-			ElementsMatchGameStateExtensions.DefaultState.With
-			(
-				matchType: action.MatchType,
-				elementStates: ElementsMatchGameStateExtensions.DefaultState.ElementStates.Values
+			ElementsMatchGameState.Default with
+			{
+				MatchType = action.MatchType,
+				ElementStates = ElementsMatchGameState.Default.ElementStates.Values
 					.Select(x => x.With
 					(
 						back: x.Back.With
@@ -23,72 +23,77 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 						)
 					))
 					.ToDictionary(x => x.AtomicNumber).AsReadOnly()
-			);
+			};
 
 		[ReducerMethod]
 		public static ElementsMatchGameState RevealElementAction(ElementsMatchGameState state, RevealElementAction action) =>
-			state.With
-			(
-				elementStates: state.ElementStates.Values
+			state with
+			{
+				ElementStates = state.ElementStates.Values
 					.Select(x =>
 						x.AtomicNumber != action.AtomicNumber
 						? x
 						: x.With(concealed: false))
 					.ToDictionary(x => x.AtomicNumber).AsReadOnly()
-			);
+			};
 
 		[ReducerMethod(typeof(ConcealAllElementsAction))]
 		public static ElementsMatchGameState ConcealAllElementsAction(ElementsMatchGameState state) =>
-			state.With
-			(
-				elementStates: state.ElementStates.Values
+			state with
+			{
+				ElementStates = state.ElementStates.Values
 					.Select(x => x.With(concealed: true))
 					.ToDictionary(x => x.AtomicNumber).AsReadOnly()
-			);
+			};
 
 		[ReducerMethod]
 		public static ElementsMatchGameState SetExpectedElementAction(ElementsMatchGameState state, SetExpectedElementAction action) =>
-			state.With
-			(
-				expectedElement: action.AtomicNumber,
-				expectedElementDisplayText: state.MatchType switch
+			state with
+			{
+				ExpectedElement = action.AtomicNumber,
+				ExpectedElementDisplayText = state.MatchType switch
 				{
 					MatchType.PlaceTheName => TableOfElementsData.ElementByNumber[action.AtomicNumber].Name,
 					MatchType.PlaceTheSymbol => TableOfElementsData.ElementByNumber[action.AtomicNumber].Symbol,
 					_ => throw new NotImplementedException(state.MatchType.ToString())
 				},
-				showElementGroup: false,
-				highlighElementsInExpectedGroup: false,
-				availableElements: state.AvailableElements.Where(x => x != action.AtomicNumber).ToArray()
-			);
+				ShowElementGroup = false,
+				HighlighElementsInExpectedGroup = false,
+				AvailableElements = state.AvailableElements.Where(x => x != action.AtomicNumber).ToArray()
+			};
 
 		[ReducerMethod]
 		public static ElementsMatchGameState RevealElementGroupAction(ElementsMatchGameState state, RevealElementGroupAction action) =>
 			state.ExpectedElement != action.AtomicNumber
 			? state
-			: state.With(
-					showElementGroup: true,
-					highlighElementsInExpectedGroup: true);
+			: state with
+			{
+				ShowElementGroup = true,
+				HighlighElementsInExpectedGroup = true
+			};
 
 		[ReducerMethod(typeof(ElementMatchedAction))]
 		public static ElementsMatchGameState ElementMatchedAction(ElementsMatchGameState state) =>
-			state.With
-			(
-				totalMatched: state.TotalMatched + 1,
-				highlighElementsInExpectedGroup: false
-			);
+			state with
+			{
+				TotalMatched = state.TotalMatched + 1,
+				HighlighElementsInExpectedGroup = false
+			};
 
 		[ReducerMethod(typeof(ElementMismatchedAction))]
 		public static ElementsMatchGameState ElementMismatchedAction(ElementsMatchGameState state) =>
-			state.With
-			(
-				totalMismatched: state.TotalMismatched + 1
-			);
+			state with
+			{
+				TotalMismatched = state.TotalMismatched + 1
+			};
 
 #if DEBUG && I_WANNA_CHEAT
 		[ReducerMethod(typeof(CompleteAllButOneElementAction))]
 		public static ElementsMatchGameState CompleteAllButOneElementAction(ElementsMatchGameState state) =>
-			state.With(availableElements: new byte[] { 1 });
+			state with
+			{
+				AvailableElements = new byte[] { 1 }
+			};
 #endif
 	}
 }
