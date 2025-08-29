@@ -7,7 +7,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame;
 
 public class RevealElementGroupEffect
 {
-	const int DelayBeforeShowingElementGroupMS = 30_000;
+	private const int DelayBeforeShowingElementGroupMS = 30_000;
 	private Timer Timer;
 	private readonly IState<ElementsMatchGameState> GameState;
 
@@ -40,8 +40,8 @@ public class RevealElementGroupEffect
 		return Task.CompletedTask;
 	}
 
-	[EffectMethod]
-	public Task ChangeSceneAction(Features.App.Actions.ChangeSceneAction action, IDispatcher dispatcher)
+	[EffectMethod(typeof(Features.App.Actions.ChangeSceneAction))]
+	public Task ChangeSceneAction(IDispatcher _)
 	{
 		Timer?.Dispose();
 		return Task.CompletedTask;

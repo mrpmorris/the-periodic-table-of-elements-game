@@ -1,4 +1,3 @@
-﻿namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame.Actions
-{
-	public class StartGameAction { }
-}
+﻿namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame.Actions;
+
+public readonly record struct StartGameAction;

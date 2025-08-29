@@ -1,6 +1,6 @@
 ﻿namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame;
 
-public record CardState(
+public readonly record struct CardState(
 	bool ShowAtomicNumber,
 	bool ShowSymbol,
 	bool ShowName)

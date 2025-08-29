@@ -1,6 +1,6 @@
 ﻿namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame;
 
-public record ElementState(
+public readonly record struct ElementState(
 	byte AtomicNumber,
 	CardState Front,
 	CardState Back,

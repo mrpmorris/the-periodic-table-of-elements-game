@@ -1,7 +1,7 @@
 ﻿using Fluxor;
 using System.Collections.Frozen;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.Collections.Immutable;
 using System.Linq;
 using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame;
 using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame.Actions;
@@ -10,7 +10,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGam
 
 [FeatureState]
 public record ElementsSpeedMatchGameState(
-	IEnumerable<ElementState> ElementStates,
+	ImmutableList<ElementState> ElementStates,
 	FrozenDictionary<int, object> ElementTimings,
 	byte? HighlightedAtomicNumber)
 {
@@ -24,7 +24,8 @@ public record ElementsSpeedMatchGameState(
 				Front: CardState.Default,
 				Back: CardState.Default,
 				Concealed: false)
-			),
+			)
+			.ToImmutableList(),
 		ElementTimings: new Dictionary<int, object>
 			{
 				[009_367] = new HighlightElementAction(051), // Sb

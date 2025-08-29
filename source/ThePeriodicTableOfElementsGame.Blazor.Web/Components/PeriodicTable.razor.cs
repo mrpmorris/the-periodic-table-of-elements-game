@@ -3,17 +3,16 @@ using Microsoft.AspNetCore.Components;
 using System.Collections.Generic;
 using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame;
 
-namespace ThePeriodicTableOfElementsGame.Blazor.Web.Components
+namespace ThePeriodicTableOfElementsGame.Blazor.Web.Components;
+
+public partial class PeriodicTable
 {
-	public partial class PeriodicTable
-	{
-		[Parameter]
-		public RenderFragment ChildContent { get; set; }
+	[Parameter]
+	public RenderFragment ChildContent { get; set; }
 
-		[Inject]
-		private IState<ElementsMatchGameState> GameState { get; set; }
+	[Inject]
+	private IState<ElementsMatchGameState> GameState { get; set; }
 
-		[Parameter(CaptureUnmatchedValues = true)]
-		public Dictionary<string, object> Attributes { get; set; }
-	}
+	[Parameter(CaptureUnmatchedValues = true)]
+	public Dictionary<string, object> Attributes { get; set; }
 }

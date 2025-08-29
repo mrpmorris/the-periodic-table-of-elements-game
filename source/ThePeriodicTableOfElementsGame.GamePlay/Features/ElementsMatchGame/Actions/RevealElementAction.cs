@@ -1,12 +1,3 @@
-﻿namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame.Actions
-{
-	public class RevealElementAction
-	{
-		public readonly byte AtomicNumber;
+﻿namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame.Actions;
 
-		public RevealElementAction(byte atomicNumber)
-		{
-			AtomicNumber = atomicNumber;
-		}
-	}
-}
+public readonly record struct RevealElementAction(byte AtomicNumber);

@@ -1,7 +1,6 @@
-﻿namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame
+﻿namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame;
+
+internal class Consts
 {
-	internal class Consts
-	{
-		public const int LeadInTimeMs = 500;
-	}
+	public const int LeadInTimeMs = 500;
 }

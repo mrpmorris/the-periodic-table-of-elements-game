@@ -1,14 +1,3 @@
-﻿namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame.Actions
-{
-	public class ElementMismatchedAction
-	{
-		public readonly byte ClickedAtomicNumber;
-		public readonly byte? ExpectedAtomicNumber;
+﻿namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame.Actions;
 
-		public ElementMismatchedAction(byte clickedAtomicNumber, byte? expectedAtomicNumber)
-		{
-			ClickedAtomicNumber = clickedAtomicNumber;
-			ExpectedAtomicNumber = expectedAtomicNumber;
-		}
-	}
-}
+public readonly record struct ElementMismatchedAction(byte ClickedAtomicNumber, byte? ExpectedAtomicNumber);

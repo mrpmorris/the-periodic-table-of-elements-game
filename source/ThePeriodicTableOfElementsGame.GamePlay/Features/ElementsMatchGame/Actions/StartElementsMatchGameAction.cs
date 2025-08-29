@@ -1,3 +1,3 @@
 ﻿namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame.Actions;
 
-public record StartElementsMatchGameAction(MatchType MatchType);
+public readonly record struct StartElementsMatchGameAction(MatchType MatchType);

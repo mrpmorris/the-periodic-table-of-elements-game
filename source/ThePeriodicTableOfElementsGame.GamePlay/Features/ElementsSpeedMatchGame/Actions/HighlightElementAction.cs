@@ -1,12 +1,3 @@
-﻿namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame.Actions
-{
-	public class HighlightElementAction
-	{
-		public readonly byte AtomicNumber;
+﻿namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame.Actions;
 
-		public HighlightElementAction(byte atomicNumber)
-		{
-			AtomicNumber = atomicNumber;
-		}
-	}
-}
+public readonly record struct HighlightElementAction(byte AtomicNumber);

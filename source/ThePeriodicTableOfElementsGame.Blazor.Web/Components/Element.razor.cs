@@ -2,55 +2,52 @@
 using Microsoft.AspNetCore.Components;
 using ThePeriodicTableOfElementsGame.Blazor.Web.Extensions;
 using ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData;
-using System;
 using System.Globalization;
 using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame;
 using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame.Actions;
 
-namespace ThePeriodicTableOfElementsGame.Blazor.Web.Components
+namespace ThePeriodicTableOfElementsGame.Blazor.Web.Components;
+
+public partial class Element
 {
-	public partial class Element
-	{
-		[Parameter]
-		// TODO: PeteM - Use SetParametersAsync or state subscriber
+	[Parameter]
+	// TODO: PeteM - Use SetParametersAsync or state subscriber
 #pragma warning disable BL0007 // Component parameters should be auto properties
-		public ElementState State { get => _state; set { SetState(value); } }
+	public ElementState State { get => _state; set { SetState(value); } }
 #pragma warning restore BL0007 // Component parameters should be auto properties
 
-		[Inject]
-		private IDispatcher Dispatcher { get; set; }
+	[Inject]
+	private IDispatcher Dispatcher { get; set; }
 
-		private ElementState _state;
-		private ElementData Data;
-		private bool NeedsRender = true;
+	private ElementState _state;
+	private ElementData Data;
+	private bool NeedsRender = true;
 
-		public string GetStyles() => 
-			$"top: calc(100% / 9.5 * {(Data.Row - 1).ToString(CultureInfo.InvariantCulture)}); left: calc(100% / 18 * {Data.Column - 1})";
+	public string GetStyles() => Data.GetCssStyleTopAndLeft();
 
-		public string GetClasses() =>
-			$"{Data.Group.GetAsCssClass()} " + (State.Concealed ? "--concealed" : "");
+	public string GetClasses() =>
+		$"{Data.Group.GetAsCssClass()} " + (State.Concealed ? "--concealed" : "");
 
-		protected override bool ShouldRender() => NeedsRender;
+	protected override bool ShouldRender() => NeedsRender;
 
-		protected override void OnAfterRender(bool firstRender)
-		{
-			base.OnAfterRender(firstRender);
-			NeedsRender = false;
-		}
+	protected override void OnAfterRender(bool firstRender)
+	{
+		base.OnAfterRender(firstRender);
+		NeedsRender = false;
+	}
 
-		private void SetState(ElementState state)
-		{
-			if (state == _state)
-				return;
+	private void SetState(ElementState state)
+	{
+		if (state == _state)
+			return;
 
-			_state = state;
-			Data = TableOfElementsData.ElementByNumber[state.AtomicNumber];
-			NeedsRender = true;
-		}
+		_state = state;
+		Data = TableOfElementsData.ElementByNumber[state.AtomicNumber];
+		NeedsRender = true;
+	}
 
-		private void Clicked()
-		{
-			Dispatcher.Dispatch(new ClickElementAction(atomicNumber: State.AtomicNumber));
-		}
+	private void Clicked()
+	{
+		Dispatcher.Dispatch(new ClickElementAction(AtomicNumber: State.AtomicNumber));
 	}
 }

@@ -1,3 +1,3 @@
 ﻿namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame.Actions;
 
-public record SetSubSceneAction(SubSceneType NewSubSceneType);
+public readonly record struct SetSubSceneAction(SubSceneType NewSubSceneType);

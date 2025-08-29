@@ -1,12 +1,3 @@
-﻿namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame.Actions
-{
-	public class TimingEventAction
-	{
-		public readonly int EventTimeMs;
+﻿namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGame.Actions;
 
-		public TimingEventAction(int eventTimeMs)
-		{
-			EventTimeMs = eventTimeMs;
-		}
-	}
-}
+public readonly record struct TimingEventAction(int EventTimeMs);
