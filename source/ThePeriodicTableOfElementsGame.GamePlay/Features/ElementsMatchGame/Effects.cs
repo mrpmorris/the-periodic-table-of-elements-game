@@ -51,15 +51,15 @@ public class Effects
 		return Task.CompletedTask;
 	}
 
-	[EffectMethod]
-	public Task ElementMismatchedAction(ElementMismatchedAction _, IDispatcher dispatcher)
+	[EffectMethod(typeof(ElementMismatchedAction))]
+	public Task ElementMismatchedAction(IDispatcher _)
 	{
 		AudioPlayer.PlayOneShot(AudioSample.ElementMismatched);
 		return Task.CompletedTask;
 	}
 
-	[EffectMethod]
-	public async Task ElementMatchedAction(ElementMatchedAction _, IDispatcher dispatcher)
+	[EffectMethod(typeof(ElementMatchedAction))]
+	public async Task ElementMatchedAction(IDispatcher dispatcher)
 	{
 		AudioPlayer.PlayOneShot(AudioSample.ElementFastMatched1);
 
@@ -73,8 +73,8 @@ public class Effects
 			dispatcher.Dispatch(new SetSubSceneAction(SubSceneType.TransitionToGameOver));
 	}
 
-	[EffectMethod]
-	public Task SetExpectedElementAction(SetExpectedElementAction action, IDispatcher dispatcher)
+	[EffectMethod(typeof(SetExpectedElementAction))]
+	public Task SetExpectedElementAction(IDispatcher _)
 	{
 		AudioPlayer.PlayOneShot(AudioSample.ElementAppeared);
 		return Task.CompletedTask;
