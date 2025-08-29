@@ -1,7 +1,7 @@
 ﻿using Fluxor;
 using System;
+using System.Collections.Immutable;
 using System.Linq;
-using ThePeriodicTableOfElementsGame.GamePlay.Extensions;
 using ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData;
 
@@ -29,7 +29,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame
 							}
 						}
 					)
-					.ToDictionary(x => x.AtomicNumber).AsReadOnly()
+					.ToImmutableDictionary(x => x.AtomicNumber)
 			};
 
 		[ReducerMethod]
@@ -41,7 +41,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame
 						x.AtomicNumber != action.AtomicNumber
 						? x
 						: x with { Concealed = false })
-					.ToDictionary(x => x.AtomicNumber).AsReadOnly()
+					.ToImmutableDictionary(x => x.AtomicNumber)
 			};
 
 		[ReducerMethod(typeof(ConcealAllElementsAction))]
@@ -50,7 +50,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame
 			{
 				ElementStates = state.ElementStates.Values
 					.Select(x => x with { Concealed = true })
-					.ToDictionary(x => x.AtomicNumber).AsReadOnly()
+					.ToImmutableDictionary(x => x.AtomicNumber)
 			};
 
 		[ReducerMethod]
@@ -66,7 +66,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame
 				},
 				ShowElementGroup = false,
 				HighlighElementsInExpectedGroup = false,
-				AvailableElements = state.AvailableElements.Where(x => x != action.AtomicNumber).ToArray()
+				AvailableElements = state.AvailableElements.Where(x => x != action.AtomicNumber).ToImmutableList()
 			};
 
 		[ReducerMethod]
@@ -99,7 +99,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame
 		public static ElementsMatchGameState CompleteAllButOneElementAction(ElementsMatchGameState state) =>
 			state with
 			{
-				AvailableElements = new byte[] { 1 }
+				AvailableElements = new byte[] { 1 }.ToImmutableList()
 			};
 #endif
 	}

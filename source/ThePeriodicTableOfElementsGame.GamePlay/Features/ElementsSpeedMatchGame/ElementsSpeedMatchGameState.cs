@@ -1,4 +1,5 @@
 ﻿using Fluxor;
+using System.Collections.Frozen;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGam
 [FeatureState]
 public record ElementsSpeedMatchGameState(
 	IEnumerable<ElementState> ElementStates,
-	ReadOnlyDictionary<int, object> ElementTimings,
+	FrozenDictionary<int, object> ElementTimings,
 	byte? HighlightedAtomicNumber)
 {
 	public static readonly ElementsSpeedMatchGameState Default = new();
@@ -22,10 +23,9 @@ public record ElementsSpeedMatchGameState(
 				AtomicNumber: (byte)x,
 				Front: CardState.Default,
 				Back: CardState.Default,
-				Concealed: false))
-			.ToArray(),
-		ElementTimings: new ReadOnlyDictionary<int, object>(
-			new Dictionary<int, object>
+				Concealed: false)
+			),
+		ElementTimings: new Dictionary<int, object>
 			{
 				[009_367] = new HighlightElementAction(051), // Sb
 				[009_843] = new HighlightElementAction(033), // As
@@ -92,44 +92,45 @@ public record ElementsSpeedMatchGameState(
 				[063_410] = new HighlightElementAction(021), // Sc
 				[063_850] = new HighlightElementAction(058), // Ce
 				[064_400] = new HighlightElementAction(055), // Cs
-															 //[005_000] = new HighlightElementAction(082), // Pb
-															 //[005_000] = new HighlightElementAction(059), // Pr
-															 //[005_000] = new HighlightElementAction(078), // Pt
-															 //[005_000] = new HighlightElementAction(094), // Pu
-															 //[005_000] = new HighlightElementAction(046), // Pd
-															 //[005_000] = new HighlightElementAction(061), // Pm
-															 //[005_000] = new HighlightElementAction(019), // K
-															 //[005_000] = new HighlightElementAction(084), // Po
-															 //[005_000] = new HighlightElementAction(073), // Ta
-															 //[005_000] = new HighlightElementAction(043), // Tc
-															 //[005_000] = new HighlightElementAction(022), // Ti
-															 //[005_000] = new HighlightElementAction(052), // Te
-															 //[005_000] = new HighlightElementAction(048), // Cd
-															 //[005_000] = new HighlightElementAction(020), // Ca
-															 //[005_000] = new HighlightElementAction(024), // Cr
-															 //[005_000] = new HighlightElementAction(096), // Cm
-															 //[005_000] = new HighlightElementAction(016), // S
-															 //[005_000] = new HighlightElementAction(098), // Cf
-															 //[005_000] = new HighlightElementAction(100), // Fm
-															 //[005_000] = new HighlightElementAction(097), // Bk
-															 //[005_000] = new HighlightElementAction(101), // Md
-															 //[005_000] = new HighlightElementAction(099), // Es
-															 //[005_000] = new HighlightElementAction(102), // No
-															 //[005_000] = new HighlightElementAction(018), // Ar
-															 //[005_000] = new HighlightElementAction(036), // Kr
-															 //[005_000] = new HighlightElementAction(010), // Ne
-															 //[005_000] = new HighlightElementAction(086), // Rn
-															 //[005_000] = new HighlightElementAction(054), // Xe
-															 //[005_000] = new HighlightElementAction(030), // Zn
-															 //[005_000] = new HighlightElementAction(045), // Rh
-															 //[005_000] = new HighlightElementAction(017), // Cl
-															 //[005_000] = new HighlightElementAction(006), // C
-															 //[005_000] = new HighlightElementAction(027), // Co
-															 //[005_000] = new HighlightElementAction(029), // Cu
-															 //[005_000] = new HighlightElementAction(074), // W
-															 //[005_000] = new HighlightElementAction(050), // Sn
-															 //[005_000] = new HighlightElementAction(011), // Na
-			})
+				 //[005_000] = new HighlightElementAction(082), // Pb
+				 //[005_000] = new HighlightElementAction(059), // Pr
+				 //[005_000] = new HighlightElementAction(078), // Pt
+				 //[005_000] = new HighlightElementAction(094), // Pu
+				 //[005_000] = new HighlightElementAction(046), // Pd
+				 //[005_000] = new HighlightElementAction(061), // Pm
+				 //[005_000] = new HighlightElementAction(019), // K
+				 //[005_000] = new HighlightElementAction(084), // Po
+				 //[005_000] = new HighlightElementAction(073), // Ta
+				 //[005_000] = new HighlightElementAction(043), // Tc
+				 //[005_000] = new HighlightElementAction(022), // Ti
+				 //[005_000] = new HighlightElementAction(052), // Te
+				 //[005_000] = new HighlightElementAction(048), // Cd
+				 //[005_000] = new HighlightElementAction(020), // Ca
+				 //[005_000] = new HighlightElementAction(024), // Cr
+				 //[005_000] = new HighlightElementAction(096), // Cm
+				 //[005_000] = new HighlightElementAction(016), // S
+				 //[005_000] = new HighlightElementAction(098), // Cf
+				 //[005_000] = new HighlightElementAction(100), // Fm
+				 //[005_000] = new HighlightElementAction(097), // Bk
+				 //[005_000] = new HighlightElementAction(101), // Md
+				 //[005_000] = new HighlightElementAction(099), // Es
+				 //[005_000] = new HighlightElementAction(102), // No
+				 //[005_000] = new HighlightElementAction(018), // Ar
+				 //[005_000] = new HighlightElementAction(036), // Kr
+				 //[005_000] = new HighlightElementAction(010), // Ne
+				 //[005_000] = new HighlightElementAction(086), // Rn
+				 //[005_000] = new HighlightElementAction(054), // Xe
+				 //[005_000] = new HighlightElementAction(030), // Zn
+				 //[005_000] = new HighlightElementAction(045), // Rh
+				 //[005_000] = new HighlightElementAction(017), // Cl
+				 //[005_000] = new HighlightElementAction(006), // C
+				 //[005_000] = new HighlightElementAction(027), // Co
+				 //[005_000] = new HighlightElementAction(029), // Cu
+				 //[005_000] = new HighlightElementAction(074), // W
+				 //[005_000] = new HighlightElementAction(050), // Sn
+				 //[005_000] = new HighlightElementAction(011), // Na
+			}
+			.ToFrozenDictionary()
 		)
 	{
 	}

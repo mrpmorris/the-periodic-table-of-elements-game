@@ -1,5 +1,6 @@
 ﻿using Fluxor;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ThePeriodicTableOfElementsGame.GamePlay.Features.App.Actions;
@@ -27,8 +28,8 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsSpeedMatchGam
 		{
 			Dispatcher = dispatcher;
 
-			int[] elementTimingsMs =
-				State.Value.ElementTimings.Select(x => x.Key - Consts.LeadInTimeMs).ToArray();
+			IEnumerable<int> elementTimingsMs =
+				State.Value.ElementTimings.Select(x => x.Key - Consts.LeadInTimeMs);
 
 			TheElementsSong = AudioPlayer.Create(AudioSample.ElementsSong, elementTimingsMs);
 			TheElementsSong.TimingEvent += OnTimingEvent;

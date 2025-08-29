@@ -1,5 +1,7 @@
 ﻿using Microsoft.JSInterop;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
 
 namespace ThePeriodicTableOfElementsGame.Blazor.Web.Services.Audio
@@ -21,7 +23,7 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Services.Audio
 		public static IAudioClip Create(
 			IJSInProcessRuntime jsRuntime,
 			string filename,
-			int[] eventTimingsMs)
+			IEnumerable<int> eventTimingsMs)
 		{
 			if (jsRuntime == null)
 				throw new ArgumentNullException(nameof(jsRuntime));
@@ -31,7 +33,6 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Services.Audio
 			var audio = new AudioClip(jsRuntime);
 			var objRef = DotNetObjectReference.Create<AudioClip>(audio);
 
-			eventTimingsMs = eventTimingsMs ?? Array.Empty<int>();
 			int audioId = jsRuntime.Invoke<int>(
 				Consts.Namespace + "create",
 				objRef,

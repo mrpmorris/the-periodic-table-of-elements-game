@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ThePeriodicTableOfElementsGame.GamePlay.Services
@@ -8,7 +9,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.Services
 		Task PlayOneShotAsync(AudioSample audioSample);
 		IAudioClip Create(
 			AudioSample audioSample,
-			int[] eventTimingsMs = null);
+			IEnumerable<int> eventTimingsMs = null);
 	}
 
 	public enum AudioSample

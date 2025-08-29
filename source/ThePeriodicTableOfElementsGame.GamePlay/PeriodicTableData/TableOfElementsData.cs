@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.Frozen;
+using System.Collections.Generic;
 
 namespace ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData
 {
 	public static class TableOfElementsData
 	{
-		public static ReadOnlyDictionary<int, ElementData> ElementByNumber { get; } = CreateElements();
+		public static FrozenDictionary<int, ElementData> ElementByNumber { get; } = CreateElements();
 
-		private static ReadOnlyDictionary<int, ElementData> CreateElements()
+		private static FrozenDictionary<int, ElementData> CreateElements()
 		{
 			var dict = new Dictionary<int, ElementData>
 			{
@@ -140,7 +140,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData
 				[117] = new ElementData(117, "Ts", "Tennessine", 17, 7, ElementGroup.Unknown),
 				[118] = new ElementData(118, "Og", "Oganesson", 18, 7, ElementGroup.Unknown)
 			};
-			return new ReadOnlyDictionary<int, ElementData>(dict);
+			return dict.ToFrozenDictionary();
 		}
 	}
 }

@@ -1,8 +1,7 @@
 ﻿using Fluxor;
 using System.Buffers;
-using System.Collections.ObjectModel;
+using System.Collections.Immutable;
 using System.Linq;
-using ThePeriodicTableOfElementsGame.GamePlay.Extensions;
 
 namespace ThePeriodicTableOfElementsGame.GamePlay.Features.ElementsMatchGame;
 
@@ -16,8 +15,8 @@ public record ElementsMatchGameState(
 	bool HighlighElementsInExpectedGroup,
 	int TotalMatched,
 	int TotalMismatched,
-	byte[] AvailableElements,
-	ReadOnlyDictionary<byte, ElementState> ElementStates)
+	ImmutableList<byte> AvailableElements,
+	ImmutableDictionary<byte, ElementState> ElementStates)
 {
 	public static readonly ElementsMatchGameState Default = new();
 
@@ -30,14 +29,14 @@ public record ElementsMatchGameState(
 		HighlighElementsInExpectedGroup: false,
 		TotalMatched: 0,
 		TotalMismatched: 0,
-		AvailableElements: Enumerable.Range(1, 118).Select(x => (byte)x).ToArray(),
+		AvailableElements: Enumerable.Range(1, 118).Select(x => (byte)x).ToImmutableList(),
 		ElementStates: Enumerable.Range(1, 118)
 			.Select(x => new ElementState(
 				AtomicNumber: (byte)x,
 				Front: CardState.Default,
 				Back: CardState.Default with { ShowName = false },
 				Concealed: true))
-			.ToDictionary(x => x.AtomicNumber).AsReadOnly()
+			.ToImmutableDictionary(x => x.AtomicNumber)
 		)
 	{
 	}

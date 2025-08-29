@@ -1,5 +1,6 @@
 ﻿using Microsoft.JSInterop;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using ThePeriodicTableOfElementsGame.GamePlay.Services;
 
@@ -24,11 +25,11 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Services.Audio
 
 		public IAudioClip Create(
 			AudioSample audioSample,
-			int[] eventTimingsMs = null)
-			=> AudioClip.Create(
-					JSRuntime,
-					GetAudioFilename(audioSample),
-					eventTimingsMs ?? Array.Empty<int>());
+			IEnumerable<int> eventTimingsMs = null)
+		=> AudioClip.Create(
+				JSRuntime,
+				GetAudioFilename(audioSample),
+				eventTimingsMs);
 
 		private static string GetAudioFilename(AudioSample audioSample) =>
 			audioSample switch
