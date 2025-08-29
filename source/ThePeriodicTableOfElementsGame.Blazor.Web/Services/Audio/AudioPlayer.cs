@@ -15,18 +15,18 @@ public class AudioPlayer : IAudioPlayer
 		JSRuntime = jSRuntime;
 	}
 
-	public Task PlayOneShotAsync(AudioSample audioSample)
+	public void PlayOneShot(AudioSample audioSample)
 	{
 		JSRuntime.InvokeVoid(
 			Consts.Namespace + "playOneShot",
 			GetAudioFilename(audioSample));
-		return Task.CompletedTask;
 	}
 
 	public IAudioClip Create(
 		AudioSample audioSample,
 		IEnumerable<int> eventTimingsMs = null)
-	=> AudioClip.Create(
+	=>
+		AudioClip.Create(
 			JSRuntime,
 			GetAudioFilename(audioSample),
 			eventTimingsMs);
@@ -37,7 +37,7 @@ public class AudioPlayer : IAudioPlayer
 			AudioSample.ElementAppeared => "ElementAppeared.ogg",
 			AudioSample.ElementFastMatched1 => "ElementFastMatched1.ogg",
 			AudioSample.ElementMismatched => "ElementMismatched.ogg",
-			AudioSample.ElementsSong => "ElementsSong.ogg",
+			AudioSample.ElementsSong => "ElementsSong.mp3",
 			_ => throw new NotImplementedException(audioSample.ToString())
 		};
 }

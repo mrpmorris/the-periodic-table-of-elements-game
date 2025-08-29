@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace ThePeriodicTableOfElementsGame.GamePlay.Services;
 
 public interface IAudioPlayer
 {
-	Task PlayOneShotAsync(AudioSample audioSample);
+	void PlayOneShot(AudioSample audioSample);
 	IAudioClip Create(
 		AudioSample audioSample,
 		IEnumerable<int> eventTimingsMs = null);

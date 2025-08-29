@@ -54,13 +54,14 @@ public class Effects
 	[EffectMethod]
 	public Task ElementMismatchedAction(ElementMismatchedAction _, IDispatcher dispatcher)
 	{
-		return AudioPlayer.PlayOneShotAsync(AudioSample.ElementMismatched);
+		AudioPlayer.PlayOneShot(AudioSample.ElementMismatched);
+		return Task.CompletedTask;
 	}
 
 	[EffectMethod]
 	public async Task ElementMatchedAction(ElementMatchedAction _, IDispatcher dispatcher)
 	{
-		await AudioPlayer.PlayOneShotAsync(AudioSample.ElementFastMatched1);
+		AudioPlayer.PlayOneShot(AudioSample.ElementFastMatched1);
 		await Task.Delay(1000);
 		dispatcher.Dispatch(new ConcealAllElementsAction());
 		await Task.Delay(500);
@@ -71,9 +72,10 @@ public class Effects
 	}
 
 	[EffectMethod]
-	public async Task SetExpectedElementAction(SetExpectedElementAction action, IDispatcher dispatcher)
+	public Task SetExpectedElementAction(SetExpectedElementAction action, IDispatcher dispatcher)
 	{
-		await AudioPlayer.PlayOneShotAsync(AudioSample.ElementAppeared);
+		AudioPlayer.PlayOneShot(AudioSample.ElementAppeared);
+		return Task.CompletedTask;
 	}
 
 	[EffectMethod]
