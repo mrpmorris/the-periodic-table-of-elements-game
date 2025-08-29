@@ -62,8 +62,10 @@ public class Effects
 	public async Task ElementMatchedAction(ElementMatchedAction _, IDispatcher dispatcher)
 	{
 		AudioPlayer.PlayOneShot(AudioSample.ElementFastMatched1);
+
 		await Task.Delay(1000);
 		dispatcher.Dispatch(new ConcealAllElementsAction());
+
 		await Task.Delay(500);
 		if (GameState.Value.AvailableElements.Any())
 			dispatcher.Dispatch(new SetExpectedElementAction(AtomicNumber: GetRandomElementAtomicNumber()));
