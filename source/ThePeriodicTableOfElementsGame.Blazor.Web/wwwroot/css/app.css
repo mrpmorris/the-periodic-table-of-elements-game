@@ -64,23 +64,23 @@ h2 {
 		padding: 0;
 	}
 
-#app .loading .loading_dot-2 {
-	animation: loading-pulse 1.25s infinite ease-in-out;
-	animation-delay: 0.1s;
-	margin: 0;
-	padding: 0;
-}
+	#app .loading .loading_dot-2 {
+		animation: loading-pulse 1.25s infinite ease-in-out;
+		animation-delay: 0.1s;
+		margin: 0;
+		padding: 0;
+	}
 
-#app .loading .loading_dot-3 {
-	animation: loading-pulse 1.25s infinite ease-in-out;
-	animation-delay: 0.2s;
-	margin: 0;
-	padding: 0;
-}
+	#app .loading .loading_dot-3 {
+		animation: loading-pulse 1.25s infinite ease-in-out;
+		animation-delay: 0.2s;
+		margin: 0;
+		padding: 0;
+	}
 
-#app .loading .loading_mendeleev {
-	width: 40dvmin;
-}
+	#app .loading .loading_mendeleev {
+		width: 40dvmin;
+	}
 
 
 .menu {
@@ -278,7 +278,7 @@ h2 {
 	position: absolute;
 	top: 40%;
 	left: 0;
-	width:100%;
+	width: 100%;
 	text-align: center;
 	transform: scaleY(2);
 	font-family: Tahoma, Geneva, sans-serif;
@@ -317,3 +317,23 @@ h2 {
 		opacity: 0;
 	}
 }
+
+.loading-progress {
+	background-color: silver;
+	width: 8em;
+	height: 0.5rem;
+	margin-top: 1rem;
+	border-radius: 5rem;
+	overflow: hidden;
+	position: relative;
+}
+
+	.loading-progress:after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: blue;
+		transform: scaleX(var(--blazor-load-percentage, 0%));
+		transform-origin: left center;
+		transition: transform ease-out 0.5s;
+	}
