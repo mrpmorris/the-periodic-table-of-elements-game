@@ -200,11 +200,6 @@ h2 {
 				background-color: var(--post-transitional-metal);
 			}
 
-			.table-of-elements_header-contents > .element-info > .element-info-background.--halogen {
-				opacity: 1;
-				background-color: var(--halogen);
-			}
-
 			.table-of-elements_header-contents > .element-info > .element-info-background.--lathanide {
 				opacity: 1;
 				background-color: var(--lathanide);
