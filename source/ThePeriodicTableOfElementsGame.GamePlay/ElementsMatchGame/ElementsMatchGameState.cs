@@ -1,4 +1,4 @@
-using System.Collections.ObjectModel;
+using System.Collections.Immutable;
 using System.Linq;
 using ThePeriodicTableOfElementsGame.GamePlay.Extensions;
 
@@ -13,8 +13,8 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 		public readonly bool HighlightElementsInExpectedGroup;
 		public readonly int TotalMatched;
 		public readonly int TotalMismatched;
-		public readonly byte[] AvailableElements;
-		public readonly ReadOnlyDictionary<byte, ElementState> ElementStates;
+		public readonly ImmutableHashSet<byte> AvailableElements;
+		public readonly ImmutableDictionary<byte, ElementState> ElementStates;
 
 		public ElementsMatchGameState(
 			MatchType matchType,
@@ -24,8 +24,8 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 			bool highlightElementsInExpectedGroup,
 			int totalMatched,
 			int totalMismatched,
-			byte[] availableElements,
-			ReadOnlyDictionary<byte, ElementState> elementStates)
+			ImmutableHashSet<byte> availableElements,
+			ImmutableDictionary<byte, ElementState> elementStates)
 		{
 			MatchType = matchType;
 			ExpectedElement = expectedElement;
@@ -46,8 +46,8 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 			PropertyUpdate<bool> highlightElementsInExpectedGroup = null,
 			PropertyUpdate<int> totalMatched = null,
 			PropertyUpdate<int> totalMismatched = null,
-			PropertyUpdate<byte[]> availableElements = null,
-			PropertyUpdate<ReadOnlyDictionary<byte, ElementState>> elementStates = null)
+			PropertyUpdate<ImmutableHashSet<byte>> availableElements = null,
+			PropertyUpdate<ImmutableDictionary<byte, ElementState>> elementStates = null)
 			=>
 				new ElementsMatchGameState(
 					matchType: matchType.GetUpdatedValue(MatchType),
@@ -71,14 +71,14 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 			highlightElementsInExpectedGroup: false,
 			totalMatched: 0,
 			totalMismatched: 0,
-			availableElements: Enumerable.Range(1, 118).Select(x => (byte)x).ToArray(),
+			availableElements: ImmutableHashSet.CreateRange(Enumerable.Range(1, 118).Select(x => (byte)x)),
 			elementStates: Enumerable.Range(1, 118)
 				.Select(x => new ElementState(
 					atomicNumber: (byte)x,
 					front: new CardState(),
 					back: new CardState(showName: false),
 					concealed: true))
-				.ToDictionary(x => x.AtomicNumber).AsReadOnly()
+				.ToImmutableDictionary(x => x.AtomicNumber)
 			);
 	}
 }

@@ -79,6 +79,6 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Effects
 		}
 
 		private byte GetRandomElementAtomicNumber() =>
-			GameState.Value.AvailableElements[Rng.Next(GameState.Value.AvailableElements.Length)];
+			GameState.Value.AvailableElements.ElementAt(Rng.Next(GameState.Value.AvailableElements.Count));
 	}
 }

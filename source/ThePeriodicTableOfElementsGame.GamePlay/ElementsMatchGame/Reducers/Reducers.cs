@@ -1,5 +1,6 @@
 ﻿using Fluxor;
 using System;
+using System.Collections.Immutable;
 using System.Linq;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Actions;
 using ThePeriodicTableOfElementsGame.GamePlay.Extensions;
@@ -27,7 +28,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Reducers
 							showSymbol: state.MatchType != MatchType.PlaceTheSymbol
 						)
 					))
-					.ToDictionary(x => x.AtomicNumber).AsReadOnly()
+					.ToImmutableDictionary(x => x.AtomicNumber)
 			);
 
 		[ReducerMethod]
@@ -39,7 +40,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Reducers
 						x.AtomicNumber != action.AtomicNumber
 						? x
 						: x.With(concealed: false))
-					.ToDictionary(x => x.AtomicNumber).AsReadOnly()
+					.ToImmutableDictionary(x => x.AtomicNumber)
 			);
 
 		[ReducerMethod(typeof(ConcealAllElementsAction))]
@@ -48,12 +49,14 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Reducers
 			(
 				elementStates: state.ElementStates.Values
 					.Select(x => x.With(concealed: true))
-					.ToDictionary(x => x.AtomicNumber).AsReadOnly()
+					.ToImmutableDictionary(x => x.AtomicNumber)
 			);
 
 		[ReducerMethod]
-		public static ElementsMatchGameState SetExpectedElementAction(ElementsMatchGameState state, SetExpectedElementAction action) =>
-			state.With
+		public static ElementsMatchGameState SetExpectedElementAction(ElementsMatchGameState state, SetExpectedElementAction action)
+		{
+			var newAvailable = state.AvailableElements.Remove(action.AtomicNumber);
+			return state.With
 			(
 				expectedElement: action.AtomicNumber,
 				expectedElementDisplayText: state.MatchType switch
@@ -64,8 +67,9 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Reducers
 				},
 				showElementGroup: false,
 				highlightElementsInExpectedGroup: false,
-				availableElements: state.AvailableElements.Where(x =>x != action.AtomicNumber).ToArray()
+				availableElements: newAvailable
 			);
+		}
 
 		[ReducerMethod]
 		public static ElementsMatchGameState RevealElementGroupAction(ElementsMatchGameState state, RevealElementGroupAction action) =>
