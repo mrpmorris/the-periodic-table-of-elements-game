@@ -1,4 +1,4 @@
-﻿using Fluxor;
+using Fluxor;
 using Microsoft.AspNetCore.Components;
 using System;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame;
@@ -48,7 +48,7 @@ namespace ThePeriodicTableOfElementsGame.Blazor.Web.Scenes
 
 			string highlightedElementGroup = "";
 			byte? expectedAtomicNumber = GameState.Value.ExpectedElement;
-			if (GameState.Value.HighlighElementsInExpectedGroup && expectedAtomicNumber.HasValue)
+			if (GameState.Value.HighlightElementsInExpectedGroup && expectedAtomicNumber.HasValue)
 			{
 				ElementGroup expectedElementGroup =
 					TableOfElementsData.ElementByNumber[expectedAtomicNumber.Value].Group;

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Buffers;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -12,7 +12,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 		public readonly byte? ExpectedElement;
 		public readonly string ExpectedElementDisplayText;
 		public readonly bool ShowElementGroup;
-		public readonly bool HighlighElementsInExpectedGroup;
+		public readonly bool HighlightElementsInExpectedGroup;
 		public readonly int TotalMatched;
 		public readonly int TotalMismatched;
 		public readonly byte[] AvailableElements;
@@ -23,7 +23,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 			byte? expectedElement,
 			string expectedElementDisplayText,
 			bool showElementGroup,
-			bool highlighElementsInExpectedGroup,
+			bool highlightElementsInExpectedGroup,
 			int totalMatched,
 			int totalMismatched,
 			byte[] availableElements,
@@ -33,7 +33,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 			ExpectedElement = expectedElement;
 			ExpectedElementDisplayText = expectedElementDisplayText;
 			ShowElementGroup = showElementGroup;
-			HighlighElementsInExpectedGroup = highlighElementsInExpectedGroup;
+			HighlightElementsInExpectedGroup = highlightElementsInExpectedGroup;
 			TotalMatched = totalMatched;
 			TotalMismatched = totalMismatched;
 			AvailableElements = availableElements;
@@ -45,7 +45,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 			PropertyUpdate<byte?> expectedElement = null,
 			PropertyUpdate<string> expectedElementDisplayText = null,
 			PropertyUpdate<bool> showElementGroup = null,
-			PropertyUpdate<bool> highlighElementsInExpectedGroup = null,
+			PropertyUpdate<bool> highlightElementsInExpectedGroup = null,
 			PropertyUpdate<int> totalMatched = null,
 			PropertyUpdate<int> totalMismatched = null,
 			PropertyUpdate<byte[]> availableElements = null,
@@ -56,7 +56,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 					expectedElement: expectedElement.GetUpdatedValue(ExpectedElement),
 					expectedElementDisplayText: expectedElementDisplayText.GetUpdatedValue(ExpectedElementDisplayText),
 					showElementGroup: showElementGroup.GetUpdatedValue(ShowElementGroup),
-					highlighElementsInExpectedGroup: highlighElementsInExpectedGroup.GetUpdatedValue(HighlighElementsInExpectedGroup),
+					highlightElementsInExpectedGroup: highlightElementsInExpectedGroup.GetUpdatedValue(HighlightElementsInExpectedGroup),
 					totalMatched: totalMatched.GetUpdatedValue(TotalMatched),
 					totalMismatched: totalMismatched.GetUpdatedValue(TotalMismatched),
 					availableElements: availableElements.GetUpdatedValue(AvailableElements),
@@ -70,7 +70,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 			expectedElement: null,
 			expectedElementDisplayText: null,
 			showElementGroup: false,
-			highlighElementsInExpectedGroup: false,
+			highlightElementsInExpectedGroup: false,
 			totalMatched: 0,
 			totalMismatched: 0,
 			availableElements: Enumerable.Range(1, 118).Select(x => (byte)x).ToArray(),
