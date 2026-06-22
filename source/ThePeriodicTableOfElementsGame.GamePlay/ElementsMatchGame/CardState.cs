@@ -6,9 +6,9 @@
 		public readonly bool ShowSymbol;
 		public readonly bool ShowName;
 
-		public CardState(bool showAtomicNumberbool = true, bool showSymbol = true, bool showName = true)
+		public CardState(bool showAtomicNumber = true, bool showSymbol = true, bool showName = true)
 		{
-			ShowAtomicNumber = showAtomicNumberbool;
+			ShowAtomicNumber = showAtomicNumber;
 			ShowSymbol = showSymbol;
 			ShowName = showName;
 		}
@@ -19,7 +19,7 @@
 			PropertyUpdate<bool> showName = null)
 			=>
 				new CardState(
-					showAtomicNumberbool: showAtomicNumber.GetUpdatedValue(ShowAtomicNumber),
+					showAtomicNumber: showAtomicNumber.GetUpdatedValue(ShowAtomicNumber),
 					showSymbol: showSymbol.GetUpdatedValue(ShowSymbol),
 					showName: showName.GetUpdatedValue(ShowName));
 	}
