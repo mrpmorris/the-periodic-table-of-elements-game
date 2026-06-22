@@ -9,6 +9,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Effects
 {
 	public class Effects
 	{
+		private readonly Random Rng;
 		private readonly IState<ElementsMatchGameState> GameState;
 		private readonly IAudioPlayer AudioPlayer;
 
@@ -16,6 +17,8 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Effects
 		{
 			GameState = gameState ?? throw new ArgumentNullException(nameof(gameState));
 			AudioPlayer = audioPlayer ?? throw new ArgumentNullException(nameof(audioPlayer));
+
+			Rng = new Random();
 		}
 
 		[EffectMethod]
@@ -76,6 +79,6 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Effects
 		}
 
 		private byte GetRandomElementAtomicNumber() =>
-			GameState.Value.AvailableElements[new Random().Next(GameState.Value.AvailableElements.Length)];
+			GameState.Value.AvailableElements[Rng.Next(GameState.Value.AvailableElements.Length)];
 	}
 }
