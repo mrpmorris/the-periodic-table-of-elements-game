@@ -16,8 +16,7 @@
 			Value = value;
 		}
 
-		public override string ToString() =>
-			Updated ? null : Value?.ToString();
+
 	}
 
 	public static class PropertyUpdateExtensions
