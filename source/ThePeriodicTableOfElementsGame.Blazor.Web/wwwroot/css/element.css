@@ -71,9 +71,9 @@
 		background-color: var(--alkaline-earth-metal);
 	}
 
-	.element.--lathanide > .front,
-	.element.--lathanide > .back {
-		background-color: var(--lathanide);
+	.element.--lanthanide > .front,
+	.element.--lanthanide > .back {
+		background-color: var(--lanthanide);
 	}
 
 	.element.--metalloid > .front,
@@ -122,7 +122,7 @@
 	animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 
-.--highlight-group--lathanide .element.--lathanide {
+.--highlight-group--lanthanide .element.--lanthanide {
 	animation: pulse-highlighted-element 0.75s ease-in-out 0s infinite alternate;
 }
 

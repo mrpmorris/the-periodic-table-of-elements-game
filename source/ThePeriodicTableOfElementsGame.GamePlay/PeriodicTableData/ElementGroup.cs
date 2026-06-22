@@ -1,11 +1,11 @@
-﻿namespace ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData
+namespace ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData
 {
 	public enum ElementGroup
 	{
 		Actinide,
 		AlkaliMetal,
 		AlkalineEarthMetal,
-		Lathanide,
+		Lanthanide,
 		Metalloid,
 		NobleGas,
 		PostTransitionMetal,

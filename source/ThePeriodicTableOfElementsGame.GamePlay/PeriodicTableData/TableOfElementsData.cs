@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData
@@ -72,22 +72,22 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.PeriodicTableData
 
 				[055] = new ElementData(055, "Cs", "Caesium", 1, 6, ElementGroup.AlkaliMetal),
 				[056] = new ElementData(056, "Ba", "Barium", 2, 6, ElementGroup.AlkalineEarthMetal),
-				#region Lathanides 57-71
-				[057] = new ElementData(057, "La", "Lanthanum", 3, 8.25m, ElementGroup.Lathanide),
-				[058] = new ElementData(058, "Ce", "Cerium", 4, 8.25m, ElementGroup.Lathanide),
-				[059] = new ElementData(059, "Pr", "Praseodymium", 5, 8.25m, ElementGroup.Lathanide),
-				[060] = new ElementData(060, "Nd", "Neodymium", 6, 8.25m, ElementGroup.Lathanide),
-				[061] = new ElementData(061, "Pm", "Promethium", 7, 8.25m, ElementGroup.Lathanide),
-				[062] = new ElementData(062, "Sm", "Samarium", 8, 8.25m, ElementGroup.Lathanide),
-				[063] = new ElementData(063, "Eu", "Europium", 9, 8.25m, ElementGroup.Lathanide),
-				[064] = new ElementData(064, "Gd", "Gadolinium", 10, 8.25m, ElementGroup.Lathanide),
-				[065] = new ElementData(065, "Tb", "Terbium", 11, 8.25m, ElementGroup.Lathanide),
-				[066] = new ElementData(066, "Dy", "Dysprosium", 12, 8.25m, ElementGroup.Lathanide),
-				[067] = new ElementData(067, "Ho", "Holmium", 13, 8.25m, ElementGroup.Lathanide),
-				[068] = new ElementData(068, "Er", "Erbium", 14, 8.25m, ElementGroup.Lathanide),
-				[069] = new ElementData(069, "Tm", "Thulium", 15, 8.25m, ElementGroup.Lathanide),
-				[070] = new ElementData(070, "Yb", "Ytterbium", 16, 8.25m, ElementGroup.Lathanide),
-				[071] = new ElementData(071, "Lu", "Lutetium", 17, 8.25m, ElementGroup.Lathanide),
+				#region Lanthanides 57-71
+				[057] = new ElementData(057, "La", "Lanthanum", 3, 8.25m, ElementGroup.Lanthanide),
+				[058] = new ElementData(058, "Ce", "Cerium", 4, 8.25m, ElementGroup.Lanthanide),
+				[059] = new ElementData(059, "Pr", "Praseodymium", 5, 8.25m, ElementGroup.Lanthanide),
+				[060] = new ElementData(060, "Nd", "Neodymium", 6, 8.25m, ElementGroup.Lanthanide),
+				[061] = new ElementData(061, "Pm", "Promethium", 7, 8.25m, ElementGroup.Lanthanide),
+				[062] = new ElementData(062, "Sm", "Samarium", 8, 8.25m, ElementGroup.Lanthanide),
+				[063] = new ElementData(063, "Eu", "Europium", 9, 8.25m, ElementGroup.Lanthanide),
+				[064] = new ElementData(064, "Gd", "Gadolinium", 10, 8.25m, ElementGroup.Lanthanide),
+				[065] = new ElementData(065, "Tb", "Terbium", 11, 8.25m, ElementGroup.Lanthanide),
+				[066] = new ElementData(066, "Dy", "Dysprosium", 12, 8.25m, ElementGroup.Lanthanide),
+				[067] = new ElementData(067, "Ho", "Holmium", 13, 8.25m, ElementGroup.Lanthanide),
+				[068] = new ElementData(068, "Er", "Erbium", 14, 8.25m, ElementGroup.Lanthanide),
+				[069] = new ElementData(069, "Tm", "Thulium", 15, 8.25m, ElementGroup.Lanthanide),
+				[070] = new ElementData(070, "Yb", "Ytterbium", 16, 8.25m, ElementGroup.Lanthanide),
+				[071] = new ElementData(071, "Lu", "Lutetium", 17, 8.25m, ElementGroup.Lanthanide),
 				#endregion
 				[072] = new ElementData(072, "Hf", "Hafnium", 4, 6, ElementGroup.TransitionMetal),
 				[073] = new ElementData(073, "Ta", "Tantalum", 5, 6, ElementGroup.TransitionMetal),

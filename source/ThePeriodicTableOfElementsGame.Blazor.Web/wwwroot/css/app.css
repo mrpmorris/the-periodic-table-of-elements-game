@@ -2,7 +2,7 @@
 	--actinide: rgb(144, 176, 97);
 	--alkali-metal: rgb(248, 178, 181);
 	--alkaline-earth-metal: rgb(252, 227, 199);
-	--lathanide: rgb(214, 235, 187);
+	--lanthanide: rgb(214, 235, 187);
 	--metalloid: rgb(255, 182, 89);
 	--noble-gas: rgb(171, 148, 255);
 	--post-transitional-metal: rgb(252, 201, 250);
@@ -199,9 +199,9 @@ h2 {
 				background-color: var(--post-transitional-metal);
 			}
 
-			.table-of-elements_header-contents > .element-info > .element-info-background.--lathanide {
+			.table-of-elements_header-contents > .element-info > .element-info-background.--lanthanide {
 				opacity: 1;
-				background-color: var(--lathanide);
+				background-color: var(--lanthanide);
 			}
 
 			.table-of-elements_header-contents > .element-info > .element-info-background.--noble-gas {
