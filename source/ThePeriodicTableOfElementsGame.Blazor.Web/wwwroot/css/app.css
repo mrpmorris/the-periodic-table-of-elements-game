@@ -97,8 +97,7 @@ h2 {
 		border-radius: 8px;
 		border: none;
 		font-size: 4dvmin;
-		height: 8dvmin;
-		width: 50%;
+		padding: 0.5em 2em;
 		vertical-align: middle;
 		text-align: center;
 		cursor: pointer;
@@ -118,10 +117,6 @@ h2 {
 	border-radius: 8px;
 	border: 1px solid #292D3A;
 }
-
-	#scene.--game-play {
-		transform: scale(10) rotateZ(5deg);
-	}
 
 #main-menu {
 	position: absolute;
