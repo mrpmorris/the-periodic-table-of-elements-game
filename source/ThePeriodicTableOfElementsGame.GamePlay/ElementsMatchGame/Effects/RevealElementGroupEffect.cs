@@ -1,5 +1,4 @@
-﻿using Fluxor;
-using System;
+using Fluxor;
 using System.Threading;
 using System.Threading.Tasks;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Actions;

@@ -1,6 +1,5 @@
 using System.Collections.Immutable;
 using System.Linq;
-using ThePeriodicTableOfElementsGame.GamePlay.Extensions;
 
 namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame
 {
