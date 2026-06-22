@@ -1,4 +1,5 @@
 ﻿using Fluxor;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Actions;
@@ -9,7 +10,7 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Effects
 	public class RevealElementGroupEffect
 	{
 		const int DelayBeforeShowingElementGroupMS = 30_000;
-		private Timer Timer;
+		private CancellationTokenSource Cts;
 		private readonly IState<ElementsMatchGameState> GameState;
 
 		public RevealElementGroupEffect(IState<ElementsMatchGameState> gameState)
@@ -18,32 +19,34 @@ namespace ThePeriodicTableOfElementsGame.GamePlay.ElementsMatchGame.Effects
 		}
 
 		[EffectMethod]
-		public Task HandleAsync(SetExpectedElementAction action, IDispatcher dispatcher)
+		public async Task HandleAsync(SetExpectedElementAction action, IDispatcher dispatcher)
 		{
-			Timer?.Dispose();
-			Timer = new Timer(
-				callback: _ =>
-				{
-					if (GameState.Value.ExpectedElement == action.AtomicNumber)
-						dispatcher.Dispatch(new RevealElementGroupAction(action.AtomicNumber));
-				},
-				state: null,
-				dueTime: DelayBeforeShowingElementGroupMS,
-				period: 0);
-			return Task.CompletedTask;
+			Cts?.Cancel();
+			Cts?.Dispose();
+			Cts = new CancellationTokenSource();
+
+			try
+			{
+				await Task.Delay(DelayBeforeShowingElementGroupMS, Cts.Token);
+				if (GameState.Value.ExpectedElement == action.AtomicNumber)
+					dispatcher.Dispatch(new RevealElementGroupAction(action.AtomicNumber));
+			}
+			catch (TaskCanceledException)
+			{
+			}
 		}
 
 		[EffectMethod]
 		public Task StartGameOverSequenceAction(StartGameOverSequenceAction action, IDispatcher dispatcher)
 		{
-			Timer?.Dispose();
+			Cts?.Cancel();
 			return Task.CompletedTask;
 		}
 
 		[EffectMethod]
 		public Task NavigateAction(NavigateAction action, IDispatcher dispatcher)
 		{
-			Timer?.Dispose();
+			Cts?.Cancel();
 			return Task.CompletedTask;
 		}
 	}
